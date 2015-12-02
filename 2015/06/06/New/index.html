@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Beatrice7 Fancy">
 <meta property="og:description" content="daily c++">
 <meta property="og:image" content="http://coolshell.cn//wp-content/uploads/2014/10/bug_fixing.gif">
-<meta property="og:updated_time" content="2015-08-06T03:00:03.000Z">
+<meta property="og:updated_time" content="2015-12-02T13:28:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于C++内存分配的new, operator new, placement new">
 <meta name="twitter:description" content="daily c++">
@@ -96,8 +96,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h1 id="new与operator_new">new与operator new</h1><p>在C++中我们通常用<strong>new</strong>操作符来向系统申请内存。例如：A *p = new A。实际上，这个操作包含了两个动作：第一，先<strong>分配足够的内存</strong>，用来存放某类型的对象。第二，他调用一个对象的构造函数（constructor），为刚才分配的内存中的那个对象<strong>初始化</strong>。这个new操作符(又叫做new <strong>operator/ expression</strong>) 是由语言内建的，不能被改变意义，总是做这两件事，反正咋地都改变不了。</p>
+        <h1 id="new与operator_new">new与operator new</h1><a id="more"></a>
+<p>在C++中我们通常用<strong>new</strong>操作符来向系统申请内存。例如：A *p = new A。实际上，这个操作包含了两个动作：第一，先<strong>分配足够的内存</strong>，用来存放某类型的对象。第二，他调用一个对象的构造函数（constructor），为刚才分配的内存中的那个对象<strong>初始化</strong>。这个new操作符(又叫做new <strong>operator/ expression</strong>) 是由语言内建的，不能被改变意义，总是做这两件事，反正咋地都改变不了。</p>
 <p>那么operator new是什么呢？上述的<strong>动作一</strong>就是通过调用operator new（size_t size）实现的。如果类A重载了operator new，那么将调用A::operator new(size_t size), 如果没有重载，就调用::operator new(size_t size)，全局new操作符由C++默认提供。 所以operator new是个函数，不是操作符哦。</p>
 <p><strong>operator new 这个函数有三种形式（C++98</strong>），在<a href="http://www.cplusplus.com/reference/new/operator%20new/?kw=operator%20new" title="cplusplus" target="_blank" rel="external">cplusplus.com</a>中有详细介绍。  </p>
 <pre><code> throwing (<span class="number">1</span>)     <span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span> <span class="params">(<span class="built_in">std</span>::size_t size)</span> <span class="title">throw</span> <span class="params">(<span class="built_in">std</span>::bad_alloc)</span></span>;
@@ -312,7 +312,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/06/06/New/" data-id="cihou9owh00115478a6rpebhc" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/06/06/New/" data-id="cihouxm7j0016dz78qlgkafdl" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -328,11 +328,11 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
     
 <nav id="article-nav">
   
-    <a href="/2015/09/13/task0001笔记整理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/20/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          Hello World
         
       </div>
     </a>
@@ -365,7 +365,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -374,7 +374,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AI/" style="font-size: 13.33px;">AI</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/OpenGL/" style="font-size: 13.33px;">OpenGL</a> <a href="/tags/Unix/" style="font-size: 10px;">Unix</a> <a href="/tags/VS-Qt/" style="font-size: 10px;">VS Qt</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/mydaily/" style="font-size: 13.33px;">mydaily</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+      <a href="/tags/AI/" style="font-size: 13.33px;">AI</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/OpenGL/" style="font-size: 13.33px;">OpenGL</a> <a href="/tags/Unix/" style="font-size: 10px;">Unix</a> <a href="/tags/VS-Qt/" style="font-size: 10px;">VS Qt</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/mydaily/" style="font-size: 13.33px;">mydaily</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
   </div>
 
@@ -383,7 +383,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -395,7 +395,15 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
       <ul>
         
           <li>
+            <a href="/2015/12/01/hexo-deploy/">Hexo出现Error deployer not found:github 的错误</a>
+          </li>
+        
+          <li>
             <a href="/2015/11/27/VS-QT/">VS常见errorLNK***:错误解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/01/task0001笔记整理/">task0001笔记整理</a>
           </li>
         
           <li>
@@ -404,14 +412,6 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
         
           <li>
             <a href="/2015/10/20/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2015/09/13/task0001笔记整理/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/06/New/">关于C++内存分配的new, operator new, placement new</a>
           </li>
         
       </ul>

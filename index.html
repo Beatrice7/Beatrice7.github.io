@@ -74,6 +74,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo-deploy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/01/hexo-deploy/" class="article-date">
+  <time datetime="2015-11-30T16:00:00.000Z" itemprop="datePublished">2015-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/01/hexo-deploy/">Hexo出现Error deployer not found:github 的错误</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好长时间以来写的东西都零零散散，一直没有发布博客。搞好了一篇像样点的想发布吧，hexo还出了点小问题。<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/12/01/hexo-deploy/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/12/01/hexo-deploy/" data-id="cihouxm76000udz787vswfcjw" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/12/01/hexo-deploy/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-VS-QT" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/11/27/VS-QT/" class="article-date">
@@ -106,7 +155,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/11/27/VS-QT/" data-id="cihou9owd000w5478qqi8c3go" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/11/27/VS-QT/" data-id="cihouxm7d0011dz78ute8ycvh" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -115,6 +164,55 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VS-Qt/">VS Qt</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-task0001笔记整理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/01/task0001笔记整理/" class="article-date">
+  <time datetime="2015-10-31T16:00:00.000Z" itemprop="datePublished">2015-11-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/01/task0001笔记整理/">task0001笔记整理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##CSS布局中的position<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/11/01/task0001笔记整理/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/11/01/task0001笔记整理/" data-id="cihouxm6t000ddz78z0eu267i" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/11/01/task0001笔记整理/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -145,313 +243,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-_javaScript数据类型及语言基础">1. javaScript数据类型及语言基础</h1><h2 id="1-1_判断各种数据类型的方法">1.1 判断各种数据类型的方法</h2><p>数据类型包括五种类原始类型：<strong>String, Number, Boolean, Null, Undefined</strong>和<strong>Object</strong>类型  </p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">object</span>)</span>{
-    <span class="keyword">if</span> (object === <span class="literal">null</span> || object === <span class="literal">undefined</span>) { <span class="comment">// IE8 hack</span>
-        <span class="keyword">return</span> object + <span class="string">''</span>;
-    } <span class="keyword">else</span> {
-        <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(object).slice(<span class="number">8</span>, -<span class="number">1</span>).toLowerCase();
-    }
-}
-
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="number">1</span>));                 <span class="comment">// t==="number"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)));     <span class="comment">// t==="number"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="string">"222"</span>));             <span class="comment">// t==="string"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>))); <span class="comment">// t==="string"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">true</span>));              <span class="comment">// t==="boolean"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">undefined</span>));         <span class="comment">// t==="undefined"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">null</span>));              <span class="comment">// t==="null"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>({}));                <span class="comment">// t==="object"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>([]));                <span class="comment">// t==="array"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Date</span>));          <span class="comment">// t==="date"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="regexp">/\d/</span>));              <span class="comment">// t==="regexp"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}));      <span class="comment">// t==="function"</span>
-</code></pre><h3 id="Tips">Tips</h3><ol>
-<li><strong>typeof</strong>在实际应用中只有两个用途：检测undefined与function</li>
-<li><strong>instanceof</strong>会在有多个frame时出错</li>
-<li><strong>Object.prototype.toString.call</strong>是对象的原型拓展函数，用来更精确的区分数据类型。</li>
-<li>没有被赋值的变量默认为<strong>undefined</strong></li>
-<li><strong>NaN</strong>是一个特殊的数值，用于表示本来要返回数值的操作数却未返回的情况(避免了抛出错误)。<strong>不予任何值相等，包括自身</strong>。用<strong>isNaN()</strong>进行判断。</li>
-<li><strong>相等(==)</strong>与<strong>全等(===)</strong>的区别:全等表示在未经转换就相等的情况下返回true</li>
-</ol>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result1 = (<span class="string">"55"</span> == <span class="number">55</span>);  <span class="comment">//true.因为转换后相等</span></span><br><span class="line"><span class="keyword">var</span> result2 = (<span class="string">"55"</span> === <span class="number">55</span>); <span class="comment">//false.</span></span><br><span class="line"></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>;   <span class="comment">//true</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span>;  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<h2 id="1-2_原始值类型与引用类型">1.2 原始值类型与引用类型</h2><p>在ECMAScript中，变量可以存在两种类型的值，即<strong>原始值</strong>和<strong>引用值</strong>。 </p>
-<ul>
-<li>原始值<br>存储在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置。即 Undefined、Null、Boolean、Number 和 String 型。</li>
-<li>引用值<br>存储在堆（heap）中的对象，也就是说，存储在变量处的值是一个指针（point），指向存储对象的内存处。引用类型通常叫做类（class），也就是说，遇到引用值，所处理的就是对象（Object）。</li>
-</ul>
-<p>为变量赋值时，ECMAScript 的解释程序必须判断该值是原始类型，还是引用类型。要实现这一点，解释程序则需尝试判断该值是否为 ECMAScript 的原始类型之一，即 Undefined、Null、Boolean、Number 和 String 型。由于这些原始类型占据的空间是固定的，所以可将他们存储在较小的内存区域 - 栈中。这样存储便于迅速查寻变量的值。<br><strong>在许多语言中，字符串都被看作引用类型，而非原始类型，因为字符串的长度是可变的。ECMAScript 打破了这一传统。</strong><br>如果一个值是引用类型的，那么它的存储空间将从堆中分配。由于引用值的大小会改变，所以不能把它放在栈中，否则会降低变量查寻的速度。相反，放在变量的栈空间中的值是该对象存储在堆中的地址。地址的大小是固定的，所以把它存储在栈中对变量性能无任何负面影响。如下图所示：<br><img src="http://www.w3school.com.cn/i/ct_js_value.gif" alt="stack &amp; heap"></p>
-<h2 id="1-3_对象">1.3 对象</h2><p>JavaScript 采用了简单的基于对象的范型。一个对象就是一系列属性的集合，一个属性包含一个名字和一个值。一个属性的值可以是函数，这种情况下属性也被称为方法。</p>
-<h3 id="对象和属性">对象和属性</h3><p>对象的名字(可以是普通的变量)和属性的名字都是大小写敏感的。你可以通过<strong>点符号</strong><code>.</code>来访问一个对象的属性，可以通过<strong>方括号<code>[]</code>访问。</strong>对象有时也被叫作关联数组**, 因为每个属性都有一个用于访问它的字符串值。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var myCar = <span class="keyword">new</span> Object();</span><br><span class="line">myCar.make = <span class="string">"Ford"</span>;</span><br><span class="line">myCar.model = <span class="string">"Mustang"</span>;</span><br><span class="line">myCar.year = <span class="number">1969</span>;</span><br><span class="line"></span><br><span class="line">myCar[<span class="string">"make"</span>] = <span class="string">"Ford"</span>;</span><br><span class="line">myCar[<span class="string">"model"</span>] = <span class="string">"Mustang"</span>;</span><br><span class="line">myCar[<span class="string">"year"</span>] = <span class="number">1969</span>;</span><br></pre></td></tr></table></figure>
-<p>一个属性的名称如果不是一个有效的 JavaScript 标识符（例如，一个有空格或短横线，或者以数字开头的属性名），就只能通过方括号标记访问。这个标记法在属性名称是动态判定（属性名只有到运行时才能判定）时非常有用。</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var myObj = <span class="keyword">new</span> <span class="keyword">Object</span>(),</span><br><span class="line">   <span class="built_in">str</span> = <span class="string">"myString"</span>,</span><br><span class="line">   rand = Math.<span class="built_in">random</span>(),</span><br><span class="line">   obj = <span class="keyword">new</span> <span class="keyword">Object</span>();</span><br><span class="line"></span><br><span class="line">myObj.type              = <span class="string">"Dot syntax"</span>;</span><br><span class="line">myObj[<span class="string">"date created"</span>]   = <span class="string">"String with space"</span>;</span><br><span class="line">myObj[<span class="built_in">str</span>]              = <span class="string">"String value"</span>;</span><br><span class="line">myObj[rand]             = <span class="string">"Random Number"</span>;</span><br><span class="line">myObj[obj]              = <span class="string">"Object"</span>;</span><br><span class="line">myObj[<span class="string">""</span>]               = <span class="string">"Even an empty string"</span>;</span><br><span class="line"></span><br><span class="line">console.<span class="built_in">log</span>(myObj);</span><br></pre></td></tr></table></figure>
-<h3 id="枚举一个对象的所有属性">枚举一个对象的所有属性</h3><p>有三种原生的方法用于列出或枚举对象的属性：</p>
-<ul>
-<li>for…in 循环<br>该方法依次访问一个对象及其原型链中所有可枚举的属性。</li>
-<li>Object.keys(o)<br>该方法返回一个对象 o 自身包含（不包括原型中）的所有属性的名称的数组。</li>
-<li>Object.getOwnPropertyNames(o)<br>该方法返回一个数组，它包含了对象 o 所有拥有的属性（无论是否可枚举）的名称。</li>
-</ul>
-<p><strong>for…in</strong>与<strong>Object.keys(o)</strong>的区别:<br>for-in 会遍历出一个对象从其原型链上继承到的可枚举属性。此时可通过<strong>hasOwnProperty()</strong>确保是自己的属性而非继承的属性。</p>
-<h3 id="递归实现对象的深度克隆">递归实现对象的深度克隆</h3><ul>
-<li>浅度克隆(shallow copy)<br>基本类型为值传递，对象仍为引用传递。 </li>
-<li>深度克隆<br>所有元素或属性均完全克隆，并于原引用类型完全独立，即，在后面修改对象的属性的时候，原对象不会被修改。</li>
-</ul>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function cloneObject(obj)&#123;</span><br><span class="line">	<span class="keyword">var</span> <span class="literal">result</span> = obj.constructor === <span class="type">Array</span> ? [] : &#123;&#125;; </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123;</span><br><span class="line">		<span class="keyword">if</span>(obj.hasOwnProperty(i))&#123;</span><br><span class="line">			<span class="literal">result</span>[i] = typeof obj[i] === <span class="string">"object"</span> ? cloneObject(obj[i]) : obj[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>数组的深度拷贝，可以直接用<strong>array.concat()</strong>或者<strong>array.slice(0)</strong>，因为数组的concat()和slice()本来就会生成一个新的数组，原来的数组不会受影响。但是要注意的是你要确保被拷贝的数组中元素中没有引用类型的值。 </p>
-<h2 id="1-4_数组、字符串、数字等对象的相关方法">1.4 数组、字符串、数字等对象的相关方法</h2><p><a href="http://www.w3school.com.cn/jsref/jsref_obj_array.asp" target="_blank" rel="external">W3C Array</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">MDN Array</a><br><a href="http://www.w3school.com.cn/jsref/jsref_obj_number.asp" target="_blank" rel="external">W3C Number</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="external">MDN Number</a><br><a href="http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp" target="_blank" rel="external">W3C RegExp</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">MDN RegExp</a></p>
-<p><a href="http://tool.oschina.net/regex" target="_blank" rel="external">正则表达式在线测试</a></p>
-<h3 id="几个常用的string对象的方法">几个常用的string对象的方法</h3><pre><code>stringObject.<span class="function"><span class="title">replace</span><span class="params">(regexp/substr,replacement)</span></span>
-</code></pre><p><strong>返回一个新的字符串</strong>。是用 replacement 替换了 regexp 的第一次匹配或所有匹配之后得到的。</p>
-<pre><code>stringObject.<span class="function"><span class="title">slice</span><span class="params">(start,end)</span></span>
-</code></pre><p><strong>返回一个新的字符串</strong>。包括字符串 stringObject 从 start 开始（包括 start）到 end 结束（不包括 end）为止的所有字符。</p>
-<pre><code>stringObject.<span class="function"><span class="title">split</span><span class="params">(separator,howmany)</span></span>
-</code></pre><p>返回一个<strong>字符串数组</strong>。该数组是通过在 separator 指定的边界处将字符串 stringObject 分割成子串创建的。返回的数组中的字串不包括 separator 自身</p>
-<h3 id="正则表达式">正则表达式</h3><table>
-<thead>
-<tr>
-<th>语法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.</td>
-<td>匹配除了换行符<code>\n</code>以外的任意字符</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>单词字符，即连续的\w，包括(字母、数字、下划线、汉字)</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>任意空白符，包括(空格、制表tab、回车<code>\r</code>、换行<code>\n</code>、换页<code>\f</code>、垂直制表符<code>\v</code>、中文全角空格等)</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>数字</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>单词的边界</td>
-</tr>
-<tr>
-<td>*</td>
-<td>&gt;= 0个</td>
-</tr>
-<tr>
-<td>+</td>
-<td>&gt;= 1个</td>
-</tr>
-<tr>
-<td>？</td>
-<td>0个 或者 1个</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td>重复 n 次</td>
-</tr>
-<tr>
-<td>{n, }</td>
-<td>重复 &gt;=n 次</td>
-</tr>
-<tr>
-<td>{n, m}</td>
-<td>重复 n~m 次</td>
-</tr>
-<tr>
-<td>^</td>
-<td>匹配字符串开头</td>
-</tr>
-<tr>
-<td>$</td>
-<td>匹配字符串结尾</td>
-</tr>
-<tr>
-<td>?=n</td>
-<td>匹配任何其后紧接指定字符串n的字符串</td>
-</tr>
-<tr>
-<td>?!n</td>
-<td>匹配任何其后没有紧接指定字符串n的字符串</td>
-</tr>
-<tr>
-<td>[abc]</td>
-<td>查找方括号之间的任何字符，如[0-9]…</td>
-</tr>
-<tr>
-<td>(red\</td>
-<td>blue\</td>
-<td>green)</td>
-<td>查找任何指定的选项</td>
-</tr>
-</tbody>
-</table>
-<p>例如：</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>\bhi\b.*\bLucy\b</strong></td>
-<td>hi后面不远处跟着个Lucy———先是一个单词 hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。  </td>
-</tr>
-<tr>
-<td><strong>\ba\w*\b</strong></td>
-<td>以字母a开头的单词——先是某个单词开始处(\b)，然后是字 母a,然后是任意数量的字母或数字(\w*)， 最后是单词结束处(\b)。</td>
-</tr>
-<tr>
-<td><strong>^\d{5,12}$</strong></td>
-<td>要求你填写的数字必须为5位到12位。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="分枝条件">分枝条件</h3><p>正则表达式里的分枝条件指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用<code>|</code>把不同的规则分隔开。<br>例如：  </p>
-<table>
-<thead>
-<tr>
-<th>正则表达式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>**(0\d{2})[- ]?\d{8}  \</td>
-<td>0\d{2}[- ]?\d{8}**</td>
-<td>匹配3位区号的电话号码，其中区号可以用小括号括起来，也可以不用，区号与本地号间可以用连字号或空格间隔，也可以没有间隔</td>
-</tr>
-<tr>
-<td>**\d{5}-\d{4}  \</td>
-<td>\d{5}**</td>
-<td>美国邮编的规则是5位数字，或者用连字号间隔的9位数字</td>
-</tr>
-</tbody>
-</table>
-<p><strong>使用分枝条件时，要注意各个条件的顺序</strong>。 如果你把它改成\d{5}|\d{5}-\d{4}的话，那么就只会匹配5位的邮编(以及9位邮 编的前5位)。原因是匹配分枝条件时，将会从左到右地测试每个条件，如果满足了某个分枝的话，就不会去再管其它的条件了。</p>
-<h3 id="分组">分组</h3><p>用小括号来指定子表达式(也叫做分组)。如：  </p>
-<table>
-<thead>
-<tr>
-<th>正则表达式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>(\d{1,3}.){3}\d{1,3}</strong></td>
-<td>是一个简单的IP地址匹配表达式。请按下列顺序分析它：\d{1,3}匹 配1到3位的数字，(\d{1,3}.){3}匹 配三位数字加上一个英文句号(这个整体也就是这个分组)重 复3次，最后再加上一个一到三位的数字(\d{1,3})。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="转义字符">转义字符</h3><p>如果你想查找元字符本身的话，比如你查找.,或者<em>,就出现了问题：你没办法指定它们，因为它们会被解释成别的意思。这时你就得使用\来取消这些字符的特殊意义。因此，你应该使用.和\</em>。当然，要查找\本身，你也得用\.  </p>
-<p>例如：deerchao.net匹配deerchao.net，C:\Windows匹配C:\Windows。  </p>
-<p>模式中使用的所有元字符metacharacter都需要转义，包括：<code>(``{</code> <code>[</code> <code>\</code> <code>^</code> <code>$</code> <code>|</code> <code>)</code> <code>?</code> <code>*``+``.``]``}</code></p>
-<p>更多正则表达式知识参考这篇<a href="http://www.oschina.net/question/12_9507" target="_blank" rel="external">正则表达式30分钟入门教程</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*******学习正则表达式，在util.js完成以下代码*******/</span></span><br><span class="line"><span class="comment">// 判断是否为邮箱地址</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmail</span>(<span class="params">emailStr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">var</span> pattern = <span class="regexp">/^(\w+)-?\w*@\w*\.\w*\.?\w+$/</span></span><br><span class="line">    <span class="keyword">return</span> pattern.test(emailStr);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否为手机号</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isMobilePhone</span>(<span class="params">phone</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">var</span> pattern = <span class="regexp">/^(\+)?\d&#123;2&#125;\d&#123;11&#125;$/</span></span><br><span class="line">    <span class="keyword">return</span> pattern.test(phone);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="DOM">DOM</h1><h1 id="BOM">BOM</h1><h2 id="BOM中的window对象">BOM中的window对象</h2><p><strong>window对象方法</strong></p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>setTimeout(代码，延迟时间)</td>
-<td>指定的延迟时间后来执行代码，以毫秒计（1s=1000ms）</td>
-</tr>
-<tr>
-<td>clearTimeout()</td>
-<td>取消setTimeout()设置</td>
-</tr>
-<tr>
-<td>setInterval(代码，交互时间)</td>
-<td>每隔指定的时间执行代码，以毫秒计（1s=1000ms）</td>
-</tr>
-<tr>
-<td>clearInterval()</td>
-<td>取消setInterval()设置 </td>
-</tr>
-</tbody>
-</table>
-<h4 id="setInterval()与clearInterval()">setInterval()与clearInterval()</h4><p>调用函数格式(假设有一个clock()函数):</p>
-<pre><code><span class="function"><span class="title">setInterval</span><span class="params">(<span class="string">"clock()"</span>,<span class="number">1000</span>)</span></span>
-或
-<span class="function"><span class="title">setInterval</span><span class="params">(clock,<span class="number">1000</span>)</span></span>
-
-<span class="function"><span class="title">clearInterval</span><span class="params">(id_of_setInterval)</span></span>
-</code></pre><p>返回一个可以传递给 Window.clearInterval() 从而取消对 code 的周期性执行的值.</p>
-<h4 id="setTimeout()与clearTimeout()">setTimeout()与clearTimeout()</h4><p>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。</p>
-<pre><code><span class="function"><span class="title">setTimeout</span><span class="params">(code,millisec)</span></span>
-
-<span class="function"><span class="title">clearTimeout</span><span class="params">(id_of_setTimeout)</span></span>
-</code></pre><p><strong>提示：setTimeout() 只执行 code 一次。如果要多次调用，请使用 setInterval() 或者让 code 自身再次调用 setTimeout()。</strong>    ：</p>
-<pre><code>function startCount(){
-   <span class="built_in">document</span>.getElementById(<span class="string">'count'</span>).value=<span class="built_in">num</span>;
-   <span class="built_in">num</span>=<span class="built_in">num</span>+<span class="number">1</span>;
-   i=setTimeout(<span class="string">"startCount()"</span>,<span class="number">1000</span>); <span class="comment">//自身再次调用</span>
- }
-</code></pre><h2 id="JS中的date对象">JS中的date对象</h2><pre><code>dateObject.setFullYear(<span class="property">year</span>,<span class="property">month</span>,<span class="property">day</span>)
-</code></pre><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>year</td>
-<td>必需。表示年份的四位整数。用本地时间表示。</td>
-</tr>
-<tr>
-<td>month</td>
-<td>可选。表示月份的数值，介于 0 ~ 11 之间。用本地时间表示。</td>
-</tr>
-<tr>
-<td>day</td>
-<td>可选。表示月中某一天的数值，介于 1 ~ 31 之间。用本地时间表示。</td>
-</tr>
-</tbody>
-</table>
-<pre><code>dateObject.setHours(hour,<span class="built_in">min</span>,<span class="built_in">sec</span>,<span class="built_in">millisec</span>)
-</code></pre><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>hour</td>
-<td>必需。表示小时的数值，介于 0（午夜） ~ 23（晚上11点） 之间，以本地时间计（下同）</td>
-</tr>
-<tr>
-<td>min</td>
-<td>表示分钟的数值，介于 0 ~ 59 之间。在 EMCAScript 标准化之前，不支持该参数。</td>
-</tr>
-<tr>
-<td>sec</td>
-<td>可选。表示秒的数值，介于 0 ~ 59 之间。在 EMCAScript 标准化之前，不支持该参数。</td>
-</tr>
-<tr>
-<td>millisec</td>
-<td>可选。表示毫秒的数值，介于 0 ~ 999之间。在 EMCAScript 标准化之前，不支持该参数。</td>
-</tr>
-</tbody>
-</table>
-
+        <h1 id="1-_javaScript数据类型及语言基础">1. javaScript数据类型及语言基础</h1>
+        
+          <p class="article-more-link">
+            <a href="/2015/11/01/JavaScript一些基础知识/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/11/01/JavaScript一些基础知识/" data-id="cihou9owj001354788qdnkall" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/11/01/JavaScript一些基础知识/" data-id="cihouxm7l0018dz78ycnjfw16" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -504,52 +306,11 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/10/20/hello-world/" data-id="cihou9ow8000s5478z1ciztkw" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/10/20/hello-world/" data-id="cihouxm78000xdz78p0hehxwz" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
         <a href="http://yoursite.com/2015/10/20/hello-world/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-task0001笔记整理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/09/13/task0001笔记整理/" class="article-date">
-  <time datetime="2015-09-13T13:30:55.000Z" itemprop="datePublished">2015-09-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#task0001笔记整理</p>
-<p>##CSS布局中的position</p>
-<ul>
-<li>static<br>static是默认值。任意 position: static; 的元素不会被特殊的定位。一个 static 元素表示它<code>不会</code>被“positioned”，一个 position 属性被设置为其他值的元素表示它会被“positioned</li>
-<li>relative<br>表现的和static一样，但不同的是一个元素被设置为relative则它已经被“positioned”了。可以设置 top 、 right 、 bottom 和 left 属性会使其偏离其正常位置(而这些属性对static的元素无效)。其他的元素则<code>不会</code>调整位置来弥补它偏离后剩下的空隙。</li>
-<li>absolute<br>absolute相对于最近的“positioned”祖先元素。<strong>一个“positioned”元素是指position 值不是 static 的元素</strong>。如果绝对定位（position属性的值为absolute）的元素没有“positioned”祖先元素，那么它是相对于文档的 body 元素，并且它会随着页面滚动而移动。 </li>
-<li>fixed<br>仅仅是相对于视窗来定位，一个固定定位（position属性的值为fixed）意味着即便页面滚动，它还是会停留在相同的位置。top 、 right 、 bottom 和 left 属性都可用。</li>
-</ul>
-<p>###position与负边距同时使用，可以达到一些想要的布局效果，如居中等，但前提得知道待居中元素的大小。  </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2015/09/13/task0001笔记整理/" data-id="cihou9ovs000d54783j351ri1" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://yoursite.com/2015/09/13/task0001笔记整理/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
@@ -582,223 +343,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h1 id="new与operator_new">new与operator new</h1><p>在C++中我们通常用<strong>new</strong>操作符来向系统申请内存。例如：A *p = new A。实际上，这个操作包含了两个动作：第一，先<strong>分配足够的内存</strong>，用来存放某类型的对象。第二，他调用一个对象的构造函数（constructor），为刚才分配的内存中的那个对象<strong>初始化</strong>。这个new操作符(又叫做new <strong>operator/ expression</strong>) 是由语言内建的，不能被改变意义，总是做这两件事，反正咋地都改变不了。</p>
-<p>那么operator new是什么呢？上述的<strong>动作一</strong>就是通过调用operator new（size_t size）实现的。如果类A重载了operator new，那么将调用A::operator new(size_t size), 如果没有重载，就调用::operator new(size_t size)，全局new操作符由C++默认提供。 所以operator new是个函数，不是操作符哦。</p>
-<p><strong>operator new 这个函数有三种形式（C++98</strong>），在<a href="http://www.cplusplus.com/reference/new/operator%20new/?kw=operator%20new" title="cplusplus" target="_blank" rel="external">cplusplus.com</a>中有详细介绍。  </p>
-<pre><code> throwing (<span class="number">1</span>)     <span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span> <span class="params">(<span class="built_in">std</span>::size_t size)</span> <span class="title">throw</span> <span class="params">(<span class="built_in">std</span>::bad_alloc)</span></span>;
-  nothrow (<span class="number">2</span>)    <span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span> <span class="params">(<span class="built_in">std</span>::size_t size, <span class="keyword">const</span> <span class="built_in">std</span>::nothrow_t&amp; nothrow_value)</span> <span class="title">throw</span><span class="params">()</span></span>;
-placement (<span class="number">3</span>)    <span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span> <span class="params">(<span class="built_in">std</span>::size_t size, <span class="keyword">void</span>* ptr)</span> <span class="title">throw</span><span class="params">()</span></span>;
-</code></pre><p>(1)throwing和(2)nothrow的区别仅是是否抛出异常，当分配失败时，前者会抛出bad_alloc异常，后者返回null，不会抛出异常。它们都分配一个固定大小的连续内存。<br>第(3)placement则是接下来的重点。</p>
-<h1 id="placement_new">placement new</h1><p>执行完动作一，申请好了内存后，执行动作二调用constructor来进行初始化操作。但针对一个已经存在的对象调用constructor无意义，因为对象只能被初始化一次。有时候我们想在原来已经分配好的内存上重新构建一个对象，那么这时候我们只需要执行动作二constructor就够了，这时候就用到placement new了。<br>如上述的(3)中所示，<strong>其实这个placement(3)也是对operator new的一个重载</strong>，只不过这里起个名字叫placement new。它在参数中接受一个void* ptr参数，用来实现在ptr所指的地址上构建一个对象，然后再返回ptr。<br>这种技术在内存池中有广泛的应用。因为内存池的常用策略就是一次性分配一大块内存，然后重复利用该内存块，每次分配都从池中取出，释放则将内存放回池中。在客户端调用的是new运算符，我们可以通过改写operator new函数，让它从内存池中取出（当内存不够时，再向系统申请更大块的内存作为内存池，更详细的内容可以参考侯捷的《池内春秋》）。</p>
-<p><strong>如何使用placement new呢？</strong>  </p>
-<ul>
-<li><p>原型声明为</p>
-<pre><code>placement (<span class="number">3</span>)    <span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span> <span class="params">(<span class="built_in">std</span>::size_t size, <span class="keyword">void</span>* ptr)</span> <span class="title">throw</span><span class="params">()</span></span>;  
-</code></pre></li>
-<li><p>调用形式为</p>
-<pre><code>new<span class="list">(<span class="keyword">ptr</span>)</span> A<span class="list">()</span><span class="comment">; //无参数构造函数</span>
-new<span class="list">(<span class="keyword">ptr</span>)</span> A<span class="list">(<span class="keyword">value</span>)</span><span class="comment">; //有参数构造函数</span>
-</code></pre></li>
-<li><p>它的返回值为ptr，所以函数看起来就像酱紫：</p>
-<pre><code><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(size_t size, <span class="keyword">void</span>* ptr)</span>
-</span>{
-    <span class="keyword">return</span> ptr;
-}
-</code></pre></li>
-<li><p>这里ptr可以是动态分配的内存，也可以是栈中的缓冲。如：</p>
-<pre><code><span class="value">char</span> buf<span class="attr_selector">[100]</span>;  
-<span class="function">new</span>(buf) <span class="function">A</span>();
-</code></pre></li>
-</ul>
-<h1 id="Examples">Examples</h1><pre><code><span class="comment">// operator new example</span>
-#include &lt;iostream&gt; <span class="comment">// std::cout</span>
-#include &lt;<span class="keyword">new</span>&gt;  <span class="comment">// ::operator new</span>
-
-<span class="keyword">struct</span> MyClass {
-  <span class="keyword">int</span> data[<span class="number">100</span>];
-  MyClass() {std::cout &lt;&lt; <span class="string">"constructed ["</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; <span class="string">"]\n"</span>;}
-};
-
-<span class="keyword">int</span> main () {
-
-  std::cout &lt;&lt; <span class="string">"1: "</span>;
-  MyClass * p1 = <span class="keyword">new</span> MyClass;
-  <span class="comment">// allocates memory by calling: operator new (sizeof(MyClass))</span>
-  <span class="comment">// and then constructs an object at the newly allocated space</span>
-
-  std::cout &lt;&lt; <span class="string">"2: "</span>;
-  MyClass * p2 = <span class="keyword">new</span> (std::<span class="keyword">nothrow</span>) MyClass;
-  <span class="comment">// allocates memory by calling: operator new (sizeof(MyClass),std::nothrow)</span>
-  <span class="comment">// and then constructs an object at the newly allocated space</span>
-
-  std::cout &lt;&lt; <span class="string">"3: "</span>;
-  <span class="keyword">new</span> (p2) MyClass;
-  <span class="comment">// does not allocate memory -- calls: operator new (sizeof(MyClass),p2)</span>
-  <span class="comment">// but constructs an object at p2</span>
-
-  <span class="comment">// Notice though that calling this function directly does not construct an object:</span>
-  std::cout &lt;&lt; <span class="string">"4: "</span>;
-  MyClass * p3 = (MyClass*) ::operator <span class="keyword">new</span> (sizeof(MyClass));
-  <span class="comment">// allocates memory by calling: operator new (sizeof(MyClass))</span>
-  <span class="comment">// but does not call MyClass's constructor</span>
-
-  <span class="keyword">delete</span> p1;
-  <span class="keyword">delete</span> p2;
-  <span class="keyword">delete</span> p3;
-
-  <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre><p><strong>Output</strong></p>
-<pre><code><span class="attribute">1</span>: <span class="string">constructed [0x8f0f70]</span>
-<span class="attribute">2</span>: <span class="string">constructed [0x8f23a8]</span>
-<span class="attribute">3</span>: <span class="string">constructed [0x8f23a8]</span>
-<span class="attribute">4</span>: <span class="string"></span>
-</code></pre><ul>
-<li>这里1，2执行的就是new操作符的行为，包括动作一和动作二。其中，1在其动作一中调用operator new的版本(1); 2在其动作一中调用的是operator new的版本(2)。动作二的构造函数调用1，2则是相同的;</li>
-<li>这里3则是placement new的行为，仅仅是动作二，它将对象建立在2中已经分配好的这块上内存，而不是向系统再申请内存，故2和3的返回值是一样的;</li>
-<li>这里4则仅仅是调用operator new，即只执行了动作一，只分配内存，并没有调用构造函数。故不会执行构造函数中的语句std::cout &lt;&lt; “constructed [“ &lt;&lt; this &lt;&lt; “]\n”;</li>
-<li>1，2，3隐式的调用了operator new，而4是显示的调用operator new;</li>
-<li>若要使用placement new，则必须用#include \<new\>。如果你的编译器尚未支持新式头文件命名，就用#include \<new.h\>;</new.h\></new\></li>
-</ul>
-<h1 id="operator_new的重载">operator new的重载</h1><p>其实到上面一部分，new相关的东西已经介绍完了，但我想再多写一点关于operator new的重载，这也是在《STL源码剖析》40+页遇到的一些困惑。关于重载我们都知道，如：A* p = new A；所发生的事情：先调用operator new，如果类A重载了operator new，那么就使用该重载版本，否则使用全局版本::operator new(size_t size)。  </p>
-<p><strong>重载遵循作用域覆盖原则:</strong> 即在里向外寻找operator new的重载时，只要找到operator new()函数就不再向外查找，如果参数符合则通过，如果参数不符合则报错，而不管全局是否还有相匹配的函数原型。</p>
-<h2 id="在类中重载operator_new">在类中重载operator new</h2><p>当定义了一个类A时，我们可以在类A中对以上的全局(1)(2)(3)版本进行重载。但对于(3)placement new，它本身就是一个重载了，我们不需要也尽量不要对它改写，因为它就是固定这样用的：new(ptr) A();它的职责只需简单返回指针。</p>
-<p>对于(1)(2)的重载如下(可以在<a href="http://cpp.sh/" target="_blank" rel="external">online C++ compiler</a>检验运行结果)：</p>
-<pre><code><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span>
-<span class="keyword">class</span> A
-{
-<span class="keyword">public</span>:
-    A()
-    {
-        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"call A constructor"</span>&lt;&lt;<span class="built_in">std</span>::endl;
-    }
-
-    ~A()
-    {
-        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"call A destructor"</span>&lt;&lt;<span class="built_in">std</span>::endl;
-    }
-    <span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(size_t size)</span>
-    </span>{
-        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"call A::operator new"</span>&lt;&lt;<span class="built_in">std</span>::endl;
-        <span class="keyword">return</span> <span class="built_in">malloc</span>(size);
-    }
-
-    <span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(size_t size, <span class="keyword">const</span> <span class="built_in">std</span>::nothrow_t&amp; nothrow_value)</span>
-    </span>{
-        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"call A::operator new nothrow"</span>&lt;&lt;<span class="built_in">std</span>::endl;
-        <span class="keyword">return</span> <span class="built_in">malloc</span>(size);
-    }
-};
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span>* argv[])</span>
-</span>{
-    A* p1 = <span class="keyword">new</span> A;
-    <span class="keyword">delete</span> p1;
-
-    A* p2 = <span class="keyword">new</span>(<span class="built_in">std</span>::nothrow) A;
-    <span class="keyword">delete</span> p2;
-
-    system(<span class="string">"pause"</span>);
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre><p><strong>Output</strong></p>
-<pre><code>call A::<span class="keyword">operator</span> <span class="keyword">new</span>
-call A <span class="function"><span class="keyword">constructor</span>
-<span class="title">call</span> <span class="title">A</span> <span class="title">destructor</span>
-<span class="title">call</span> <span class="title">A</span>:</span>:<span class="keyword">operator</span> <span class="keyword">new</span> nothrow
-call A <span class="function"><span class="keyword">constructor</span>
-<span class="title">call</span> <span class="title">A</span> <span class="title">destructor</span></span>
-</code></pre><h2 id="重载::operator_new()">重载::operator new()</h2><p>对于上面的(1)(2)(3)，我们可以看做是三种默认的全局operator new版本。事实上，全局版本(3)就可以看做是对全局版本(1)的重载。</p>
-<h3 id="为啥要重载_::operator_new()?">为啥要重载 ::operator new()?</h3><p>Effective C++ 第三版第 50 条列举了定制 new/delete 的几点理由：</p>
-<ul>
-<li>检测代码中的内存错误</li>
-<li>优化性能</li>
-<li>获得内存使用的统计数据</li>
-</ul>
-<h3 id="::operator_new()_的两种重载方式">::operator new() 的两种重载方式</h3><h4 id="1-不改变其签名，无缝直接替换系统原有的版本">1.不改变其签名，无缝直接替换系统原有的版本</h4><pre><code><span class="preprocessor">#<span class="keyword">include</span></span>
-
-<span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(size_t size)</span></span>;
-
-<span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>* p)</span></span>;
-</code></pre><p>用这种方式的重载，使用方不需要包含任何特殊的头文件，也就是说不需要看见这两个函数声明。“性能优化”通常用这种方式。</p>
-<p>如果类A中没有对operator new的重载，那么new A和new(std::nothrow) A;都将会使用全局operator new(size_t size)。可将A中两个operator new注释掉，并且在A外添加一个全局operator new重载：</p>
-<pre><code><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span>
-
-<span class="comment">//重载全局operator new，error版本</span>
-<span class="keyword">void</span>* ::<span class="function"><span class="keyword">operator</span> <span class="title">new</span><span class="params">(size_t size)</span>
-</span>{
-    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"call global operator new"</span>&lt;&lt;<span class="built_in">std</span>::endl;
-    <span class="keyword">return</span> <span class="built_in">malloc</span>(size);
-}
-
-<span class="comment">//重载全局operator new， correct版本</span>
-<span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(size_t size)</span>
-</span>{
-    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"call global operator new"</span>&lt;&lt;<span class="built_in">std</span>::endl;
-    <span class="keyword">return</span> <span class="built_in">malloc</span>(size);
-}
-
-<span class="keyword">class</span> A
-{
-<span class="keyword">public</span>:
-    A()
-    {
-        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"call A constructor"</span>&lt;&lt;<span class="built_in">std</span>::endl;
-    }
-
-    ~A()
-    {
-        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"call A destructor"</span>&lt;&lt;<span class="built_in">std</span>::endl;
-    }
-};
-
-
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span>* argv[])</span>
-</span>{
-    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"1"</span> &lt;&lt; <span class="built_in">std</span>::endl;
-    A* p1 = <span class="keyword">new</span> A;
-    <span class="keyword">delete</span> p1;
-    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"2"</span> &lt;&lt; <span class="built_in">std</span>::endl;
-    A* p2 = <span class="keyword">new</span>(<span class="built_in">std</span>::nothrow) A;
-    <span class="keyword">delete</span> p2;
-
-    system(<span class="string">"pause"</span>);
-    <span class="keyword">return</span> <span class="number">0</span>;
-} 
-</code></pre><p><strong>Output</strong>  </p>
-<pre><code><span class="number">3</span>:<span class="number">37</span>: <span class="keyword">error</span>: <span class="keyword">explicit</span> qualification <span class="keyword">in</span> declaration <span class="keyword">of</span> <span class="comment">'void* operator new(size_t)'</span>
-</code></pre><p>运行这段代码，编译器报错了。为啥？因为在operator new()前面我们加了<code>::</code>，我们的本意是说我要重载这个全局operator new()，但编译器无法判断你究竟是想表示全局呢？还是想对A类中的operator new()重载（忘了在::前面写A）呢？<br>所以，这种表达方式是implicit的，我们要的是explicit！！</p>
-<blockquote>
-<p>Explicit is better than implicit. ——The Zen of Python, by Tim Peters.</p>
-</blockquote>
-<p>所以想重载全局函数就别再前面加<code>::</code>，去掉后，程序的输出为:<br><strong>Output</strong></p>
-<pre><code><span class="number">1</span>   <span class="comment">//调用我们重写的全局operator new()</span>
-call <span class="keyword">global</span> <span class="keyword">operator</span> <span class="keyword">new</span>
-call A <span class="function"><span class="keyword">constructor</span>
-<span class="title">call</span> <span class="title">A</span> <span class="title">destructor</span>
-2   //仍然调用默认的全局<span class="title">nothrow</span><span class="params">(2)</span>版本
-<span class="title">call</span> <span class="title">A</span> <span class="title">constructor</span>
-<span class="title">call</span> <span class="title">A</span> <span class="title">destructor</span></span>
-</code></pre><h4 id="2-_增加新的参数，调用时也提供这些额外的参数">2. 增加新的参数，调用时也提供这些额外的参数</h4><pre><code><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(size_t size, <span class="keyword">const</span> <span class="keyword">char</span>* file, <span class="keyword">int</span> line)</span></span>;  <span class="comment">// 其返回的指针必须能被普通的 ::operator delete(void*) 释放</span>
-
-<span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>* p, <span class="keyword">const</span> <span class="keyword">char</span>* file, <span class="keyword">int</span> line)</span></span>;   <span class="comment">// 这个函数只在析构函数抛异常的情况下才会被调用</span>
-
-然后用的时候是
-
-Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class="comment">// 这样能跟踪是哪个文件哪一行代码分配的内存</span>
-</code></pre><p>windows提供两个宏：__FILE__和__LINE__。利用它们可以直接获取到文件名和行号，也就是 new(__FILE__, __LINE__) 由于这些都是不变的，因此可以再定义一个宏：#define new new(__FILE__, __LINE__)。这样我们就只需要定义这个宏，然后重载operator new即可。<br>用这第二种方式重载，使用方需要看到这两个函数声明，也就是说要主动包含你提供的头文件。“检测内存错误”和“统计内存使用情况”通常会用这种方式重载。</p>
-<h2 id="BUT！！！">BUT！！！</h2><blockquote>
-<p>陈硕说：<a href="http://blog.csdn.net/solstice/article/details/6198937" target="_blank" rel="external">不要重载全局::operator new()</a></p>
-</blockquote>
-<p>详情看他写的这篇肯定会更有感触~~</p>
-<p>#小结#<br>我本来只是看《STL源码剖析》发现allocator这里的operator new看的云里雾里，于是想总结一下，BTW这书和《More Effective C++》更配哦，这里主要参看了条款6。但是，当我开始总结的时候又发现接二连三各种坑需要理清，这不，我才看到第二章的allocator，又发现陈硕还写了<a href="http://blog.csdn.net/Solstice/article/details/4401382" target="_blank" rel="external">《C++标准库中的allocator是多余的》</a>！  简直要跪了~此时最能描述我心情的就是下面这张Case-by-Case Development动图！！！<br><img src="http://coolshell.cn//wp-content/uploads/2014/10/bug_fixing.gif" alt=""></p>
-<p><strong>参考文献：</strong><br><a href="http://blog.csdn.net/wudaijun/article/details/9273339" target="_blank" rel="external">C++ 内存分配(new，operator new)详解</a><br><a href="http://blog.csdn.net/solstice/article/details/6198937" target="_blank" rel="external">C++ 工程实践(2)：不要重载全局::operator new()</a><br><a href="http://www.cplusplus.com/reference/new/operator%20new/?kw=operator%20new" target="_blank" rel="external">Cplusplus.com</a> </p>
-
+        <h1 id="new与operator_new">new与operator new</h1>
+        
+          <p class="article-more-link">
+            <a href="/2015/06/06/New/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/06/06/New/" data-id="cihou9owh00115478a6rpebhc" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/06/06/New/" data-id="cihouxm7j0016dz78qlgkafdl" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -847,7 +402,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/03/14/opengl_Coordinates/" data-id="cihou9ovy000l5478xd9a15dd" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/03/14/opengl_Coordinates/" data-id="cihouxm70000ndz781ka1xhf9" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -896,7 +451,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/02/28/opengl_light/" data-id="cihou9ovw000i5478exjvg3pl" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/02/28/opengl_light/" data-id="cihouxm6y000kdz78jsww3oxy" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -945,7 +500,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2014/12/27/我大概有病/" data-id="cihou9ovg00065478wdqq18is" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2014/12/27/我大概有病/" data-id="cihouxm6n0006dz78wdlbqs19" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -962,77 +517,48 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
 
 
   
-    <article id="post-jQuery_cont" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Hexo-your-blog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/12/24/jQuery_cont/" class="article-date">
-  <time datetime="2014-12-23T18:26:23.000Z" itemprop="datePublished">2014-12-24</time>
+    <a href="/2014/12/24/Hexo-your-blog/" class="article-date">
+  <time datetime="2014-12-23T16:00:00.000Z" itemprop="datePublished">2014-12-24</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/24/Hexo-your-blog/">Hexo your blog</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>layout: post<br>title: jQuery cont<br>date: 2014-11-15<br>description: “jQuery cont”</p>
-<h2 id="tags:_[jQuery,_web]">tags: [jQuery, web]</h2>
+        <p>#Preface<br>这个自己搭建的blog原本打算用英文写，现在看来是不可能了，哈哈没办法，英语捉急，装逼未遂。之前是用jekyll搭建的，用的theme是歪果仁写的，有一些Google的东西还有字库神马的，虽然看起来高大上，由于天朝一些不可抗力因素，总之页面加载很慢，有限的生命都浪费在看进度条上了。后来看到童鞋在用hexo，艾玛~人家这页面加载嗖嗖的，现有的themes也正是我喜欢的Lofter风格，果断迁移啊！索性把之前博客园里的几篇也搬到这里了，以后专一写这个blog，不去其它地儿乱涂乱画了。<br>
         
           <p class="article-more-link">
-            <a href="/2014/12/24/jQuery_cont/#more">Read More</a>
+            <a href="/2014/12/24/Hexo-your-blog/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2014/12/24/jQuery_cont/" data-id="cihou9ow1000q5478ikgvzuzs" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2014/12/24/Hexo-your-blog/" data-id="cihouxm7m001adz78i88wvhpg" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://yoursite.com/2014/12/24/jQuery_cont/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://yoursite.com/2014/12/24/Hexo-your-blog/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
 
-
-  
-    <article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/24/jQuery/" class="article-date">
-  <time datetime="2014-12-23T18:25:36.000Z" itemprop="datePublished">2014-12-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>layout: post<br>title: jQuery<br>description: “start with jQuery”<br>date: 2014-11-11</p>
-<h2 id="tags:_[jQuery,_web]">tags: [jQuery, web]</h2>
-        
-          <p class="article-more-link">
-            <a href="/2014/12/24/jQuery/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2014/12/24/jQuery/" data-id="cihou9ow3000r54789g4vzrnn" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://yoursite.com/2014/12/24/jQuery/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
     </footer>
   </div>
   
@@ -1042,7 +568,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -1058,7 +584,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1067,7 +593,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AI/" style="font-size: 13.33px;">AI</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/OpenGL/" style="font-size: 13.33px;">OpenGL</a> <a href="/tags/Unix/" style="font-size: 10px;">Unix</a> <a href="/tags/VS-Qt/" style="font-size: 10px;">VS Qt</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/mydaily/" style="font-size: 13.33px;">mydaily</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+      <a href="/tags/AI/" style="font-size: 13.33px;">AI</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/OpenGL/" style="font-size: 13.33px;">OpenGL</a> <a href="/tags/Unix/" style="font-size: 10px;">Unix</a> <a href="/tags/VS-Qt/" style="font-size: 10px;">VS Qt</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/mydaily/" style="font-size: 13.33px;">mydaily</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
   </div>
 
@@ -1076,7 +602,7 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -1088,7 +614,15 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
       <ul>
         
           <li>
+            <a href="/2015/12/01/hexo-deploy/">Hexo出现Error deployer not found:github 的错误</a>
+          </li>
+        
+          <li>
             <a href="/2015/11/27/VS-QT/">VS常见errorLNK***:错误解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/01/task0001笔记整理/">task0001笔记整理</a>
           </li>
         
           <li>
@@ -1097,14 +631,6 @@ Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;   <span class=
         
           <li>
             <a href="/2015/10/20/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2015/09/13/task0001笔记整理/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/06/New/">关于C++内存分配的new, operator new, placement new</a>
           </li>
         
       </ul>
