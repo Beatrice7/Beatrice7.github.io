@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>OpenGL坐标系 | Beatrice7 Fancy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#坐标系统想要弄懂几何变换，一定要搞清楚OpenGL中的坐标系统。从我们构造模型的局部坐标系（Local/Object Space）经过一系列处理最终渲染到屏幕坐标（Screen Space）下，这过程中有6种坐标系。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenGL坐标系">
+<meta property="og:url" content="http://yoursite.com/2015/03/14/opengl_Coordinates/index.html">
+<meta property="og:site_name" content="Beatrice7 Fancy">
+<meta property="og:description" content="#坐标系统想要弄懂几何变换，一定要搞清楚OpenGL中的坐标系统。从我们构造模型的局部坐标系（Local/Object Space）经过一系列处理最终渲染到屏幕坐标（Screen Space）下，这过程中有6种坐标系。">
+<meta property="og:image" content="http://image-for-blog.qiniudn.com/屏幕快照 2015-03-14 下午8.27.07.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20140909150334309">
+<meta property="og:image" content="http://image-for-blog.qiniudn.com/屏幕快照 2015-03-14 下午4.46.40.png?imageView2/2/w/300">
+<meta property="og:image" content="http://image-for-blog.qiniudn.com/0_132532050582La.gif">
+<meta property="og:image" content="http://img.blog.csdn.net/20140909152810274">
+<meta property="og:image" content="http://user.xmission.com/~nate/tutors/lightposition-.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20140909154227543">
+<meta property="og:image" content="http://image-for-blog.qiniudn.com/屏幕快照 2015-03-14 下午7.44.35.png?imageView2/2/w/320">
+<meta property="og:image" content="http://img.blog.csdn.net/20140909154825095">
+<meta property="og:updated_time" content="2015-03-14T12:51:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenGL坐标系">
+<meta name="twitter:description" content="#坐标系统想要弄懂几何变换，一定要搞清楚OpenGL中的坐标系统。从我们构造模型的局部坐标系（Local/Object Space）经过一系列处理最终渲染到屏幕坐标（Screen Space）下，这过程中有6种坐标系。">
+  
+    <link rel="alternative" href="/atom.xml" title="Beatrice7 Fancy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Beatrice7 Fancy</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Consume deliberately</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-opengl_Coordinates" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/14/opengl_Coordinates/" class="article-date">
+  <time datetime="2015-03-13T16:00:00.000Z" itemprop="datePublished">2015-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OpenGL坐标系
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#坐标系统<br>想要弄懂几何变换，一定要搞清楚OpenGL中的坐标系统。<br>从我们构造模型的局部坐标系（Local/Object Space）经过一系列处理最终渲染到屏幕坐标（Screen Space）下，这过程中有6种坐标系。<br><a id="more"></a></p>
+<ul>
+<li>World Coordinates（世界坐标系）</li>
+<li>Object Coordinates(对象坐标系、模型坐标系、局部坐标系或当前绘图坐标系)</li>
+<li>Eye Coordinates(眼坐标系或照相机坐标系)</li>
+<li>Clip Coordinates(裁剪坐标系)</li>
+<li>Normalized Device Coordinates (NDC) (归一化设备坐标系)</li>
+<li>Window Coordinates (Screen Coordinates)(屏幕坐标)</li>
+</ul>
+<p>绘制管线如图所示：<br><img src="http://image-for-blog.qiniudn.com/屏幕快照 2015-03-14 下午8.27.07.png" alt=""><br>实际上，并不存在单独的模型变换(Model)和视点变换(View)，通常将这两种变换合称为ModelView变换。则OpenGL的顶点变换过程如图所示：<br><img src="http://img.blog.csdn.net/20140909150334309" alt=""></p>
+<p>##世界坐标系<br>世界坐标系始终是<strong>固定不变</strong>的。OpenGL使用右手坐标，这里有一个形象的方法：使用右手定则<br>X 是你的拇指<br>Y 是你的食指<br>Z 是你的中指<br>如果你把你的拇指指向右边，食指指向天空，那么中指将指向你的背后。我们的观察方向是Z轴负半轴的方向。<br>进行旋转操作时需要指定的角度θ的方向则由右手法则来决定，即右手握拳，大拇指直向某个坐标轴的正方向，那么其余四指指向的方向即为该坐标轴上的θ角的正方向（即θ角增加的方向），图中用圆弧形箭头标出:<br><img src="http://image-for-blog.qiniudn.com/屏幕快照 2015-03-14 下午4.46.40.png?imageView2/2/w/300" alt=""></p>
+<p>##对象坐标系<br>这是对象在被应用任何变换之前的初始位置和方向所在的坐标系，也就是当前绘图坐标系。该坐标系<strong>不是固定的</strong>，且<strong>仅对该对象适用</strong>。在默认情况下，该坐标系与世界坐标系重合。<br>这里能用到的函数有glTranslatef()，glScalef(), glRotatef()，当用这些函数对当前绘图坐标系进行平移、伸缩、旋转变换之后， 世界坐标系和当前绘图坐标系不再重合。改变以后，再用glVertex3f()等绘图函数绘图时，都是在当前绘图坐标系进行绘图，所有的函数参数也都是相对当前绘图坐标系来讲的。如图则是对物体进行变换后，对象坐标系与世界坐标系的相对位置。<br><img src="http://image-for-blog.qiniudn.com/0_132532050582La.gif" alt=""></p>
+<p>##眼坐标系<br>模型变换：对象坐标系-&gt;世界坐标系<br>视变换：世界坐标系-&gt;眼坐标系<br>GL_MODELVIEW矩阵是模型变换矩阵和视变换矩阵的组合(Mview*Mmodel)，前面已经说了，并不存在单独的模型变换(Model)和视点变换(View)。所以使用GL_MODELVIEW矩阵就可以使对象从对象坐标系转换到眼坐标系。<br><img src="http://img.blog.csdn.net/20140909152810274" alt=""> </p>
+<p>为啥要转换到眼坐标系呢？<br>可以这样理解，通过前面的MODEVIEW变换，这个世界坐标系中的场景已经绘制好了。这时候我们还不能看到场景哦，因为我们的观察位置还没定呢，而且如果我们眼睛(照相机)的位置不同，那么观察物体的角度则不同，那看到的场景的样子肯定也不同，所以要有这一步，把场景与我们的观察位置对应起来。<br>默认情况下，眼坐标系与世界坐标系也是重合的。使用函数 gluLookAt()则可以指定眼睛(相机)的位置和眼睛看向的方向。该函数的原型如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gluLookAt</span><span class="params">(GLdouble eyex, GLdouble eyey, GLdouble eyez, </span><br><span class="line">                        GLdouble centerx, GLdouble centery, GLdouble centerz,</span><br><span class="line">                        GLdouble upx, GLdouble upy, GLdouble upz)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>函数参数中,点(eyex, eyey, eyez)代表眼睛所在位置；<br>点(centerx, centery,centerz)代表眼睛看向的位置；<br>向量(upx, upy, upz)代表视线向上方向,其中<strong>视点和参考点的连线与视线向上方向要保持垂直关系</strong>。<br>只需控制这三个量,便可定义新的视点。<br>这里介绍一个可以帮助理解的程序包的<a href="http://user.xmission.com/~nate/tutors.html" target="_blank" rel="external">下载链接</a>，下面就是运行效果的截图，帮助会很大的哟！<br><img src="http://user.xmission.com/~nate/tutors/lightposition-.png" alt=""></p>
+<p>####tips<br>使用glTranslatef()，glScalef(), glRotatef()这些函数是对<strong>对象坐标系</strong>进行变动；使用void gluLookAt()是对<strong>眼坐标系</strong>进行变动，两者可以达到相同的变换效果。相当于对象不动移动相机，和相机不动移动对象。比如场景向x轴正方向移动1个单位(相机不动)，相当于相机向x轴负方向移动一个单位(对象不动)，glTranslatef(1.0, 0.0, 0.0)  &lt;=&gt; gluLookAt(-1.0, 0.0, 0.0, …, … )。</p>
+<p>##裁剪坐标系<br>眼坐标到裁剪坐标是通过投影完成的。眼坐标通过乘以GL_PROJECTION矩阵变成了裁剪坐标。<br><img src="http://img.blog.csdn.net/20140909154227543" alt="">这个GL_PROJECTION矩阵定义了视景体( viewing volume)，即确定哪些物体位于视野之内，位于视景体外的对象会被剪裁掉。除了视景体，投影变换还定义了顶点是如何投影到屏幕上的，是透视投影(perspective projection)还是正交投影(orthographic projection)。  </p>
+<p><code>透视投影</code>类似于日常生活看到的场景，远处物体看起来小，近处看起来大。使用透视投影函数glFrustum()和gluPerspective().<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void glFrustum(GLdouble left, GLdouble right,</span><br><span class="line">　　　　　      GLdouble bottom, GLdouble top, </span><br><span class="line">　　　　　      GLdouble near, GLdouble far)</span><br></pre></td></tr></table></figure></p>
+<p>far, near是指近裁剪面，远剪裁面离视点的距离(&gt;0),<br>对角坐标, (left, bottom, -near)和(right, top, -near)定义了近裁剪面的左下角和右上角的(x, y, z)坐标。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void gluPerspective(GLdouble fovy,  GLdouble aspect,</span><br><span class="line">　　　　　　　        GLdouble near, GLdouble far) </span><br><span class="line">``` </span><br><span class="line">fovy视角，aspect = w/h</span><br><span class="line">![](http://image-for-blog.qiniudn.com/屏幕快照 <span class="number">2015</span>-<span class="number">03</span>-<span class="number">14</span> 下午<span class="number">7.44</span>.<span class="number">25</span>.png)  </span><br><span class="line"></span><br><span class="line">`正投影`把物体直接映射到屏幕上，不影响它们的相对大小。也就是图像反映物体的实际大小。函数glOrtho()创建一个用于正交投影的平行视景体, 将其与当前矩阵相乘。 </span><br><span class="line">```bash</span><br><span class="line">void glOrtho(GLdouble left, GLdouble right,</span><br><span class="line">　　　　      GLdouble bottom, GLdouble top, </span><br><span class="line">　　　　      GLdouble near, GLdouble far);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://image-for-blog.qiniudn.com/屏幕快照 2015-03-14 下午7.44.35.png?imageView2/2/w/320" alt=""></p>
+<p>##归一化设备坐标系<br>由裁剪坐标系下通过除以W分量得到。这个操作称为透视除法。NDC坐标很像屏幕坐标，但是还没有经过平移和缩放到屏幕像素。现在3个轴上的值范围均为[-1,1]。<img src="http://img.blog.csdn.net/20140909154825095" alt=""></p>
+<p>##屏幕坐标系<br>通常将屏幕上的设备坐标称为屏幕坐标。设备坐标又称为物理坐标,是指输出设备上的坐标。设备坐标用对象距离窗口左上角的水平距离和垂直距离来指定对象的位置,是以像素为单位来表示的,<strong>设备坐标的 X 轴向右为正,Y 轴向下为正,坐标原点位于窗口的左上角</strong>。</p>
+<p>投影变换和视点变换一起决定了场景的映射方式，而视口变换指出了场景被映射到什么样的屏幕区域，即指定场景在屏幕上所占据的区域。可以这样认为：视口变换定义处理后照片的大小和位置, 你希望照片像海报那么大还是钱包那么大。</p>
+<p>从NDC坐标到屏幕坐标基本上是一个线性映射关系。通过对NDC坐标进行视口变换得到。这时候就要用到函数glViewport()，该函数用来定义渲染区域的矩形，也就是最终图像映射到的区域。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void glViewport(<span class="number">0.0</span>, <span class="number">0.0</span>, (GLsizei) w, (GLsizei) h)</span><br></pre></td></tr></table></figure></p>
+<p>有4个参数，前2个参数描述窗口内部有效屏幕空间的原点(0, 0); 后2个参数描述有效区域的width和height（均以像素为单位）</p>
+<p>#小结<br>以上是我对OpenGL坐标系统的学习笔记，主要参考了<a href="http://www.360doc.com/content/14/1028/09/19175681_420513219.shtml" target="_blank" rel="external">这篇很详细的博文</a>以及其中的链接博文。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/03/14/opengl_Coordinates/" data-id="cihosvetv000lzq78zfaw4k5o" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/03/14/opengl_Coordinates/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenGL/">OpenGL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/06/New/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于C++内存分配的new, operator new, placement new
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/02/28/opengl_light/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">OpenGL光照基础知识</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/03/14/opengl_Coordinates/" data-title="OpenGL坐标系" data-url="http://yoursite.com/2015/03/14/opengl_Coordinates/"></div>
+  </section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 13.33px;">AI</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/OpenGL/" style="font-size: 13.33px;">OpenGL</a> <a href="/tags/Unix/" style="font-size: 10px;">Unix</a> <a href="/tags/VS-Qt/" style="font-size: 10px;">VS Qt</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/mydaily/" style="font-size: 13.33px;">mydaily</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/27/VS-QT/">VS常见errorLNK***:错误解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/01/JavaScript一些基础知识/">JavaScript基础</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/20/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/13/task0001笔记整理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/06/New/">关于C++内存分配的new, operator new, placement new</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://andrewliu.in" target="_blank">永不停息の恐龙哥</a>
+          </li>
+        
+          <li>
+            <a href="http://www.powerxing.com" target="_blank">弹钢琴の给力星</a>
+          </li>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Beatrice<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about.html" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"beatrice7"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"nocss.css"}};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

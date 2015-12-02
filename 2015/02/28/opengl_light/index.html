@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>OpenGL光照基础知识 | Beatrice7 Fancy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#光照模型在OpenGL光照模型中，除非一个物体自己会发光，否则它将受到3种不同类型的光的照射：环境光(ambient)、散射光(diffuse)和镜面光(specular)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenGL光照基础知识">
+<meta property="og:url" content="http://yoursite.com/2015/02/28/opengl_light/index.html">
+<meta property="og:site_name" content="Beatrice7 Fancy">
+<meta property="og:description" content="#光照模型在OpenGL光照模型中，除非一个物体自己会发光，否则它将受到3种不同类型的光的照射：环境光(ambient)、散射光(diffuse)和镜面光(specular)。">
+<meta property="og:image" content="http://image-for-blog.qiniudn.com/屏幕快照 2015-03-13 下午12.15.49.png">
+<meta property="og:updated_time" content="2015-03-13T07:27:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenGL光照基础知识">
+<meta name="twitter:description" content="#光照模型在OpenGL光照模型中，除非一个物体自己会发光，否则它将受到3种不同类型的光的照射：环境光(ambient)、散射光(diffuse)和镜面光(specular)。">
+  
+    <link rel="alternative" href="/atom.xml" title="Beatrice7 Fancy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Beatrice7 Fancy</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Consume deliberately</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-opengl_light" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/28/opengl_light/" class="article-date">
+  <time datetime="2015-02-27T16:00:00.000Z" itemprop="datePublished">2015-02-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OpenGL光照基础知识
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#光照模型<br>在OpenGL光照模型中，除非一个物体自己会发光，否则它将受到3种不同类型的光的照射：环境光(ambient)、散射光(diffuse)和镜面光(specular)。<br><a id="more"></a></p>
+<ul>
+<li>全局环境光<br>在我们没有用到光照之前，我们也能够看到场景中绘制的物体，原因是每个场景都有这个全局环境光，它不来自任何特定的光源。</li>
+<li>环境光(ambient)<br>环境光并不来自任何特定的方向。它来自某个光源，但光线却是在房间或场景中四处反射，没有方向可言。由环境光所照射的物体在所有方向的表面都是均匀照亮的。</li>
+<li>散射光(diffuse)<br>散射光具有方向性，来自于一个特定的方向，它根据入射光线的角度在表面上均匀地反射开来。</li>
+<li>镜面光(specular)<br>镜面光具有很强的方向性，但它的反射角度很锐利，只沿一个特定的方向反射。</li>
+</ul>
+<p>#光源与材料</p>
+<p>##光源<br>OpenGL可以同时为我们提供8个有效的光源。也就是说，我们最多可以同时启用8个光源。它们分别是GL_LIGHT0，GL_LIGHT1，GL_LIGHT2 ……<br>其中，GL_LIGHT0是最特殊的一个光源，我们可以为GL_LIGHT0指定环境光成分。在默认情况下，GL_LIGHT0光源的颜色为白光，其他7个光源在默认情况下是没有颜色的，也即为黑色。</p>
+<p>###光源种类</p>
+<ul>
+<li>环境光<br>环境光是一种无处不在的光。环境光源放出的光线被认为来自任何方向。因此，当你仅为场景指定环境光时，所有的物体无论法向量如何，都将表现为同样的明暗程度。</li>
+<li>点光源<br>由这种光源放出的光线来自同一点，且方向辐射自四面八方。</li>
+<li>平行光<br>平行光又称镜面光，这种光线是互相平行的。从手电筒、太阳等物体射出的光线都属于平行光。</li>
+<li>聚光灯<br>这种光源的光线从一个锥体中射出，在被照射的物体上产生聚光的效果。使用这种光源需要指定光的射出方向以及锥体的顶角α。  </li>
+</ul>
+<p>###设置光源</p>
+<p>####1.设置环境光成分<br>对于GL_LIGHT0，我们可以为其指定环境光成分。调用  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">glLightfv(GL_LIGHT0,GL_AMBIENT,@AmbientLight);</span><br><span class="line">```  </span><br><span class="line">在上述函数调用中，第一个参数表示我们要对GL\_LIGHT0进行设置;  </span><br><span class="line">第二个参数表示我们要设置的是环境光成分;  </span><br><span class="line">第三个参数则是一个数组，它有<span class="number">4</span>个值，分别表示光源中含有红、绿、蓝三种光线的成分，一般情况下都为<span class="number">1</span>;</span><br><span class="line">第四个参数为透明度值，一般也为<span class="number">1</span>。  </span><br><span class="line">完整的代码是这样的：  </span><br><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">void SetLight</span><br><span class="line">&#123;</span><br><span class="line">	int AmbientLight[<span class="number">4</span>]=&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">	glLightfv(GL_LIGHT0,GL_AMBIENT,@AmbientLight);</span><br><span class="line">	glEnable(GL_LIGHT0);       //开启GL_LIGHT0光源</span><br><span class="line">	glEnable(GL_LIGHTING);     //开启光照系统</span><br><span class="line">&#125;  </span><br><span class="line">&#123;% endcodeblock %&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">####2.设置漫射光成分</span></span><br><span class="line">通过对漫射光成分的设置，我们可以产生一个点光源。方法和设置环境光成分相似，只需调用</span><br><span class="line">```bash</span><br><span class="line"> glLightfv(GL_LIGHT0,GL_DIFFUSE,@DiffuseLight);</span><br></pre></td></tr></table></figure>
+<p>其中DiffuseLight是漫射光的颜色成分。可以根据不同需要指定不同的颜色，一般情况下也为(1,1,1,1)。</p>
+<p>####3.设置镜面光成分<br>通过对镜面光成分的设置，我们可以产生一个平行光源。方法和设置漫射光成分相似，只需调用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glLightfv(GL_LIGHT0,GL_SPECULAR,@SpecularLight);</span><br></pre></td></tr></table></figure></p>
+<p>其中SpecularLight是镜面反射光的颜色成分。可以根据不同需要指定不同的颜色。</p>
+<p>####4.设置光源的位置<br>对于点光源和平行光源，我们常常需要指定光源的位置来产生需要的效果。方法仍然是调用glLightfv函数，仅仅是换换参数而已：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glLightfv(GL_LIGHT0,GL_POSITION,@LightPosition);</span><br></pre></td></tr></table></figure></p>
+<p>其中,LightPosition也是一个四维数组，四维数组的前3项依次为光源位置的X,Y,Z分量。<br>第四个值很特殊，一般为1或0。当LightPosition[4]=0的时候，表示光源位于距离场景无限远的地方，相当于平行光；而当LightPosition[4]=1时，光源的位置就是前三项所指定的位置，也就是成为了点光源。</p>
+<p>##材料<br><code>材料</code>是针对场景中的物体而言的，但并不是指现实生活中构成物体的那种有质感材料，这里的<code>材料</code>只与物体的颜色有关（你可能会想到怎样表现类似金属、玻璃等物质质感，除了要使用光照系统并为它们指定合适的材质外，还要使用纹理贴图来表现）。OpenGL用<code>材料</code>对光的红、绿、蓝三原色的反射率来近似定义材料的颜色。当一束光照到物体上时，光本身有颜色(可以自己指定。通常情况下的白光是RGB三色光的混合)，光照到物体上时，物体的材料会根据自身对光中的<strong>各种成分</strong>的反射参数决定反射哪种光，也就是物体所呈现出的颜色啦。所以并不是什么颜色的光照过来，物体就会呈现出什么颜色的光。</p>
+<p>##设置材料<br>材质的设置与光源的设置类似。其函数为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void glMaterial&#123;<span class="keyword">if</span>&#125;[v](GLenum face,GLenum pname,TYPE param);</span><br></pre></td></tr></table></figure></p>
+<p>face可以是GL_FRONT、GL_BACK、GL_FRONT_AND_BACK，它表明当前材质应该应用到物体的哪一个面上；<br>pname说明一个特定的材质；<br>param是材质的具体数值，若函数为向量形式，则param是一组值的指针，反之为参数值本身。非向量形式仅用于设置GL_SHINESS。pname参数值具体内容见下表。另外，参数GL_AMBIENT_AND_DIFFUSE表示可以用相同的RGB值设置环境光颜色和漫反射光颜色。</p>
+<p><img src="http://image-for-blog.qiniudn.com/屏幕快照 2015-03-13 下午12.15.49.png" alt=""><br>完整代码如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> SetMaterialAndLight</span><br><span class="line">&#123;</span><br><span class="line">   GLfloat mat_specular[] = &#123; <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span> &#125;;</span><br><span class="line">   GLfloat mat_shininess[] = &#123; <span class="number">50.0</span> &#125;;</span><br><span class="line"></span><br><span class="line">   GLfloat light_position[] = &#123; <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">0.0</span> &#125;;  <span class="comment">//最后一个参数为0表示该光源是directional的</span></span><br><span class="line"> <span class="comment">//GLfloat light_position[] = &#123; 1.0, 1.0, 1.0, 1.0 &#125;;  //最后一个参数非0表示该光源是positional的</span></span><br><span class="line"></span><br><span class="line">   GLfloat light_ambient[] = &#123; <span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span> &#125;;</span><br><span class="line">   GLfloat light_diffuse[] = &#123; <span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span> &#125;;</span><br><span class="line">   GLfloat light_specular[] = &#123; <span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span> &#125;;</span><br><span class="line"></span><br><span class="line">   glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);</span><br><span class="line">   glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);</span><br><span class="line"></span><br><span class="line">   glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);</span><br><span class="line">   glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);</span><br><span class="line">   glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);</span><br><span class="line">   glLightfv(GL_LIGHT0, GL_POSITION, light_position);</span><br><span class="line"></span><br><span class="line">   glEnable(GL_LIGHT0);       <span class="comment">//开启GL_LIGHT0光源</span></span><br><span class="line">   glEnable(GL_LIGHTING);     <span class="comment">//开启光照系统</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>###颜色追踪<br>在没有学习光照之前，我们是通过glColor()函数来指定物体颜色的，前面已经说过，这时候我们能看到我们所设置的物体颜色是因为有全局环境光的原因。当开启光照功能后，如果用上述的设置材料属性的方法进行设置，则原来设置的颜色与被光照到后物体呈现的颜色毫无关系，即原来的 glColor*()命令失去原有的作用。<br>但还有一种方法设置材料属性的方法，称为<code>颜色追踪</code>，即用颜色指定代替材料属性指定。使用颜色追踪，可以告诉OpenGL仅仅通过调用glColor来设置材料属性。为了启用颜色追踪，需要以GL_COLOR_MATERIAL为参数调用glEnable。接着，glColorMaterial函数根据glColor所设置的值来指定材料参数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glEnable(GL_COLOR_MATERIAL);</span><br><span class="line">glColorMaterial(GL_FRONT,GL_AMBIENT_AND_DIFFUSE);</span><br></pre></td></tr></table></figure></p>
+<p>如果调用了 glEnable(GL_COLOR_MATERIAL)，那么就会使光照模型中的几种光根据glColor*()中的指定确定颜色；<br>void glColorMaterial(GLenum face, GLenum mode);<br>– face的取值GL_FRONT, GL_BACK与GL_FRONT_AND_BACK(默认值)<br>– mode的取值为GL_EMISSION, GL_AMBIENT, GL_DIFFUSE, GL_SPECULAR与 GL_AMBIENT_AND_DIFFUSE(默认值)<br>例如：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">glEnable(GL_COLOR_MATERIAL); </span><br><span class="line">glColorMaterial(GL_FRONT, GL_DIFFUSE); <span class="comment">/* now glColor* changes diffuse reflection */</span> </span><br><span class="line">glColor3f(<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.8</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* draw some objects here */</span> </span><br><span class="line"></span><br><span class="line">glColorMaterial(GL_FRONT, GL_SPECULAR); <span class="comment">/* now glColor* changes specular reflection */</span></span><br><span class="line">glColor3f(<span class="number">0.9</span>, <span class="number">0.0</span>, <span class="number">0.2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* draw other objects here */</span> </span><br><span class="line">glDisable(GL_COLOR_MATERIAL);</span><br></pre></td></tr></table></figure><br>另外，不需要使用glColorMaterial()时，确保禁用。</p>
+<p>###材质RGB值和光源RGB值的关系<br>材质的颜色与光源的颜色有些不同。对于光源，R、G、B值等于R、G、B对其最大强度的百分比。若光源颜色的R、G、B值都是1.0，则是最强的白光；若值变为0.5，颜色仍为白色，但强度为原来的一半，于是表现为灰色；若R＝G＝1.0，B＝0.0，则光源为黄色。对于材质，R、G、B值为材质对光的R、G、B成分的反射率。比如，一种材质的R＝1.0，G＝0.5，B＝0.0，则材质反射全部的红色成分，一半的绿色成分，不反射蓝色成分。也就是说，若OpenGL的光源颜色为(LR,LG,LB)，材质颜色为(MR,MG,MB)，那么，在忽略所有其他反射效果的情况下，最终到达眼睛的光的颜色为(LR*MR,LG*MG,LB*MB)。同样，如果有两束光，相应的值分别为(R1,G1,B1)和(R2,G2,B2)，则OpenGL将各个颜色成分相加，得到(R1+R2,G1+G2,B1+B2)，若任一成分的和值大于1（超出了设备所能显示的亮度）则约简到1.0。</p>
+<p>#OpenGL 光照模效果的原理</p>
+<blockquote>
+<p>OpenGL的光照模型是用来模拟现实生活中的光照的。它根据<strong>顶点的法线向量</strong>和<strong>光源的位置</strong>决定顶点的<strong>明暗程度</strong>，根据<strong>顶点的材质</strong>和<strong>光源中三原色的成分</strong>来决定物体将表现出怎样的<strong>颜色</strong>。</p>
+</blockquote>
+<p>##使用OpenGL的光照模型的步骤：</p>
+<ol>
+<li>设置光源的种类、位置和方向(对于平行光源)</li>
+<li>为每个图元的每个顶点指定它的法线向量</li>
+<li>为各个图元指定它的材料 </li>
+</ol>
+<p>步骤1和步骤3上面已经说过了，下面解释一下步骤2。<br>众所周知，光线是根据物体表面法向来确定其反射方向的，所以想要对开启光照效果就要对物体表面的每个图元指定法向。如果场景中的物体是多边形网格模型，则需要自己计算每个网格的法向量然后再调用glNormal*()为每个网格指定法线向量。当然，如果你用的是类似glutSolidTorus()或者glutSolidSphere()这种GLUT工具包中的函数则不用自己指定图元的法向量。</p>
+<p>#几个例子<br>我在github上传了几个例子可以方便理解-&gt;<a href="https://github.com/Beatrice7/CPP_RECORD/tree/master/openGL/light" target="_blank" rel="external">我是栗子</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/02/28/opengl_light/" data-id="cihosvets000izq78ypqbbgzu" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/02/28/opengl_light/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenGL/">OpenGL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/03/14/opengl_Coordinates/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          OpenGL坐标系
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/12/27/我大概有病/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">我大概有病</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/02/28/opengl_light/" data-title="OpenGL光照基础知识" data-url="http://yoursite.com/2015/02/28/opengl_light/"></div>
+  </section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 13.33px;">AI</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/OpenGL/" style="font-size: 13.33px;">OpenGL</a> <a href="/tags/Unix/" style="font-size: 10px;">Unix</a> <a href="/tags/VS-Qt/" style="font-size: 10px;">VS Qt</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/mydaily/" style="font-size: 13.33px;">mydaily</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/27/VS-QT/">VS常见errorLNK***:错误解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/01/JavaScript一些基础知识/">JavaScript基础</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/20/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/13/task0001笔记整理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/06/New/">关于C++内存分配的new, operator new, placement new</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://andrewliu.in" target="_blank">永不停息の恐龙哥</a>
+          </li>
+        
+          <li>
+            <a href="http://www.powerxing.com" target="_blank">弹钢琴の给力星</a>
+          </li>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Beatrice<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about.html" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"beatrice7"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"nocss.css"}};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
