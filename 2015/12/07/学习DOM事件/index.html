@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/07/学习DOM事件/index.html">
 <meta property="og:site_name" content="Beatrice7 Fancy">
 <meta property="og:description" content="事件Event">
-<meta property="og:updated_time" content="2015-12-08T09:28:02.000Z">
+<meta property="og:updated_time" content="2015-12-09T03:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习DOM事件(Event)">
 <meta name="twitter:description" content="事件Event">
@@ -205,12 +205,75 @@ btn3.detachEvent(<span class="string">"onclick"</span>, showMessage);
      }
   }
 </code></pre><h2 id="不同的事件类型">不同的事件类型</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events" target="_blank" rel="external">事件类型一览表</a></p>
+<h2 id="事件代理">事件代理</h2><p>考虑这样一个场景，我们需要对一个列表里所有的<li>增加点击事件的监听<br><strong>最笨的方法</strong></li></p>
+<pre><code>&lt;ul id=<span class="string">"list"</span>&gt;
+&lt;<span class="keyword">li</span> id=<span class="string">"item1"</span>&gt;Simon&lt;/<span class="keyword">li</span>&gt;
+&lt;<span class="keyword">li</span> id=<span class="string">"item2"</span>&gt;Kenner&lt;/<span class="keyword">li</span>&gt;
+&lt;<span class="keyword">li</span> id=<span class="string">"item3"</span>&gt;Erik&lt;/<span class="keyword">li</span>&gt;
+&lt;/ul&gt;
+
+function clickListener(event) {
+console.<span class="literal">log</span>(event);
+}
+$.click($(<span class="string">"#item1"</span>), clickListener);
+$.click($(<span class="string">"#item2"</span>), clickListener);
+$.click($(<span class="string">"#item3"</span>), clickListener);
+</code></pre><p>上面这段代码要针对每一个item去绑定事件，这样显然是一件很麻烦的事情。<br><strong>稍微好一些的</strong></p>
+<pre><code><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"list"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>Simon<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>Kenner<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span>Erik<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</code></pre><p>我们试图改造一下</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">clickListener</span>(<span class="params">event</span>) </span>{
+<span class="built_in">console</span>.log(event);
+}
+
+each($(<span class="string">"#list"</span>).getElementsByTagName(<span class="string">'li'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">li</span>) </span>{
+    addClickEvent(li, clickListener);
+});
+</code></pre><p>我们通过自己写的函数，取到id为list这个ul里面的所有li，然后通过遍历给他们绑定事件。这样我们就不需要一个一个去绑定了。但是看看以下代码：</p>
+<pre><code>&lt;ul id=<span class="string">"list"</span>&gt;
+&lt;li id=<span class="string">"item1"</span>&gt;Simon&lt;/li&gt;
+&lt;li id=<span class="string">"item2"</span>&gt;Kenner&lt;/li&gt;
+&lt;li id=<span class="string">"item3"</span>&gt;Erik&lt;/li&gt;
+&lt;/ul&gt;
+&lt;button id=<span class="string">"btn"</span>&gt;Change&lt;/button&gt;
+
+<span class="function"><span class="keyword">function</span> <span class="title">clickListener</span><span class="params">(event)</span> </span>{
+    console.log(event);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">renderList</span><span class="params">()</span> </span>{
+    $(<span class="string">"#list"</span>).innerHTML = <span class="string">'&lt;li&gt;new item&lt;/li&gt;'</span>;
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span> </span>{
+    <span class="keyword">each</span>($(<span class="string">"#list"</span>).getElementsByTagName(<span class="string">'li'</span>), <span class="function"><span class="keyword">function</span><span class="params">(item)</span> </span>{
+        $.click(item, clickListener);
+    });
+
+    $.click($(<span class="string">"#btn"</span>), renderList);
+}
+init();
+</code></pre><p>我们增加了一个按钮，当点击按钮时，改变list里面的项目，这个时候你再点击一下<code>li</code>，绑定事件不再生效了。那是不是我们每次改变了DOM结构或者内容后，都需要重新绑定事件呢？当然不会这么笨，这就要用到<strong>事件代理</strong>，然后实现下面新的方法：</p>
+<pre><code><span class="comment">// 先简单一些</span>
+<span class="function"><span class="keyword">function</span> <span class="title">delegateEvent</span>(<span class="params">element, tag, eventName, listener</span>) </span>{
+<span class="comment">// your implement</span>
+}
+
+$.delegate = delegateEvent;
+
+<span class="comment">// 使用示例</span>
+<span class="comment">// 还是上面那段HTML，实现对list这个ul里面所有li的click事件进行响应</span>
+$.delegate($(<span class="string">"#list"</span>), <span class="string">"li"</span>, <span class="string">"click"</span>, clickHandle);
+</code></pre><p><a href="http://www.cnblogs.com/silence516/archive/2009/09/03/delegateEvent.html" target="_blank" rel="external">JS-事件代理</a></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/12/07/学习DOM事件/" data-id="cihvwdnnk0009jb78t4qp38it" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/12/07/学习DOM事件/" data-id="cihy8aksz0009b778y3pv6kxc" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
