@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Beatrice7 Fancy">
 <meta property="og:description" content="1. javaScript数据类型及语言基础">
 <meta property="og:image" content="http://www.w3school.com.cn/i/ct_js_value.gif">
-<meta property="og:updated_time" content="2015-12-07T09:03:52.000Z">
+<meta property="og:updated_time" content="2015-12-15T14:19:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript基础">
 <meta name="twitter:description" content="1. javaScript数据类型及语言基础">
@@ -97,28 +97,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-_javaScript数据类型及语言基础">1. javaScript数据类型及语言基础</h1><a id="more"></a>
-<h2 id="1-1_判断各种数据类型的方法">1.1 判断各种数据类型的方法</h2><p>数据类型包括五种类原始类型：<strong>String, Number, Boolean, Null, Undefined</strong>和<strong>Object</strong>类型  </p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">object</span>)</span>{
-    <span class="keyword">if</span> (object === <span class="literal">null</span> || object === <span class="literal">undefined</span>) { <span class="comment">// IE8 hack</span>
-        <span class="keyword">return</span> object + <span class="string">''</span>;
-    } <span class="keyword">else</span> {
-        <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(object).slice(<span class="number">8</span>, -<span class="number">1</span>).toLowerCase();
-    }
-}
-
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="number">1</span>));                 <span class="comment">// t==="number"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)));     <span class="comment">// t==="number"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="string">"222"</span>));             <span class="comment">// t==="string"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>))); <span class="comment">// t==="string"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">true</span>));              <span class="comment">// t==="boolean"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">undefined</span>));         <span class="comment">// t==="undefined"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">null</span>));              <span class="comment">// t==="null"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>({}));                <span class="comment">// t==="object"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>([]));                <span class="comment">// t==="array"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Date</span>));          <span class="comment">// t==="date"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="regexp">/\d/</span>));              <span class="comment">// t==="regexp"</span>
-<span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}));      <span class="comment">// t==="function"</span>
-</code></pre><h3 id="Tips">Tips</h3><ol>
+<h2 id="1-1_判断各种数据类型的方法">1.1 判断各种数据类型的方法</h2><p>数据类型包括五种类原始类型：<strong>String, Number, Boolean, Null, Undefined</strong>和<strong>Object</strong>类型 </p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">object</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (object === <span class="literal">null</span> || object === <span class="literal">undefined</span>) &#123; <span class="comment">// IE8 hack</span></span><br><span class="line">		<span class="keyword">return</span> object + <span class="string">''</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(object).slice(<span class="number">8</span>, -<span class="number">1</span>).toLowerCase();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="number">1</span>));                 <span class="comment">// t==="number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)));     <span class="comment">// t==="number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="string">"222"</span>));             <span class="comment">// t==="string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>))); <span class="comment">// t==="string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">true</span>));              <span class="comment">// t==="boolean"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">undefined</span>));         <span class="comment">// t==="undefined"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">null</span>));              <span class="comment">// t==="null"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(&#123;&#125;));                <span class="comment">// t==="object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>([]));                <span class="comment">// t==="array"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Date</span>));          <span class="comment">// t==="date"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="regexp">/\d/</span>));              <span class="comment">// t==="regexp"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;));      <span class="comment">// t==="function"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Tips">Tips</h3><ol>
 <li><strong>typeof</strong>在实际应用中只有两个用途：检测undefined与function</li>
 <li><strong>instanceof</strong>会在有多个frame时出错</li>
 <li><strong>Object.prototype.toString.call</strong>是对象的原型拓展函数，用来更精确的区分数据类型。</li>
@@ -216,7 +197,7 @@
 <td>匹配字符串开头</td>
 </tr>
 <tr>
-<td>$</td>
+<td><code>$</code></td>
 <td>匹配字符串结尾</td>
 </tr>
 <tr>
@@ -235,7 +216,7 @@
 <td>(red\</td>
 <td>blue\</td>
 <td>green)</td>
-<td>查找任何指定的选项</td>
+<td>查找任何指定的选项  </td>
 </tr>
 </tbody>
 </table>
@@ -249,15 +230,15 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>\bhi\b.*\bLucy\b</strong></td>
+<td>\bhi\b.*\bLucy\b</td>
 <td>hi后面不远处跟着个Lucy———先是一个单词 hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。  </td>
 </tr>
 <tr>
-<td><strong>\ba\w*\b</strong></td>
-<td>以字母a开头的单词——先是某个单词开始处(\b)，然后是字 母a,然后是任意数量的字母或数字(\w*)， 最后是单词结束处(\b)。</td>
+<td>\ba\w*\b</td>
+<td>以字母a开头的单词——先是某个单词开始处(\b)，然后是字 母a,然后是任意数量的字母或数字(\w*)， 最后是单词结束处(\b)。  </td>
 </tr>
 <tr>
-<td><strong>^\d{5,12}$</strong></td>
+<td>^\d{5,12}<code>$</code></td>
 <td>要求你填写的数字必须为5位到12位。</td>
 </tr>
 </tbody>
@@ -272,13 +253,13 @@
 </thead>
 <tbody>
 <tr>
-<td>**(0\d{2})[- ]?\d{8}  \</td>
-<td>0\d{2}[- ]?\d{8}**</td>
+<td>(0\d{2})[- ]?\d{8}  \</td>
+<td>0\d{2}[- ]?\d{8}</td>
 <td>匹配3位区号的电话号码，其中区号可以用小括号括起来，也可以不用，区号与本地号间可以用连字号或空格间隔，也可以没有间隔</td>
 </tr>
 <tr>
-<td>**\d{5}-\d{4}  \</td>
-<td>\d{5}**</td>
+<td>\d{5}-\d{4}  \</td>
+<td>\d{5}</td>
 <td>美国邮编的规则是5位数字，或者用连字号间隔的9位数字</td>
 </tr>
 </tbody>
@@ -403,7 +384,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/11/01/JavaScript一些基础知识/" data-id="cihy8akts001bb778ugev9qxp" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/11/01/JavaScript一些基础知识/" data-id="cii5set69001bsp7840h0x2qr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -445,10 +426,7 @@
   </section>
 </section>
         
-      </div>
-      <footer id="footer">
-  
-    <aside id="sidebar" class="outer">
+          <aside id="sidebar">
   
     
   
@@ -538,6 +516,9 @@
 
   
 </aside>
+        
+      </div>
+      <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">

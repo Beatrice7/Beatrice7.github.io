@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2014/12/06/传递数组参数的问题 1206/index.html">
 <meta property="og:site_name" content="Beatrice7 Fancy">
 <meta property="og:description" content="daily c++">
-<meta property="og:updated_time" content="2014-12-23T18:25:25.000Z">
+<meta property="og:updated_time" content="2015-12-15T14:15:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C/C++中传递数组参数的问题">
 <meta name="twitter:description" content="daily c++">
@@ -113,14 +113,13 @@
 <li>如果在函数内部又声明一个int* tmp类型的变量，然后把p赋值给tmp, 通过tmp修改数数组也是一样，都会修改实参本身！  </li>
 </ol>
 <figure class="highlight cpp"><figcaption><span>cpp</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">(<span class="keyword">int</span>[], <span class="keyword">int</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test2</span><span class="params">(<span class="keyword">int</span> *p, <span class="keyword">int</span> size)</span></span>;</span><br><span class="line"><span class="comment">//void test2(const int *p, int size);</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">10</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> size = <span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="comment">/*这里打印出的a值与test1(),test2()中的p值相等,即地址值相同*/</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%p \n"</span>, a);</span><br><span class="line">    <span class="comment">//test1(a, size);</span></span><br><span class="line">    test2(a, size);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"main: "</span>);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; size; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">(<span class="keyword">int</span> p[], <span class="keyword">int</span> size)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%p \n"</span>, p);</span><br><span class="line">    p[<span class="number">4</span>] = <span class="number">111</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"test1: "</span>);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; size; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, p[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test2</span><span class="params">(<span class="keyword">int</span> *p, <span class="keyword">int</span> size)</span></span><br><span class="line"></span>&#123; </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%p \n"</span>, p);</span><br><span class="line">    *(p+<span class="number">4</span>) = <span class="number">222</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"test2: "</span>);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; size; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, *(p+i));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>##总结</p>
-<p>自己这基础知识真是捉急啊！英语也是糟糕透顶！平时多敲敲代码吧！多看看英文版书籍吧！！ 而不是抄代码！！要原创原创！！丫的懂否？！少吃零食多coding才是真理啊！</p>
+<h2 id="总结">总结</h2><p>自己这基础知识真是捉急啊！英语也是糟糕透顶！平时多敲敲代码吧！多看看英文版书籍吧！！ 而不是抄代码！！要原创原创！！丫的懂否？！少吃零食多coding才是真理啊！</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2014/12/06/传递数组参数的问题 1206/" data-id="cihy8akt3000eb778rva0gmqd" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2014/12/06/传递数组参数的问题 1206/" data-id="cii5set5h000esp78fn6m7ygc" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -162,10 +161,7 @@
   </section>
 </section>
         
-      </div>
-      <footer id="footer">
-  
-    <aside id="sidebar" class="outer">
+          <aside id="sidebar">
   
     
   
@@ -255,6 +251,9 @@
 
   
 </aside>
+        
+      </div>
+      <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">

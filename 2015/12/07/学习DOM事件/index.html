@@ -5,16 +5,16 @@
   
   <title>学习DOM事件(Event) | Beatrice7 Fancy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="事件Event">
+  <meta name="description" content="事件是文档或浏览器窗口发生的特定的一些交互瞬间。JS与HTML之间的交互都是通过事件，动作由事件来触发。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习DOM事件(Event)">
 <meta property="og:url" content="http://yoursite.com/2015/12/07/学习DOM事件/index.html">
 <meta property="og:site_name" content="Beatrice7 Fancy">
-<meta property="og:description" content="事件Event">
-<meta property="og:updated_time" content="2015-12-09T03:00:00.000Z">
+<meta property="og:description" content="事件是文档或浏览器窗口发生的特定的一些交互瞬间。JS与HTML之间的交互都是通过事件，动作由事件来触发。">
+<meta property="og:updated_time" content="2015-12-15T14:17:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习DOM事件(Event)">
-<meta name="twitter:description" content="事件Event">
+<meta name="twitter:description" content="事件是文档或浏览器窗口发生的特定的一些交互瞬间。JS与HTML之间的交互都是通过事件，动作由事件来触发。">
   
     <link rel="alternative" href="/atom.xml" title="Beatrice7 Fancy" type="application/atom+xml">
   
@@ -95,8 +95,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="事件Event">事件Event</h1><a id="more"></a>
-<p>事件是文档或浏览器窗口发生的特定的一些交互瞬间。JS与HTML之间的交互都是通过事件，动作由事件来触发。</p>
+        <p>事件是文档或浏览器窗口发生的特定的一些交互瞬间。JS与HTML之间的交互都是通过事件，动作由事件来触发。<br><a id="more"></a></p>
 <h2 id="事件流">事件流</h2><p>事件流描述的是从页面中接受事件的顺序。   </p>
 <ul>
 <li>事件冒泡流(IE)<br>事件最开始由文档中嵌套层次最深的那个元素接受，然后逐级向上传播到文档(document)。比如点了按钮同时，则认为点了按钮所在的容器，还点了body…一直到document。该过程就是冒泡事件流。  </li>
@@ -160,8 +159,7 @@ btn3.detachEvent(<span class="string">"onclick"</span>, showMessage);
 </ol>
 <p><a href="http://www.w3school.com.cn/jsref/dom_obj_event.asp" target="_blank" rel="external">更多关于event对象的内容</a></p>
 <h3 id="跨浏览器的事件处理">跨浏览器的事件处理</h3><pre><code>var eventUtil={
-         // 添加句柄
-         addHandler:<span class="function"><span class="keyword">function</span><span class="params">(element,type,handler)</span></span>{
+         addHandler:<span class="function"><span class="keyword">function</span><span class="params">(element,type,handler)</span></span>{               //  添加句柄
            <span class="keyword">if</span>(element.addEventListener){
              element.addEventListener(<span class="built_in">type</span>,handler,<span class="keyword">false</span>);
            }<span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent){
@@ -170,8 +168,8 @@ btn3.detachEvent(<span class="string">"onclick"</span>, showMessage);
              element[<span class="string">'on'</span>+<span class="built_in">type</span>]=handler;
            }
          },
-         // 删除句柄
-         removeHandler:<span class="function"><span class="keyword">function</span><span class="params">(element,type,handler)</span></span>{
+
+         removeHandler:<span class="function"><span class="keyword">function</span><span class="params">(element,type,handler)</span></span>{               //  删除句柄
            <span class="keyword">if</span>(element.removeEventListener){
              element.removeEventListener(<span class="built_in">type</span>,handler,<span class="keyword">false</span>);
            }<span class="keyword">else</span> <span class="keyword">if</span>(element.detachEvent){
@@ -205,7 +203,7 @@ btn3.detachEvent(<span class="string">"onclick"</span>, showMessage);
      }
   }
 </code></pre><h2 id="不同的事件类型">不同的事件类型</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events" target="_blank" rel="external">事件类型一览表</a></p>
-<h2 id="事件代理">事件代理</h2><p>考虑这样一个场景，我们需要对一个列表里所有的<li>增加点击事件的监听<br><strong>最笨的方法</strong></li></p>
+<h2 id="事件代理">事件代理</h2><p>考虑这样一个场景，我们需要对一个列表里所有的li增加点击事件的监听<br><strong>最笨的方法</strong></p>
 <pre><code>&lt;ul id=<span class="string">"list"</span>&gt;
 &lt;<span class="keyword">li</span> id=<span class="string">"item1"</span>&gt;Simon&lt;/<span class="keyword">li</span>&gt;
 &lt;<span class="keyword">li</span> id=<span class="string">"item2"</span>&gt;Kenner&lt;/<span class="keyword">li</span>&gt;
@@ -273,7 +271,7 @@ $.delegate($(<span class="string">"#list"</span>), <span class="string">"li"</sp
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/12/07/学习DOM事件/" data-id="cihy8aksz0009b778y3pv6kxc" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://yoursite.com/2015/12/07/学习DOM事件/" data-id="cii5set5d0009sp78s8lw406a" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -306,10 +304,7 @@ $.delegate($(<span class="string">"#list"</span>), <span class="string">"li"</sp
   </section>
 </section>
         
-      </div>
-      <footer id="footer">
-  
-    <aside id="sidebar" class="outer">
+          <aside id="sidebar">
   
     
   
@@ -399,6 +394,9 @@ $.delegate($(<span class="string">"#list"</span>), <span class="string">"li"</sp
 
   
 </aside>
+        
+      </div>
+      <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
