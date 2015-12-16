@@ -629,11 +629,6 @@ body {
   background: #f6f6f6;
   padding: 20px;
 }
-@media screen and (max-width: 479px) {
-  .article-header {
-    padding: 0 5px;
-  }
-}
 .article-title {
   padding-left: 5px;
   text-decoration: none;
@@ -666,7 +661,7 @@ a.article-title:hover {
 }
 @media screen and (max-width: 479px) {
   .article-entry {
-    padding: 0 5px;
+    padding: 0 20px;
   }
 }
 .article-entry p,
