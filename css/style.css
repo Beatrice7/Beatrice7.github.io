@@ -301,7 +301,7 @@ body {
 .article-entry h6,
 .widget h6 {
   font-size: 1em;
-  color: #017e66;
+  color: #ad3a37;
 }
 .article-entry hr,
 .widget hr {
@@ -632,7 +632,7 @@ body {
 .article-title {
   padding-left: 5px;
   text-decoration: none;
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: bold;
   color: #333;
   line-height: 1.1em;
@@ -642,6 +642,11 @@ body {
   -ms-transition: color 0.2s;
   transition: color 0.2s;
   border-left: 5px solid #008e59;
+}
+@media screen and (max-width: 479px) {
+  .article-title {
+    font-size: 2em;
+  }
 }
 a.article-title:hover {
   color: #ad3a37;
@@ -1276,7 +1281,7 @@ a.article-title:hover {
 .article-entry .highlight {
   background: #2d2d2d;
   margin: 0;
-  padding: 15px 10px;
+  padding: 15px 20px;
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
