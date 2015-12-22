@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>页面架构 | Beatrice7&#39;s Fancy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="居中布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="页面架构">
+<meta property="og:url" content="http://qiruotong.me/2015/12/22/水平布局/index.html">
+<meta property="og:site_name" content="Beatrice7's Fancy">
+<meta property="og:description" content="居中布局">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/99be9296jw1ez8snqm6epj20m40e8ab2.jpg">
+<meta property="og:updated_time" content="2015-12-22T14:16:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="页面架构">
+<meta name="twitter:description" content="居中布局">
+  
+    <link rel="alternative" href="/atom.xml" title="Beatrice7&#39;s Fancy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Beatrice7&#39;s Fancy</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Consume deliberately</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="qiruotong.me">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-水平布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/22/水平布局/" class="article-date">
+  <time datetime="2015-12-21T16:00:00.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      页面架构
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="居中布局">居中布局</h1><a id="more"></a>
+<h2 id="水平居中">水平居中</h2><pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"parent"</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"child"</span>&gt;DEMO&lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><h3 id="1-inline-block_+_text-align">1.inline-block + text-align</h3><pre><code><span class="class">.parent</span><span class="rules">{
+    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
+}</span>
+<span class="class">.child</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
+}</span>
+</code></pre><p>child的属性中设置<code>inline-block</code>宽度根据内容（IE6,7不支持，zoom:1解决？）<br>parent的属性中设置<code>text-align</code> 对inline元素是起作用的<br>优点: 兼容性好</p>
+<h3 id="2-table_+_margin">2.table + margin</h3><pre><code><span class="class">.child</span>{
+    <span class="attribute">display</span>: table;  <span class="comment">//IE6,7不支持</span>
+    <span class="attribute">margin</span>: <span class="number">0</span> auto;
+}
+</code></pre><p>这里table类似inline-block，宽度由内容决定。另外，HTML中换成<strong>table结构</strong>就可以兼容IE6,7了。</p>
+<h3 id="3-absolute_+_transform">3.absolute + transform</h3><pre><code><span class="class">.parent</span>{
+    <span class="attribute">position</span>: relative;
+}
+<span class="class">.child</span>{
+    <span class="attribute">position</span>: absolute;
+    <span class="attribute">left</span>: <span class="number">50%</span>; <span class="comment">//参照parent</span>
+    <span class="attribute">transform</span>: <span class="function">translateX</span>(-<span class="number">50%</span>); <span class="comment">//参照自身</span>
+}
+</code></pre><p>让parent变为绝对定位元素的参照物，child中absolute元素的宽度也是由内容决定的。left参照物为parent容器，<strong>translate百分比的参照物为自身</strong>,即参照自身宽度的一半左移。<br>优点：由于absolute元素是脱离文档流的，所以不会对其他元素产生影响。<br>缺点：transform 对IE6,7,8无效  </p>
+<h3 id="4-flex_+_justify-content">4.flex + justify-content</h3><pre><code><span class="class">.parent</span>{
+    <span class="attribute">display</span>: flex;
+    <span class="attribute">justify-content</span>: center;
+}
+
+或者
+
+<span class="class">.parent</span>{
+    <span class="attribute">display</span>: flex;
+    <span class="comment">//justify-content: center;</span>
+}
+<span class="class">.child</span>{
+    <span class="attribute">margin</span>: <span class="number">0</span> auto;
+}
+</code></pre><p>parent设置flex，则parent里面的元素就变为<strong>flex items</strong>, 所以child就变为flex item（元素的宽度也是内容决定的）。<br>优点: 只要设置父元素就行。<br>缺点: flex IE6,7,8不支持  </p>
+<h2 id="垂直居中">垂直居中</h2><p>子容器、父容器的高度都不固定。</p>
+<h3 id="1-table-cell_+_vertical-align">1.table-cell + vertical-align</h3><pre><code><span class="class">.child</span><span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100%</span></span></span>;}</span>
+
+<span class="class">.parent</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> table-cell</span></span>;
+    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;
+}</span>
+</code></pre><p>display:table-cell元素会作为一个表格单元格显示（类似 \<td\> 和 \<th\>）。目前IE8+以及其他现代浏览器都是支持此属性的，但是IE6/7只能对你说sorry了。vertical-align可以作用于inline、inline-block以及table-cell元素上面。<br>优点：兼容性好，IE8+。换成table结构则可以兼容IE6,7</th\></td\></p>
+<h3 id="2-absolute_+_transform">2.absolute + transform</h3><pre><code><span class="class">.parent</span><span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
+}</span>
+<span class="class">.child</span><span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">50%</span></span></span>;
+    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translateY</span>(-<span class="number">50%</span>)</span></span>;
+}</span>
+</code></pre><p>子元素不会干扰其他元素，缺点是兼容性。</p>
+<h3 id="3-_flex_+_align-items">3. flex + align-items</h3><pre><code><span class="class">.parent</span>{
+    <span class="attribute">display</span>: flex; <span class="comment">//child会撑满整个容器</span>
+    <span class="attribute">align-items</span>: center;
+}
+</code></pre><p>不设置align-items:center时，默认stretch，child会撑满整个容器??。缺点仍然是兼容性。</p>
+<h2 id="水平垂直居中">水平垂直居中</h2><p>子容器、父容器的宽度高度都不固定。</p>
+<h3 id="inline-block_+_text-align_+_table-cell_+_vertical-align">inline-block + text-align + table-cell + vertical-align</h3><pre><code><span class="class">.parent</span>{
+    <span class="attribute">text-align</span>: center;
+    <span class="comment">//垂直</span>
+    <span class="attribute">display</span>: table-cell;
+    <span class="attribute">vertical-align</span>: middle;
+}
+<span class="class">.child</span>{
+    <span class="attribute">display</span>: inline-block;
+}
+</code></pre><p>优点：兼容性好</p>
+<h3 id="2-absolute_+_transform-1">2.absolute + transform</h3><pre><code><span class="class">.parent</span><span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
+}</span>
+<span class="class">.child</span><span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">50%</span></span></span>;
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">50%</span></span></span>;
+    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>)</span></span>;
+}</span>
+</code></pre><p>优点：脱离文档流。缺点：兼容性。</p>
+<h3 id="3-flex_+_justify-content_+_align-items">3.flex + justify-content + align-items</h3><pre><code><span class="class">.parent</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> flex</span></span>;
+    <span class="rule"><span class="attribute">justify-content</span>:<span class="value"> center</span></span>;
+    <span class="rule"><span class="attribute">align-items</span>:<span class="value"> center</span></span>;
+}</span>
+</code></pre><p>优点：只设置parent即可。缺点：兼容性。</p>
+<h6 id="解决方案：对属性和值的特性的掌握，拆分问题，联系。">解决方案：对属性和值的特性的掌握，拆分问题，联系。</h6><h2 id="水平列表的底部对齐">水平列表的底部对齐</h2><p>一个水平排列的列表，每项高度未知，但要求底部对齐。有哪些解决方案呢？</p>
+<pre><code><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span>水平居底对齐布局<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"demo.css"</span> <span class="attribute">media</span>=<span class="value">"screen"</span> <span class="attribute">title</span>=<span class="value">"no title"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">media</span>=<span class="value">"screen"</span>&gt;</span><span class="css">
+        <span class="class">.layoutClass</span><span class="rules">{
+        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">800px</span></span></span>;
+        <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">200px</span></span></span>;
+        <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>;
+        <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">0</span></span></span>;  <span class="comment">/*去掉inline-block之间的空隙*/</span>
+      }</span>
+      <span class="class">.layoutClass</span>&gt;<span class="tag">div</span><span class="rules">{
+        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50px</span></span></span>;
+      }</span>
+
+
+      <span class="comment">/*第一种实现方式：flex*/</span>
+      <span class="id">#layout1</span> <span class="rules">{
+          <span class="rule"><span class="attribute">display</span>:<span class="value"> flex</span></span>;
+          <span class="rule"><span class="attribute">align-items</span>:<span class="value"> flex-end</span></span>;
+      }</span>
+
+      <span class="comment">/*第二种实现方式 :table-cell + verticla-align*/</span>
+      <span class="id">#layout2</span><span class="rules">{
+          <span class="rule"><span class="attribute">display</span>:<span class="value">table-cell</span></span>;
+        <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> bottom</span></span>;
+        <span class="comment">/*vertical-align: baseline; 错的*/</span>
+      }</span>
+      <span class="id">#layout2</span>&gt;<span class="tag">div</span><span class="rules">{
+        <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
+      }</span>
+
+      <span class="comment">/*第三种实现方式 transform*/</span>
+      <span class="id">#layout3</span><span class="rules">{
+          <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX</span>(<span class="number">180deg</span>)</span></span>;
+      }</span>
+      <span class="id">#layout3</span>&gt;<span class="tag">div</span><span class="rules">{
+          <span class="comment">/*此时会向顶端对齐，然后我再把整个容器绕X轴旋转180度就行了*/</span>
+        <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>; 
+      }</span>
+
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"layout1"</span> <span class="attribute">class</span>=<span class="value">"layoutClass"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:20px;background-color:rgb(222, 13, 54)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:80px;background-color:rgb(13, 222, 209)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:60px;background-color:rgb(205, 222, 13)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:100px;background-color:rgb(13, 21, 222)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:40px;background-color:rgb(246, 33, 193)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"layout2"</span> <span class="attribute">class</span>=<span class="value">"layoutClass"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:20px;background-color:rgb(222, 13, 54)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:80px;background-color:rgb(13, 222, 209)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:60px;background-color:rgb(205, 222, 13)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:100px;background-color:rgb(13, 21, 222)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:40px;background-color:rgb(246, 33, 193)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"layout3"</span> <span class="attribute">class</span>=<span class="value">"layoutClass"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:20px;background-color:rgb(222, 13, 54)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:80px;background-color:rgb(13, 222, 209)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:60px;background-color:rgb(205, 222, 13)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:100px;background-color:rgb(13, 21, 222)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:40px;background-color:rgb(246, 33, 193)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><p>第一种实现方式: flex<br>第二种实现方式: table-cell + verticla-align<br>第三种实现方式: transform  </p>
+<p>关于<strong>flex布局</strong>的各种用法参考了阮一峰的这篇<a href="!http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool">Flex 布局教程：语法篇</a>以及<a href="!http://www.ruanyifeng.com/blog/2015/07/flex-examples.html">Flex 布局教程：实例篇</a></p>
+<h1 id="多列布局">多列布局</h1><h2 id="定宽+自适应">定宽+自适应</h2><pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>left<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right-fix"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right"</span>&gt;</span>
+        <span class="comment">&lt;!-- &lt;p style="clear:both"&gt;right&lt;/p&gt; --&gt;</span>有清除浮动的时候高度会掉下来。
+        <span class="tag">&lt;<span class="title">p</span>&gt;</span>right<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>right<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><h3 id="1-float_+_margin">1.float + margin</h3><p>兼容性,IE6有3像素的bug, 文字向右3px。有清除浮动的时候高度会掉下来。</p>
+<h3 id="2-float_+_margin_+_(fix)">2.float + margin + (fix)</h3><pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>left<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right-fix"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"clear:both"</span>&gt;</span>right<span class="tag">&lt;/<span class="title">p</span>&gt;</span>  
+            <span class="tag">&lt;<span class="title">p</span>&gt;</span>right<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+.left{
+    float: left; width: 100px;
+    position: relative; //提高层级，以防被right-fix盖住
+}
+.right-fix{
+    float: right; width: 100%;
+    margin-left: -100px;
+}
+.right{
+    margin-left: 120px;
+}
+</code></pre><p>兼容性极好，有清除浮动也没关系了。</p>
+<h3 id="3-float_+_overflow">3.float + overflow</h3><pre><code><span class="class">.left</span><span class="rules">{
+    <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
+    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">20px</span></span></span>;
+}</span>
+<span class="class">.right</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
+}</span>
+</code></pre><p>overflow:hidden会触发BFC模式（块级格式化文本），容器里的内容与外界隔离，所以文本不会环绕left。IE7+。</p>
+<h3 id="4-table">4.table</h3><pre><code><span class="class">.parent</span>{
+    <span class="attribute">display</span>: table; <span class="attribute">width</span>: <span class="number">100%</span>;
+    <span class="attribute">table-layout</span>: fixed;  <span class="comment">//布局优先（相对的有内容优先）</span>
+}
+<span class="class">.left</span>,<span class="class">.right</span>{
+    <span class="attribute">display</span>: table-cell;
+}
+<span class="class">.left</span>{
+    <span class="attribute">width</span>: <span class="number">100px</span>;
+    <span class="attribute">padding-right</span>: <span class="number">20px</span>;
+}
+</code></pre><p>table的默认宽度是跟着内容走的，所以设置100%，让它撑满父元素。在本布局中，与内容的宽度无关所以设置了table-layout，可以加速table的渲染，实现了布局优先。不能设置margin，我们设置padding。</p>
+<h3 id="5-flex">5.flex</h3><pre><code><span class="class">.parent</span>{
+    <span class="attribute">display</span>: flex;
+}
+<span class="class">.left</span>{
+    <span class="attribute">width</span>: <span class="number">100px</span>;
+    <span class="attribute">margin-right</span>: <span class="number">20px</span>;
+}
+<span class="class">.right</span>{
+    <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">//剩余宽度都分给right了</span>
+}
+</code></pre><p>缺点仍然是兼容性问题。通常用flex做小范围的布局，复杂的不适用。</p>
+<h2 id="不定宽+自适应">不定宽+自适应</h2><h3 id="1-float_+_overflow">1.float + overflow</h3><pre><code><span class="class">.left</span>{
+    <span class="attribute">float</span>: left;
+    <span class="attribute">margin-right</span>: <span class="number">20px</span>;
+}
+<span class="class">.right</span>{
+    <span class="attribute">overflow</span>: hidden;
+}
+<span class="class">.left</span> <span class="tag">p</span>{<span class="attribute">width</span>: <span class="number">200px</span>;}  <span class="comment">//让内容p随便设置宽度</span>
+</code></pre><h3 id="2-table">2.table</h3><pre><code><span class="class">.parent</span>{
+    <span class="attribute">display</span>: table; <span class="attribute">width</span>: <span class="number">100%</span>;
+    <span class="comment">//去掉table-layout：fixed， 为了优先考虑内容</span>
+}
+<span class="class">.left</span>,<span class="class">.right</span>{
+    <span class="attribute">display</span>: table-cell;
+}
+<span class="class">.left</span>{
+    <span class="attribute">width</span>: <span class="number">0.1%</span>;  <span class="comment">//足够小就行，兼容性的考虑所以不写1px</span>
+    <span class="attribute">padding-right</span>: <span class="number">20px</span>;
+}
+<span class="class">.left</span> <span class="tag">p</span>{
+    <span class="attribute">width</span>:<span class="number">200px</span>;
+}
+</code></pre><h3 id="3-flex">3.flex</h3><h3 id="不定宽+不定宽+自适应">不定宽+不定宽+自适应</h3><pre><code>.left,.center{
+    float: left;
+    margin-right: 20px;
+}
+.right{
+    overflow: hidden;
+}
+.left p,.center p{
+    width: 100px;
+}
+<span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">p</span>&gt;</span>left<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"center"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">p</span>&gt;</span>center<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">p</span>&gt;</span>right<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">p</span>&gt;</span>right<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><h2 id="等分布局">等分布局</h2><pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"column"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>1<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"column"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>2<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"column"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>3<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"column"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>4<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><h3 id="1-float">1.float</h3><p>适用于IE8以上<br><img src="http://ww4.sinaimg.cn/mw690/99be9296jw1ez8snqm6epj20m40e8ab2.jpg" alt=""></p>
+<pre><code><span class="class">.parent</span><span class="rules">{
+    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> -<span class="number">20px</span></span></span>; 
+}</span>
+<span class="class">.column</span><span class="rules">{
+    <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">25%</span></span></span>;
+    <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">20px</span></span></span>;
+    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> border-box</span></span>;
+}</span>
+</code></pre><p>box-sizing:border-box; 使得border和padding计算入width之内。<br>margin-left:-20px; 则parent的总宽度会增加20px,相当于把一个块的padding-left那20px, 给让出到框框外面去了。<br>缺点：比如我想改成三等分，那就要去更改CSS样式，所以结构和样式有耦合。</p>
+<h3 id="2-table-1">2.table</h3><pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent-fix"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"column"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>1<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"column"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>2<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"column"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>3<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"column"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>4<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+.parent-fix{
+    margin-left: -20px;
+}
+.parent{
+    display: table;
+    width:100%;
+    table-layout: fixed;
+}
+.column{
+    display: table-cell;
+    padding-left: 20px;
+}
+</code></pre><p>间距在table中无法用margin，因为单元格是不能设置margin的，所以也只能用padding。table的宽度跟着内容走，所以设置100%，要增加20px, 则再套一层。<br>table-layout:fixed;默认单元格平分。  </p>
+<h3 id="3-flex-1">3.flex</h3><pre><code><span class="class">.parent</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> flex</span></span>;
+}</span>
+<span class="class">.column</span><span class="rules">{
+    <span class="rule"><span class="attribute">flex</span>:<span class="value"> <span class="number">1</span></span></span>;
+}</span>
+<span class="class">.column</span>+<span class="class">.column</span><span class="rules">{
+    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">20px</span></span></span>;
+}</span>
+</code></pre><p>通过<code>prev + next</code>选择器就可以查找与“prev”元素紧邻的下一个“next”元素, 这里的.column+.column 则给2，3，4列加上margin-left, 之后的剩余空间再四等分，所以不会超出去，这就是flex的优势啊！</p>
+<h2 id="等高布局">等高布局</h2><p>两列布局，高度总是跟最高的那一列同步。</p>
+<h3 id="1-table">1.table</h3><p>每列单元格等宽，每行等高。天生的等高！<br>背景颜色只在container-box中？？？ </p>
+<h3 id="2-flex">2.flex</h3><p>天生的等高！因为默认align-items:stretch.拉伸的~</p>
+<h3 id="3-float">3.float</h3><pre><code><span class="class">.parent</span>{
+    <span class="attribute">overflow</span>: hidden;
+}
+<span class="class">.left</span>, <span class="class">.right</span>{
+    <span class="attribute">padding-bottom</span>: <span class="number">9999px</span>;  <span class="comment">//padding-box是可以显示背景颜色的</span>
+    <span class="attribute">margin-bottom</span>: -<span class="number">9999px</span>;  <span class="comment">//截掉.截到两列中最高的那个高度</span>
+}
+<span class="class">.left</span>{
+    <span class="attribute">float</span>: left; <span class="attribute">width</span>: <span class="number">100px</span>;
+    <span class="attribute">margin-right</span>: <span class="number">20px</span>;
+}
+<span class="class">.right</span>{
+    <span class="attribute">overflow</span>: hidden;
+}
+</code></pre><h6 id="伪等高，But兼容性好。">伪等高，But兼容性好。</h6>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://qiruotong.me/2015/12/22/水平布局/" data-id="ciihgtf3s0006rd78f8yvbs4h" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://qiruotong.me/2015/12/22/水平布局/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/07/学习DOM事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">学习DOM事件(Event)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/12/22/水平布局/" data-title="页面架构" data-url="http://qiruotong.me/2015/12/22/水平布局/"></div>
+  </section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 15px;">AI</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/OpenGL/" style="font-size: 15px;">OpenGL</a> <a href="/tags/Unix/" style="font-size: 10px;">Unix</a> <a href="/tags/VS-Qt/" style="font-size: 10px;">VS Qt</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/mydaily/" style="font-size: 15px;">mydaily</a> <a href="/tags/web/" style="font-size: 15px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/22/水平布局/">页面架构</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/07/学习DOM事件/">学习DOM事件(Event)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/01/hexo-deploy/">Hexo出现Error deployer not found:github 的错误</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/27/VS-QT/">VS常见errorLNK***:错误解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/01/task0001笔记整理/">task0001笔记整理</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://andrewliu.in" target="_blank">永不停息の恐龙哥</a>
+          </li>
+        
+          <li>
+            <a href="http://www.powerxing.com" target="_blank">弹钢琴の给力星</a>
+          </li>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Beatrice<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about.html" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"beatrice7"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"nocss.css"}};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
