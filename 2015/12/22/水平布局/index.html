@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>页面架构 | Beatrice7&#39;s Fancy</title>
+  <title>页面架构:布局解决方案(1) | Beatrice7&#39;s Fancy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="居中布局">
 <meta property="og:type" content="article">
-<meta property="og:title" content="页面架构">
+<meta property="og:title" content="页面架构:布局解决方案(1)">
 <meta property="og:url" content="http://qiruotong.me/2015/12/22/水平布局/index.html">
 <meta property="og:site_name" content="Beatrice7's Fancy">
 <meta property="og:description" content="居中布局">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/99be9296jw1ez8snqm6epj20m40e8ab2.jpg">
-<meta property="og:updated_time" content="2015-12-22T14:16:46.000Z">
+<meta property="og:updated_time" content="2015-12-25T13:59:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="页面架构">
+<meta name="twitter:title" content="页面架构:布局解决方案(1)">
 <meta name="twitter:description" content="居中布局">
   
     <link rel="alternative" href="/atom.xml" title="Beatrice7&#39;s Fancy" type="application/atom+xml">
@@ -88,7 +88,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      页面架构
+      页面架构:布局解决方案(1)
     </h1>
   
 
@@ -143,7 +143,7 @@
     <span class="rule"><span class="attribute">display</span>:<span class="value"> table-cell</span></span>;
     <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;
 }</span>
-</code></pre><p>display:table-cell元素会作为一个表格单元格显示（类似 \<td\> 和 \<th\>）。目前IE8+以及其他现代浏览器都是支持此属性的，但是IE6/7只能对你说sorry了。vertical-align可以作用于inline、inline-block以及table-cell元素上面。<br>优点：兼容性好，IE8+。换成table结构则可以兼容IE6,7</th\></td\></p>
+</code></pre><p>display:table-cell元素会作为一个表格单元格显示（类似 <code>&lt;td&gt;</code> 和 <code>&lt;th&gt;</code>）。对比而言，display:table    会作为块级表格来显示（类似 <code>&lt;table&gt;</code>），表格前后带有换行符目前IE8+以及其他现代浏览器都是支持此属性的，但是IE6/7只能对你说sorry了。vertical-align可以作用于inline、inline-block以及table-cell元素上面。<br>优点：兼容性好，IE8+。换成table结构则可以兼容IE6,7</p>
 <h3 id="2-absolute_+_transform">2.absolute + transform</h3><pre><code><span class="class">.parent</span><span class="rules">{
     <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
 }</span>
@@ -185,78 +185,8 @@
     <span class="rule"><span class="attribute">align-items</span>:<span class="value"> center</span></span>;
 }</span>
 </code></pre><p>优点：只设置parent即可。缺点：兼容性。</p>
-<h6 id="解决方案：对属性和值的特性的掌握，拆分问题，联系。">解决方案：对属性和值的特性的掌握，拆分问题，联系。</h6><h2 id="水平列表的底部对齐">水平列表的底部对齐</h2><p>一个水平排列的列表，每项高度未知，但要求底部对齐。有哪些解决方案呢？</p>
-<pre><code><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span>水平居底对齐布局<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"demo.css"</span> <span class="attribute">media</span>=<span class="value">"screen"</span> <span class="attribute">title</span>=<span class="value">"no title"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">media</span>=<span class="value">"screen"</span>&gt;</span><span class="css">
-        <span class="class">.layoutClass</span><span class="rules">{
-        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">800px</span></span></span>;
-        <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">200px</span></span></span>;
-        <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>;
-        <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">0</span></span></span>;  <span class="comment">/*去掉inline-block之间的空隙*/</span>
-      }</span>
-      <span class="class">.layoutClass</span>&gt;<span class="tag">div</span><span class="rules">{
-        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">50px</span></span></span>;
-      }</span>
-
-
-      <span class="comment">/*第一种实现方式：flex*/</span>
-      <span class="id">#layout1</span> <span class="rules">{
-          <span class="rule"><span class="attribute">display</span>:<span class="value"> flex</span></span>;
-          <span class="rule"><span class="attribute">align-items</span>:<span class="value"> flex-end</span></span>;
-      }</span>
-
-      <span class="comment">/*第二种实现方式 :table-cell + verticla-align*/</span>
-      <span class="id">#layout2</span><span class="rules">{
-          <span class="rule"><span class="attribute">display</span>:<span class="value">table-cell</span></span>;
-        <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> bottom</span></span>;
-        <span class="comment">/*vertical-align: baseline; 错的*/</span>
-      }</span>
-      <span class="id">#layout2</span>&gt;<span class="tag">div</span><span class="rules">{
-        <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
-      }</span>
-
-      <span class="comment">/*第三种实现方式 transform*/</span>
-      <span class="id">#layout3</span><span class="rules">{
-          <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX</span>(<span class="number">180deg</span>)</span></span>;
-      }</span>
-      <span class="id">#layout3</span>&gt;<span class="tag">div</span><span class="rules">{
-          <span class="comment">/*此时会向顶端对齐，然后我再把整个容器绕X轴旋转180度就行了*/</span>
-        <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>; 
-      }</span>
-
-    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"layout1"</span> <span class="attribute">class</span>=<span class="value">"layoutClass"</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:20px;background-color:rgb(222, 13, 54)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:80px;background-color:rgb(13, 222, 209)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:60px;background-color:rgb(205, 222, 13)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:100px;background-color:rgb(13, 21, 222)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:40px;background-color:rgb(246, 33, 193)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"layout2"</span> <span class="attribute">class</span>=<span class="value">"layoutClass"</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:20px;background-color:rgb(222, 13, 54)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:80px;background-color:rgb(13, 222, 209)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:60px;background-color:rgb(205, 222, 13)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:100px;background-color:rgb(13, 21, 222)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:40px;background-color:rgb(246, 33, 193)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"layout3"</span> <span class="attribute">class</span>=<span class="value">"layoutClass"</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:20px;background-color:rgb(222, 13, 54)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:80px;background-color:rgb(13, 222, 209)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:60px;background-color:rgb(205, 222, 13)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:100px;background-color:rgb(13, 21, 222)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"height:40px;background-color:rgb(246, 33, 193)"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
-</code></pre><p>第一种实现方式: flex<br>第二种实现方式: table-cell + verticla-align<br>第三种实现方式: transform  </p>
-<p>关于<strong>flex布局</strong>的各种用法参考了阮一峰的这篇<a href="!http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool">Flex 布局教程：语法篇</a>以及<a href="!http://www.ruanyifeng.com/blog/2015/07/flex-examples.html">Flex 布局教程：实例篇</a></p>
+<h6 id="解决方案：对属性和值的特性的掌握，拆分问题，联系。">解决方案：对属性和值的特性的掌握，拆分问题，联系。</h6><h2 id="水平列表的底部对齐">水平列表的底部对齐</h2><p>一个水平排列的列表，每项高度未知，但要求底部对齐。有哪些解决方案呢？<br>方案一：flex<br>方案二：table-cell + vertical-align<br>方案三：transform<br><a href="http://jsbin.com/cifika/1/edit?html,css,output" target="_blank" rel="external">在线demo看这里</a><br>关于<strong>flex布局</strong>的各种用法参考了阮一峰的这篇<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">Flex布局教程:语法篇</a>以及<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">Flex布局教程:实例篇</a></p>
+<h2 id="幻灯片布局">幻灯片布局</h2><p>思路:postion:absolute + translate<br><a href="http://jsbin.com/hahowo/edit?html,css,output" target="_blank" rel="external">在线demo看这里</a></p>
 <h1 id="多列布局">多列布局</h1><h2 id="定宽+自适应">定宽+自适应</h2><pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span>
 <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>left<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right-fix"</span>&gt;</span>
@@ -276,17 +206,17 @@
         <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
     <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-
-.left{
-    float: left; width: 100px;
-    position: relative; //提高层级，以防被right-fix盖住
+</code></pre><p>.</p>
+<pre><code><span class="class">.left</span>{
+    <span class="attribute">float</span>: left; <span class="attribute">width</span>: <span class="number">100px</span>;
+    <span class="attribute">position</span>: relative; <span class="comment">//提高层级，以防被right-fix盖住</span>
 }
-.right-fix{
-    float: right; width: 100%;
-    margin-left: -100px;
+<span class="class">.right-fix</span>{
+    <span class="attribute">float</span>: right; <span class="attribute">width</span>: <span class="number">100%</span>;
+    <span class="attribute">margin-left</span>: -<span class="number">100px</span>;
 }
-.right{
-    margin-left: 120px;
+<span class="class">.right</span>{
+    <span class="attribute">margin-left</span>: <span class="number">120px</span>;
 }
 </code></pre><p>兼容性极好，有清除浮动也没关系了。</p>
 <h3 id="3-float_+_overflow">3.float + overflow</h3><pre><code><span class="class">.left</span><span class="rules">{
@@ -343,19 +273,19 @@
 <span class="class">.left</span> <span class="tag">p</span>{
     <span class="attribute">width</span>:<span class="number">200px</span>;
 }
-</code></pre><h3 id="3-flex">3.flex</h3><h3 id="不定宽+不定宽+自适应">不定宽+不定宽+自适应</h3><pre><code>.left,.center{
-    float: left;
-    margin-right: 20px;
+</code></pre><h3 id="3-flex">3.flex</h3><h3 id="不定宽+不定宽+自适应">不定宽+不定宽+自适应</h3><pre><code>.<span class="keyword">left</span>,.center{
+    float: <span class="keyword">left</span>;
+    margin-<span class="keyword">right</span>: 20px;
 }
-.right{
+.<span class="keyword">right</span>{
     overflow: hidden;
 }
-.left p,.center p{
+.<span class="keyword">left</span> p,.center p{
     width: 100px;
 }
-<span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span>
+&lt;/style&gt;
+</code></pre><p>.</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span>
         <span class="tag">&lt;<span class="title">p</span>&gt;</span>left<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
     <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
@@ -392,19 +322,19 @@
         <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"column"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>4<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
     <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-
-.parent-fix{
-    margin-left: -20px;
-}
-.parent{
-    display: table;
-    width:100%;
-    table-layout: fixed;
-}
-.column{
-    display: table-cell;
-    padding-left: 20px;
-}
+</code></pre><p>.</p>
+<pre><code><span class="class">.parent-fix</span><span class="rules">{
+    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> -<span class="number">20px</span></span></span>;
+}</span>
+<span class="class">.parent</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> table</span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100%</span></span></span>;
+    <span class="rule"><span class="attribute">table-layout</span>:<span class="value"> fixed</span></span>;
+}</span>
+<span class="class">.column</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> table-cell</span></span>;
+    <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">20px</span></span></span>;
+}</span>
 </code></pre><p>间距在table中无法用margin，因为单元格是不能设置margin的，所以也只能用padding。table的宽度跟着内容走，所以设置100%，要增加20px, 则再套一层。<br>table-layout:fixed;默认单元格平分。  </p>
 <h3 id="3-flex-1">3.flex</h3><pre><code><span class="class">.parent</span><span class="rules">{
     <span class="rule"><span class="attribute">display</span>:<span class="value"> flex</span></span>;
@@ -415,7 +345,7 @@
 <span class="class">.column</span>+<span class="class">.column</span><span class="rules">{
     <span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">20px</span></span></span>;
 }</span>
-</code></pre><p>通过<code>prev + next</code>选择器就可以查找与“prev”元素紧邻的下一个“next”元素, 这里的.column+.column 则给2，3，4列加上margin-left, 之后的剩余空间再四等分，所以不会超出去，这就是flex的优势啊！</p>
+</code></pre><p>通过<code>prev + next</code>选择器就可以查找与“prev”元素紧邻的下一个“next”元素, 这里的.column+.column 则给2，3，4列加上margin-left, 之后的剩余空间再四等分，所以不会超出去，这就是flex的优势啊！<br>附上个<a href="http://www.w3school.com.cn/cssref/css_selectors.asp" target="_blank" rel="external">CSS选择器列表</a></p>
 <h2 id="等高布局">等高布局</h2><p>两列布局，高度总是跟最高的那一列同步。</p>
 <h3 id="1-table">1.table</h3><p>每列单元格等宽，每行等高。天生的等高！<br>背景颜色只在container-box中？？？ </p>
 <h3 id="2-flex">2.flex</h3><p>天生的等高！因为默认align-items:stretch.拉伸的~</p>
@@ -433,12 +363,13 @@
 <span class="class">.right</span>{
     <span class="attribute">overflow</span>: hidden;
 }
-</code></pre><h6 id="伪等高，But兼容性好。">伪等高，But兼容性好。</h6>
+</code></pre><h6 id="伪等高，But兼容性好。">伪等高，But兼容性好。</h6><h2 id="全等四宫格">全等四宫格</h2><p>一个未知宽高的容器，要被均分为四个相同大小格子（即四个容器），且格子间有10px间距（即十字型空隙），有哪些方法可以解决呢？<br><a href="http://jsbin.com/tatufa/edit?html,css,output" target="_blank" rel="external">demo看这里</a></p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://qiruotong.me/2015/12/22/水平布局/" data-id="ciihhabnq00064w780sx89vwr" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://qiruotong.me/2015/12/22/水平布局/" data-id="ciilqto5a0006py78fhsh5xqr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -467,7 +398,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/12/22/水平布局/" data-title="页面架构" data-url="http://qiruotong.me/2015/12/22/水平布局/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/12/22/水平布局/" data-title="页面架构:布局解决方案(1)" data-url="http://qiruotong.me/2015/12/22/水平布局/"></div>
   </section>
 </section>
         
@@ -509,7 +440,7 @@
       <ul>
         
           <li>
-            <a href="/2015/12/22/水平布局/">页面架构</a>
+            <a href="/2015/12/22/水平布局/">页面架构:布局解决方案(1)</a>
           </li>
         
           <li>
