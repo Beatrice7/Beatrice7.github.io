@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>页面架构:布局解决方案(1) | Beatrice7&#39;s Fancy</title>
+  <title>页面架构:布局解决方案 | Beatrice7&#39;s Fancy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="居中布局">
 <meta property="og:type" content="article">
-<meta property="og:title" content="页面架构:布局解决方案(1)">
+<meta property="og:title" content="页面架构:布局解决方案">
 <meta property="og:url" content="http://qiruotong.me/2015/12/22/水平布局/index.html">
 <meta property="og:site_name" content="Beatrice7's Fancy">
 <meta property="og:description" content="居中布局">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/99be9296jw1ez8snqm6epj20m40e8ab2.jpg">
-<meta property="og:updated_time" content="2015-12-25T13:59:53.000Z">
+<meta property="og:updated_time" content="2015-12-26T12:13:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="页面架构:布局解决方案(1)">
+<meta name="twitter:title" content="页面架构:布局解决方案">
 <meta name="twitter:description" content="居中布局">
   
     <link rel="alternative" href="/atom.xml" title="Beatrice7&#39;s Fancy" type="application/atom+xml">
@@ -88,7 +88,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      页面架构:布局解决方案(1)
+      页面架构:布局解决方案
     </h1>
   
 
@@ -363,13 +363,34 @@
 <span class="class">.right</span>{
     <span class="attribute">overflow</span>: hidden;
 }
-</code></pre><h6 id="伪等高，But兼容性好。">伪等高，But兼容性好。</h6><h2 id="全等四宫格">全等四宫格</h2><p>一个未知宽高的容器，要被均分为四个相同大小格子（即四个容器），且格子间有10px间距（即十字型空隙），有哪些方法可以解决呢？<br><a href="http://jsbin.com/tatufa/edit?html,css,output" target="_blank" rel="external">demo看这里</a></p>
+</code></pre><h6 id="伪等高，But兼容性好。">伪等高，But兼容性好。</h6><h2 id="全等四宫格">全等四宫格</h2><p>一个未知宽高的容器，要被均分为四个相同大小格子（即四个容器），且格子间有10px间距（即十字型空隙），有哪些方法可以解决呢？<br>主要用到flex布局。<a href="http://jsbin.com/tatufa/edit?html,css,output" target="_blank" rel="external">demo看这里</a></p>
+<h2 id="圣杯布局&amp;双飞翼布局">圣杯布局&amp;双飞翼布局</h2><p>这两种布局解决的问题是一样的，都是两边定宽，中间自适应的三栏布局，并且<strong>中间栏要放在文档流前面以优先渲染</strong>。  </p>
+<p>这里主要还要是要了解<strong>margin负边距</strong>。具体内容参考这篇<a href="http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html#2457812" target="_blank" rel="external">CSS布局奇淫巧计之-强大的负边距</a>吧，讲的贼好！<br>还有这篇<a href="http://www.imooc.com/wenda/detail/254035" target="_blank" rel="external">双飞翼布局介绍-始于淘宝UED</a><br><a href="http://jsbin.com/pijoxu/edit?html,css,output" target="_blank" rel="external">我的demo</a><br>这两种布局的异同参考<a href="http://www.zhihu.com/question/21504052" target="_blank" rel="external">知乎的一个链接</a>  </p>
+<h1 id="全屏布局">全屏布局</h1><p>撑满浏览器窗口，滚动条只出现在内容区域。    </p>
+<p>##实现方案  </p>
+<ul>
+<li>Position <a href="http://jsbin.com/wipafi/edit?html,css,output" target="_blank" rel="external">我的demo</a>  </li>
+<li>Flex 使用于IE9+ <a href="http://jsbin.com/muzuco/edit?html,css,output" target="_blank" rel="external">我的demo</a>  </li>
+<li>Grid w3c的草案</li>
+</ul>
+<h2 id="实现一个弹窗">实现一个弹窗</h2><p>实际上就是一个左右上下都居中的布局。<br>方案：  </p>
+<ol>
+<li>flex  </li>
+<li>position:absolute+translate  </li>
+<li>table-cell时，width：100% 失效。父容器的宽度好奇怪啊？？？？设置1%反而会充满屏幕。不懂。。。不懂。。。  !!<br><a href="http://jsbin.com/cofifip/edit?html,css,output" target="_blank" rel="external">我的demo</a>    <h6 id="Tips">Tips</h6></li>
+<li>relative是不脱离文档里流的，它的参照物是自身，并且移动后原来的位置还在，后面的内容不会填充它的位置的。  </li>
+<li>而fixed总是以body为定位时的对象，总是根据浏览器的窗口来进行元素的定位，通过”left”、 “top”、 “right”、 “bottom” 属性进行定位。</li>
+<li>如果设置背景色为半透明直接rgba(0,0,0,.5)这样比较好，如果单独设置opacity:0.5，那么该容器里的所有内容都会变成半透明了，我设置了z-index没起作用~~~</li>
+<li>要让z-index起作用有个小小前提，就是元素的position属性要是relative，absolute或是fixed。</li>
+<li>vertical-align对一些特定显示样式的元素才会起作用。只有一个元素属于inline或是inline-block（table-cell也可以理解为inline-block）水平，其身上的vertical-align属性才会起作用。</li>
+</ol>
+<h2 id="小结">小结</h2><p>好记性不如烂博客。。。呵呵哒！</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://qiruotong.me/2015/12/22/水平布局/" data-id="ciilqto5a0006py78fhsh5xqr" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://qiruotong.me/2015/12/22/水平布局/" data-id="ciin2jto10006dz782ix9y5bb" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -386,9 +407,9 @@
 <nav id="article-nav">
   
   
-    <a href="/2015/12/07/学习DOM事件/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/12/22/margin负值到底是个什么鬼 /" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">学习DOM事件(Event)</div>
+      <div class="article-nav-title">margin负值到底是个什么鬼</div>
     </a>
   
 </nav>
@@ -398,7 +419,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/12/22/水平布局/" data-title="页面架构:布局解决方案(1)" data-url="http://qiruotong.me/2015/12/22/水平布局/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/12/22/水平布局/" data-title="页面架构:布局解决方案" data-url="http://qiruotong.me/2015/12/22/水平布局/"></div>
   </section>
 </section>
         
@@ -410,7 +431,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -419,7 +440,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AI/" style="font-size: 15px;">AI</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/OpenGL/" style="font-size: 15px;">OpenGL</a> <a href="/tags/Unix/" style="font-size: 10px;">Unix</a> <a href="/tags/VS-Qt/" style="font-size: 10px;">VS Qt</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/mydaily/" style="font-size: 15px;">mydaily</a> <a href="/tags/web/" style="font-size: 15px;">web</a>
+      <a href="/tags/AI/" style="font-size: 13.33px;">AI</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/OpenGL/" style="font-size: 13.33px;">OpenGL</a> <a href="/tags/Unix/" style="font-size: 10px;">Unix</a> <a href="/tags/VS-Qt/" style="font-size: 10px;">VS Qt</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/mydaily/" style="font-size: 13.33px;">mydaily</a> <a href="/tags/web/" style="font-size: 16.67px;">web</a>
     </div>
   </div>
 
@@ -428,7 +449,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -440,7 +461,11 @@
       <ul>
         
           <li>
-            <a href="/2015/12/22/水平布局/">页面架构:布局解决方案(1)</a>
+            <a href="/2015/12/22/水平布局/">页面架构:布局解决方案</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/22/margin负值到底是个什么鬼 /">margin负值到底是个什么鬼</a>
           </li>
         
           <li>
@@ -453,10 +478,6 @@
         
           <li>
             <a href="/2015/11/27/VS-QT/">VS常见errorLNK***:错误解决方案</a>
-          </li>
-        
-          <li>
-            <a href="/2015/11/01/task0001笔记整理/">task0001笔记整理</a>
           </li>
         
       </ul>

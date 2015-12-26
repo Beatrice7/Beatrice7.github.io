@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Beatrice7&#39;s Fancy</title>
+  <title>margin负值到底是个什么鬼 | Beatrice7&#39;s Fancy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Beatrice7's Fancy">
-<meta property="og:url" content="http://qiruotong.me/archives/page/3/index.html">
+  <meta name="description" content="之前也是看的云里雾里，现在静下心来仔细研究也算是懂了，所以赶紧mark down。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="margin负值到底是个什么鬼">
+<meta property="og:url" content="http://qiruotong.me/2015/12/22/margin负值到底是个什么鬼 /index.html">
 <meta property="og:site_name" content="Beatrice7's Fancy">
-<meta property="og:description">
+<meta property="og:description" content="之前也是看的云里雾里，现在静下心来仔细研究也算是懂了，所以赶紧mark down。">
+<meta property="og:updated_time" content="2015-12-26T02:18:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Beatrice7's Fancy">
-<meta name="twitter:description">
+<meta name="twitter:title" content="margin负值到底是个什么鬼">
+<meta name="twitter:description" content="之前也是看的云里雾里，现在静下心来仔细研究也算是懂了，所以赶紧mark down。">
   
     <link rel="alternative" href="/atom.xml" title="Beatrice7&#39;s Fancy" type="application/atom+xml">
   
@@ -72,97 +73,78 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/11/11/jQuery/" class="archive-article-date">
-  <time datetime="2014-11-10T16:00:00.000Z" itemprop="datePublished">11月 11</time>
+        <section id="main"><article id="post-margin负值到底是个什么鬼 " class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/22/margin负值到底是个什么鬼 /" class="article-date">
+  <time datetime="2015-12-21T16:00:00.000Z" itemprop="datePublished">2015-12-22</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/11/11/jQuery/">jQuery</a>
+    <h1 class="article-title" itemprop="name">
+      margin负值到底是个什么鬼
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/10/20/more-about-js/" class="archive-article-date">
-  <time datetime="2014-10-19T16:00:00.000Z" itemprop="datePublished">10月 20</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/20/more-about-js/">More about javascript</a>
-    </h1>
-  
+        <p>之前也是看的云里雾里，现在静下心来仔细研究也算是懂了，所以赶紧mark down。</p>
+<a id="more"></a>  
+<h3 id="参考链接">参考链接</h3><p><a href="http://www.topcss.org/?p=94" target="_blank" rel="external">负值之美：负值在页面布局中的应用</a></p>
+<h2 id="区分margin负值的作用">区分margin负值的作用</h2><p>######负边距对于不同类型的元素有着不同的作用效果。<br>所以想要理解负边距，首先你得区分这个margin负值到底作用在什么类型的元素上了。<br>那这元素呢可以分为<code>没脱离</code>文档流和<code>脱离</code>文档流。那脱离文档流的还要区分是<code>浮动元素</code>还是<code>定位元素</code>。<br>具体内容参考这篇<a href="http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html#2457812" target="_blank" rel="external">CSS布局奇淫巧计之-强大的负边距</a>吧，讲的贼好！<br>负边距对这些由文档流控制的元素的作用是，会使它们在文档流中的位置发生偏移，但这种偏移不同于相对定位，通过相对定位偏移后，其仍然会坚守着它原来占据的空间，不会让文档流的其它元素乘虚而入。而通过负边距进行偏移的元素，它会放弃偏移前占据的空间，这样它后面文档流中的其它元素就会“流”过来填充这部分空间。  </p>
+<p>总之一句话，在文档流中，元素的最终边界是由margin决定的，margin为正的时候，那它的边界是向外扩的，如果margin为负的时候，则它的边界是向里收的。<strong>文档流认的只是这个边界，不会管你实际的尺寸是多少</strong>。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/10/10/Getting-started-js/" class="archive-article-date">
-  <time datetime="2014-10-09T16:00:00.000Z" itemprop="datePublished">10月 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/10/Getting-started-js/">Getting started with Javascript</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/10/09/Do-what-you-love/" class="archive-article-date">
-  <time datetime="2014-10-08T16:00:00.000Z" itemprop="datePublished">10月 9</time>
-</a>
+    </div>
+    <footer class="article-footer">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/09/Do-what-you-love/">Do what I love and fuck the rest</a>
-    </h1>
-  
+        <a data-url="http://qiruotong.me/2015/12/22/margin负值到底是个什么鬼 /" data-id="ciin2jton000wdz78pyj7f085" class="article-share-link" data-share="baidu">分享到</a>
+      
 
-    </header>
+      
+        <a href="http://qiruotong.me/2015/12/22/margin负值到底是个什么鬼 /#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/22/水平布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          页面架构:布局解决方案
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2015/12/07/学习DOM事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">学习DOM事件(Event)</div>
+    </a>
   
+</nav>
 
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/12/22/margin负值到底是个什么鬼 /" data-title="margin负值到底是个什么鬼" data-url="http://qiruotong.me/2015/12/22/margin负值到底是个什么鬼 /"></div>
+  </section>
 </section>
         
           <aside id="sidebar">
