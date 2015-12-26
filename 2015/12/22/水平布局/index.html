@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Beatrice7's Fancy">
 <meta property="og:description" content="居中布局">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/99be9296jw1ez8snqm6epj20m40e8ab2.jpg">
-<meta property="og:updated_time" content="2015-12-26T12:13:32.000Z">
+<meta property="og:updated_time" content="2015-12-26T12:19:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="页面架构:布局解决方案">
 <meta name="twitter:description" content="居中布局">
@@ -377,20 +377,22 @@
 <ol>
 <li>flex  </li>
 <li>position:absolute+translate  </li>
-<li>table-cell时，width：100% 失效。父容器的宽度好奇怪啊？？？？设置1%反而会充满屏幕。不懂。。。不懂。。。  !!<br><a href="http://jsbin.com/cofifip/edit?html,css,output" target="_blank" rel="external">我的demo</a>    <h6 id="Tips">Tips</h6></li>
+<li>table-cell时，width：100% 失效。父容器的宽度好奇怪啊？？？？设置1%反而会充满屏幕。不懂。。。不懂。。。!!<br><a href="http://jsbin.com/cofifip/edit?html,css,output" target="_blank" rel="external">我的demo</a>    <h6 id="Tips">Tips</h6></li>
+</ol>
+<ul>
 <li>relative是不脱离文档里流的，它的参照物是自身，并且移动后原来的位置还在，后面的内容不会填充它的位置的。  </li>
 <li>而fixed总是以body为定位时的对象，总是根据浏览器的窗口来进行元素的定位，通过”left”、 “top”、 “right”、 “bottom” 属性进行定位。</li>
 <li>如果设置背景色为半透明直接rgba(0,0,0,.5)这样比较好，如果单独设置opacity:0.5，那么该容器里的所有内容都会变成半透明了，我设置了z-index没起作用~~~</li>
 <li>要让z-index起作用有个小小前提，就是元素的position属性要是relative，absolute或是fixed。</li>
 <li>vertical-align对一些特定显示样式的元素才会起作用。只有一个元素属于inline或是inline-block（table-cell也可以理解为inline-block）水平，其身上的vertical-align属性才会起作用。</li>
-</ol>
+</ul>
 <h2 id="小结">小结</h2><p>好记性不如烂博客。。。呵呵哒！</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://qiruotong.me/2015/12/22/水平布局/" data-id="ciin2jto10006dz782ix9y5bb" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://qiruotong.me/2015/12/22/水平布局/" data-id="ciin2zgop0006i178arp7qcg3" class="article-share-link" data-share="baidu">分享到</a>
       
 
       

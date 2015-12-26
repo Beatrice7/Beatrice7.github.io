@@ -310,6 +310,7 @@ body {
 .article-entry strong,
 .widget strong {
   font-weight: bold;
+  color: #ad3a37;
 }
 .article-entry em,
 .widget em,
