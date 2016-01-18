@@ -130,7 +130,7 @@ body {
 }
 .outer {
   zoom: 1;
-  max-width: 1320px;
+  max-width: 1020px;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -145,8 +145,8 @@ body {
 .inner {
   display: inline;
   float: left;
-  width: 98.46153846153847%;
-  margin: 0 0.769230769230769%;
+  width: 98%;
+  margin: 0 1%;
 }
 .left,
 .alignleft {
@@ -182,18 +182,9 @@ body {
 .mobile-nav-on #wrap {
   left: 280px;
 }
-@media screen and (min-width: 768px) {
-  #main {
-    display: inline;
-    float: left;
-    width: 75.38461538461539%;
-    margin: 0 0.769230769230769%;
-  }
-}
 .article-date,
 .article-category-link,
-.archive-year,
-.widget-title {
+.archive-year {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -1482,45 +1473,27 @@ pre .javascript .function {
     color: #fff;
   }
 }
+.widget-wrap {
+  margin-bottom: 50px !important;
+}
 @media screen and (min-width: 768px) {
-  #sidebar {
+  .widget-wrap {
     display: inline;
     float: left;
-    width: 21.53846153846154%;
-    margin: 0 0.769230769230769%;
+    width: 28.000000000000004%;
+    margin: 0 1%;
   }
 }
-.widget-wrap {
-  margin: 50px 0;
+.widget-title {
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1em;
+  line-height: 1em;
+  font-weight: bold;
 }
 .widget {
-  color: #f00;
-  text-shadow: 0 1px #fff;
-  background: #fff;
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
-  padding: 15px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
-.widget a {
   color: #017e66;
-  text-decoration: none;
-}
-.widget a:hover {
-  color: #ad3a37;
-}
-.widget ul ul,
-.widget ol ul,
-.widget dl ul,
-.widget ul ol,
-.widget ol ol,
-.widget dl ol,
-.widget ul dl,
-.widget ol dl,
-.widget dl dl {
-  margin-left: 15px;
-  list-style: disc;
 }
 .widget {
   line-height: 1.6em;
