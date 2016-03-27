@@ -3,18 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo出现Error deployer not found:github 的错误 | Beatrice7&#39;s Fancy</title>
+  <title>Qt4项目移植到Qt5 | Beatrice7&#39;s Fancy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="好长时间以来写的东西都零零散散，一直没有发布博客。搞好了一篇像样点的想发布吧，hexo还出了点小问题。">
+  <meta name="description" content="科研需要，想参考师兄之前写的代码，可是他是用VS2010+Qt4.8.2编写的，我是用VS2013+Qt5.4.0，VS2013不支持Qt4，所以我只好自己重新编译，有坑，浪费不少时间，但最后还是成功了！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo出现Error deployer not found:github 的错误">
-<meta property="og:url" content="http://qiruotong.me/2015/12/01/hexo-deploy/index.html">
+<meta property="og:title" content="Qt4项目移植到Qt5">
+<meta property="og:url" content="http://qiruotong.me/2016/03/14/from_qt4_to_qt5/index.html">
 <meta property="og:site_name" content="Beatrice7's Fancy">
-<meta property="og:description" content="好长时间以来写的东西都零零散散，一直没有发布博客。搞好了一篇像样点的想发布吧，hexo还出了点小问题。">
-<meta property="og:updated_time" content="2015-12-16T02:48:09.000Z">
+<meta property="og:description" content="科研需要，想参考师兄之前写的代码，可是他是用VS2010+Qt4.8.2编写的，我是用VS2013+Qt5.4.0，VS2013不支持Qt4，所以我只好自己重新编译，有坑，浪费不少时间，但最后还是成功了！">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-d810376a22a60c17.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-4476fbd1a40fc5b5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-b3c2106c70ef1bea.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-1f9690d372326cfb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-3430643ffe77da04.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-b2768900af6d10aa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-167ba66296d7d589.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-4438bc29e373fb99.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-adad949877b20a31.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-03-27T12:42:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo出现Error deployer not found:github 的错误">
-<meta name="twitter:description" content="好长时间以来写的东西都零零散散，一直没有发布博客。搞好了一篇像样点的想发布吧，hexo还出了点小问题。">
+<meta name="twitter:title" content="Qt4项目移植到Qt5">
+<meta name="twitter:description" content="科研需要，想参考师兄之前写的代码，可是他是用VS2010+Qt4.8.2编写的，我是用VS2013+Qt5.4.0，VS2013不支持Qt4，所以我只好自己重新编译，有坑，浪费不少时间，但最后还是成功了！">
   
     <link rel="alternative" href="/atom.xml" title="Beatrice7&#39;s Fancy" type="application/atom+xml">
   
@@ -73,10 +82,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-hexo-deploy" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-from_qt4_to_qt5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/12/01/hexo-deploy/" class="article-date">
-  <time datetime="2015-11-30T16:00:00.000Z" itemprop="datePublished">2015-12-01</time>
+    <a href="/2016/03/14/from_qt4_to_qt5/" class="article-date">
+  <time datetime="2016-03-13T16:00:00.000Z" itemprop="datePublished">2016-03-14</time>
 </a>
     
   </div>
@@ -87,7 +96,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo出现Error deployer not found:github 的错误
+      Qt4项目移植到Qt5
     </h1>
   
 
@@ -95,43 +104,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>好长时间以来写的东西都零零散散，一直没有发布博客。搞好了一篇像样点的想发布吧，hexo还出了点小问题。<br><a id="more"></a></p>
-<blockquote>
-<p>Error deployer not found:github</p>
-</blockquote>
-<p>出现上述问题的原因很简单就是hexo 更新到3.0之后，deploy的type 的github需要改成git，另外还要注意yaml语法要求严格，配置那里的冒号后面是有一个半角的空格的.但问题是我改了之后仍然有问题，变为</p>
-<blockquote>
-<p>Error deployer not found:git</p>
-</blockquote>
-<p>查了一下得知，我们可能还需要执行一步</p>
-<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
-</code></pre><p>BUT我又出现了这样的错误</p>
-<blockquote>
-<p>zsh:command not found: npm</p>
-</blockquote>
-<p>无奈，那就重装一下node.js和npm吧</p>
-<pre><code>brew install <span class="keyword">node</span><span class="identifier"></span><span class="title"></span>
-</code></pre><p>可是人家告诉我已经装了node- already installed, 所以我只好去到<a href="https://nodejs.org/en/#download" target="_blank" rel="external">官网下载</a>然后安装。可能是我下载的是比之前的版本新的缘故，一些module里的东东还是之前版本的，于是当我执行<code>hexo g</code>的时候又出现了</p>
-<blockquote>
-<p>Error: Module version mismatch. </p>
-</blockquote>
-<p>在stackoverflow找到的解决方法如下</p>
-<pre><code><span class="keyword">rm</span> -rf node_modules
-npm <span class="keyword">update</span>
-</code></pre><h5 id="问题终于都解决了，我应该愉快的写博客了啊喂！">问题终于都解决了，我应该愉快的写博客了啊喂！</h5>
+        <p>科研需要，想参考师兄之前写的代码，可是他是用VS2010+Qt4.8.2编写的，我是用VS2013+Qt5.4.0，VS2013不支持Qt4，所以我只好自己重新编译，有坑，浪费不少时间，但最后还是成功了！<br><a id="more"></a><br><a href="http://wenku.baidu.com/link?url=S1tT5JPriGOXLML0tfTv_uoP0fAdvkfAllRn67V1vwOe7JS_apcqUys0dlvQfk68PNoe3iWcDB4V57rhhXM2gpjYNgc-NHy5ObcJpfDWV2G" target="_blank" rel="external">qmake用户手册</a></p>
+<h1 id="移植过程">移植过程</h1><ul>
+<li>在下载下来的文件夹中删除了原来的解决方案相关文件，保留.pro</li>
+<li><a href="http://wiki.qt.io/Transition_from_Qt_4.x_to_Qt5" target="_blank" rel="external">Transition_from_Qt_4.x_to_Qt5</a><br>参照链接我主要在原来的.pro文件中添加了三项<br>QT += widgets<br>QT += webkitwidgets<br>QT += printsupport<br>由于Qt5将大部分桌面部件移到了Qt Widgets模块中;<br>如果使用到打印相关的类，Qt5单独放到了QtPrintSupport模块中，所以得加头文件#include <qtprintsupport>，在.pro中要加QT += printsupport;<br>如果使用到QWebPage等webkit相关可视部件的，Qt5单独放到了QtWebKitWidgets模块中，所以得加头文件#include <qtwebkitwidgets>，在.pro中要加QT += webkitwidgets；</qtwebkitwidgets></qtprintsupport></li>
+<li>如果要使用C++11特性，在.pro中加下面一行<br>CONFIG += c++11 (CONFIG等关键字在上面的qmake用户手册中都有讲解)</li>
+<li>打开编辑器工具栏的<code>QT5</code>选项，选择<code>Open Qt Project file(.pro)</code>即可生成解决方案</li>
+<li>接下来就是自己配置各种东西，主要包括<strong>附加包含目录</strong>、<strong>附加库目录</strong>、<strong>附加依赖项</strong><br><strong>附加包含目录</strong>中是需要连接的各种文件的头文件（.h）一般是包含到include<strong>文件夹</strong><br><strong>附加库目录</strong>是静态库所在的文件夹，里面是一堆.lib文件，一般包含到lib<strong>文件夹</strong><br><strong>附加依赖项</strong>是自己手动输入的用到的.lib具体<strong>文件</strong><br><img src="http://upload-images.jianshu.io/upload_images/115594-d810376a22a60c17.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/115594-4476fbd1a40fc5b5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/115594-b3c2106c70ef1bea.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/115594-1f9690d372326cfb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<p>配置好后就开始编译，如果发现有一些Qt4中已经被弃用的函数，只要找到Qt5中相应的替换函数即可。</p>
+<h1 id="解决QPixmap:_Must_construct_a_QGuiApplication_before_a_QPixmape错误">解决QPixmap: Must construct a QGuiApplication before a QPixmape错误</h1><p>类似的错误还有QWidget: Must construct a QApplication before a QPaintDevice。<br><img src="http://upload-images.jianshu.io/upload_images/115594-3430643ffe77da04.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>像这种错误<strong>主要因为我们把Debug/Release的Dll混到一起了</strong>，因为Debug和Release模式下链接的动态库是不同的，<strong>Debug的动态库比Release多了个<code>d</code></strong>，也就是在上面的附加依赖项中的配置。<br><img src="http://upload-images.jianshu.io/upload_images/115594-b2768900af6d10aa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Debug中的配置"><br><img src="http://upload-images.jianshu.io/upload_images/115594-167ba66296d7d589.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Release中的配置"></p>
+<h1 id="解决找不到动态库-DLL">解决找不到动态库.DLL</h1><p><img src="http://upload-images.jianshu.io/upload_images/115594-4438bc29e373fb99.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>类似这种问题的解决方法：在本地查找看有木有相应的dll文件，如果没有就去网上自己下载相应的文件，然后丢到工程的Debug文件夹或者Release文件夹下就行了，<strong>总之是要和.exe文件在同一目录下</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/115594-adad949877b20a31.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="比如我的Debug文件夹"></p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://qiruotong.me/2015/12/01/hexo-deploy/" data-id="cimaktxjp0012wz78dkkm7smk" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://qiruotong.me/2016/03/14/from_qt4_to_qt5/" data-id="cimaktxjt0018wz78edlap9kr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://qiruotong.me/2015/12/01/hexo-deploy/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://qiruotong.me/2016/03/14/from_qt4_to_qt5/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/">qt</a></li></ul>
 
     </footer>
   </div>
@@ -139,19 +136,19 @@ npm <span class="keyword">update</span>
     
 <nav id="article-nav">
   
-    <a href="/2015/12/07/学习DOM事件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/03/18/OpenGL1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          学习DOM事件(Event)
+          OpenGL实验一：画图小程序
         
       </div>
     </a>
   
   
-    <a href="/2015/11/27/VS-QT/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/12/22/margin负值到底是个什么鬼 /" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">VS常见errorLNK***:错误解决方案</div>
+      <div class="article-nav-title">margin负值到底是个什么鬼</div>
     </a>
   
 </nav>
@@ -161,7 +158,7 @@ npm <span class="keyword">update</span>
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/12/01/hexo-deploy/" data-title="Hexo出现Error deployer not found:github 的错误" data-url="http://qiruotong.me/2015/12/01/hexo-deploy/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/03/14/from_qt4_to_qt5/" data-title="Qt4项目移植到Qt5" data-url="http://qiruotong.me/2016/03/14/from_qt4_to_qt5/"></div>
   </section>
 </section>
         
