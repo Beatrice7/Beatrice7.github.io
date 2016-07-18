@@ -21,7 +21,7 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
 </head>
@@ -96,37 +96,37 @@
     <div class="article-entry" itemprop="articleBody">
       
         <a id="more"></a>
-<h1 id="Synax">Synax</h1><p> <code>console.log()</code> print out<br> <code>confirm()</code> to ask question<br> <code>prompt</code> to receive feedback<br> <code>===</code> equal to<br> <code>!==</code> not equal to</p>
-<h3 id="Function">Function</h3><ul>
+<h1 id="Synax"><a href="#Synax" class="headerlink" title="Synax"></a>Synax</h1><p> <code>console.log()</code> print out<br> <code>confirm()</code> to ask question<br> <code>prompt</code> to receive feedback<br> <code>===</code> equal to<br> <code>!==</code> not equal to</p>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><ul>
 <li>To declare a function using <code>var</code>. </li>
 <li>The name should begin with a <code>lowercase</code> letter and the convention is to use <code>lowerCamelCase</code>.</li>
 <li>Each line of code inside { } must end with a semi-colon <code>;</code>.</li>
 <li>The entire function ends with a semi-colon <code>;</code>.  </li>
 </ul>
-<h3 id="Global_vs_Local_Variables">Global vs Local Variables</h3><ul>
+<h3 id="Global-vs-Local-Variables"><a href="#Global-vs-Local-Variables" class="headerlink" title="Global vs Local Variables"></a>Global vs Local Variables</h3><ul>
 <li>If <code>var</code> is used <strong>outside</strong> a function, that variable has a <strong>global</strong> scope; If <code>var</code> is used <strong>inside</strong> a function, that variable has a <strong>local</strong> scope.</li>
 <li><strong>Different form Python</strong>, if you want to assign a global variable, you <strong>don’t</strong> need to use <em>golbal</em> in front of the global variable.</li>
 </ul>
-<h3 id="Control_Flow">Control Flow</h3><ul>
+<h3 id="Control-Flow"><a href="#Control-Flow" class="headerlink" title="Control Flow"></a>Control Flow</h3><ul>
 <li><code>swith(expression) {  case &#39; &#39; }</code></li>
 <li>logical operators: <strong>and</strong> (<code>&amp;&amp;</code>), <strong>or</strong> (<code>||</code>), and <strong>not</strong> (<code>!</code>).</li>
 <li><code>isNaN()</code> checks to see if that thing is <em>not</em> a number.<br><strong>Be careful</strong>: if you call <code>isNaN</code> on a string that looks like a number, like ‘42’, JavaScript will try to help by automatically converting the string ‘42’ to the number 42 and return false (since 42 is a number).</li>
 </ul>
-<h3 id="Arrays">Arrays</h3><ul>
+<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><ul>
 <li>Heterogeneous arrays: <code>var mix = [42, true, &quot;towel&quot;]</code>;  </li>
 <li>Multidimensional arrays:  <code>N*N</code>;</li>
 <li>Jagged arrays: <code>not N*N</code>;</li>
 </ul>
-<h3 id="Objects">Objects</h3><p><strong>Objects</strong> are just collections of information (keys and values) between curly braces.<br>three methods for <strong>objects in objects</strong>  </p>
-<figure class="highlight dart"><figcaption><span>javascript linenos</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> friends = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">friends[<span class="string">"bill"</span>] = &#123;&#125;;</span><br><span class="line">friends.steve = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> friends = &#123;</span><br><span class="line">    bill: &#123;&#125;,</span><br><span class="line">    steve: &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> friends = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">friends.bill = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">friends.steve = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
-<p><strong>e.g. Contact List</strong><br><figure class="highlight javascript"><figcaption><span>javascript linenos</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> friends = &#123;</span><br><span class="line">    bill: &#123;</span><br><span class="line">        firstName: <span class="string">"Bill"</span>,</span><br><span class="line">        lastName: <span class="string">"Gates"</span>,</span><br><span class="line">        number: <span class="string">"(206) 555-5555"</span>,</span><br><span class="line">        address: [<span class="string">'One Microsoft Way'</span>,<span class="string">'Redmond'</span>,<span class="string">'WA'</span>,<span class="string">'98052'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">friends.steve = &#123;</span><br><span class="line">    firstName: <span class="string">"Steve"</span>,</span><br><span class="line">    lastName: <span class="string">"Gataas"</span>,</span><br><span class="line">    number: <span class="string">"(206) 556-5555"</span> ,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">friends[<span class="string">"steve"</span>].address = [<span class="string">'OMicrosoft Way'</span>,<span class="string">'Redmond'</span>,<span class="string">'WA'</span>,<span class="string">'98052'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> search = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> friends)&#123;</span><br><span class="line">        <span class="keyword">if</span>(friends[key].firstName === name)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(friends[key]);</span><br><span class="line">            <span class="keyword">return</span> friends[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h3><p><strong>Objects</strong> are just collections of information (keys and values) between curly braces.<br>three methods for <strong>objects in objects</strong>  </p>
+<figure class="highlight dart"><figcaption><span>javascript linenos</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> friends = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">friends[<span class="string">"bill"</span>] = &#123;&#125;;</div><div class="line">friends.steve = &#123;&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> friends = &#123;</div><div class="line">    bill: &#123;&#125;,</div><div class="line">    steve: &#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> friends = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">friends.bill = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">friends.steve = <span class="keyword">new</span> <span class="built_in">Object</span>();</div></pre></td></tr></table></figure>
+<p><strong>e.g. Contact List</strong><br><figure class="highlight typescript"><figcaption><span>javascript linenos</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> friends = &#123;</div><div class="line">    bill: &#123;</div><div class="line">        firstName: <span class="string">"Bill"</span>,</div><div class="line">        lastName: <span class="string">"Gates"</span>,</div><div class="line">        <span class="built_in">number</span>: <span class="string">"(206) 555-5555"</span>,</div><div class="line">        address: [<span class="string">'One Microsoft Way'</span>,<span class="string">'Redmond'</span>,<span class="string">'WA'</span>,<span class="string">'98052'</span>]</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">friends.steve = &#123;</div><div class="line">    firstName: <span class="string">"Steve"</span>,</div><div class="line">    lastName: <span class="string">"Gataas"</span>,</div><div class="line">    <span class="built_in">number</span>: <span class="string">"(206) 556-5555"</span> ,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">friends[<span class="string">"steve"</span>].address = [<span class="string">'OMicrosoft Way'</span>,<span class="string">'Redmond'</span>,<span class="string">'WA'</span>,<span class="string">'98052'</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> search = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> friends)&#123;</div><div class="line">        <span class="keyword">if</span>(friends[key].firstName === name)&#123;</div><div class="line">            <span class="built_in">console</span>.log(friends[key]);</div><div class="line">            <span class="keyword">return</span> friends[key];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>###to be continued…</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://qiruotong.me/2014/10/10/Getting-started-js/" data-id="cimaktxk4001owz78gz6uznqd" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://qiruotong.me/2014/10/10/Getting-started-js/" data-id="ciqruqlmx0002gk78bi9vujv1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -180,6 +180,10 @@
       <ul>
         
           <li>
+            <a href="/2016/06/01/QuickSort-O(n)/">O(n)时间复杂度的QuickSort</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/18/OpenGL1/">OpenGL实验一：画图小程序</a>
           </li>
         
@@ -195,10 +199,6 @@
             <a href="/2015/12/22/水平布局/">页面架构:布局解决方案</a>
           </li>
         
-          <li>
-            <a href="/2015/12/07/学习DOM事件/">学习DOM事件(Event)</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -208,7 +208,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-c/">javascript, c++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -333,7 +333,7 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

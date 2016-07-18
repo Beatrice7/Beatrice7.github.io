@@ -21,7 +21,7 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
 </head>
@@ -104,26 +104,26 @@
 <p>Error deployer not found:git</p>
 </blockquote>
 <p>查了一下得知，我们可能还需要执行一步</p>
-<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
+<pre><code>npm install hexo-deployer-git --save
 </code></pre><p>BUT我又出现了这样的错误</p>
 <blockquote>
 <p>zsh:command not found: npm</p>
 </blockquote>
 <p>无奈，那就重装一下node.js和npm吧</p>
-<pre><code>brew install <span class="keyword">node</span><span class="identifier"></span><span class="title"></span>
+<pre><code>brew install node
 </code></pre><p>可是人家告诉我已经装了node- already installed, 所以我只好去到<a href="https://nodejs.org/en/#download" target="_blank" rel="external">官网下载</a>然后安装。可能是我下载的是比之前的版本新的缘故，一些module里的东东还是之前版本的，于是当我执行<code>hexo g</code>的时候又出现了</p>
 <blockquote>
 <p>Error: Module version mismatch. </p>
 </blockquote>
 <p>在stackoverflow找到的解决方法如下</p>
-<pre><code><span class="keyword">rm</span> -rf node_modules
-npm <span class="keyword">update</span>
-</code></pre><h5 id="问题终于都解决了，我应该愉快的写博客了啊喂！">问题终于都解决了，我应该愉快的写博客了啊喂！</h5>
+<pre><code>rm -rf node_modules
+npm update
+</code></pre><h5 id="问题终于都解决了，我应该愉快的写博客了啊喂！"><a href="#问题终于都解决了，我应该愉快的写博客了啊喂！" class="headerlink" title="问题终于都解决了，我应该愉快的写博客了啊喂！"></a>问题终于都解决了，我应该愉快的写博客了啊喂！</h5>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://qiruotong.me/2015/12/01/hexo-deploy/" data-id="cimaktxjp0012wz78dkkm7smk" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://qiruotong.me/2015/12/01/hexo-deploy/" data-id="ciqruqln7000cgk78ik032up5" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -177,6 +177,10 @@ npm <span class="keyword">update</span>
       <ul>
         
           <li>
+            <a href="/2016/06/01/QuickSort-O(n)/">O(n)时间复杂度的QuickSort</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/18/OpenGL1/">OpenGL实验一：画图小程序</a>
           </li>
         
@@ -192,10 +196,6 @@ npm <span class="keyword">update</span>
             <a href="/2015/12/22/水平布局/">页面架构:布局解决方案</a>
           </li>
         
-          <li>
-            <a href="/2015/12/07/学习DOM事件/">学习DOM事件(Event)</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -205,7 +205,7 @@ npm <span class="keyword">update</span>
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-c/">javascript, c++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -330,7 +330,7 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

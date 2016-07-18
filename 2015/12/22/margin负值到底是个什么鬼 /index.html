@@ -21,7 +21,7 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
 </head>
@@ -97,15 +97,15 @@
       
         <p>之前也是看的云里雾里，现在静下心来仔细研究也算是懂了，所以赶紧mark down。</p>
 <a id="more"></a>  
-<h3 id="参考链接">参考链接</h3><p><a href="http://www.topcss.org/?p=94" target="_blank" rel="external">负值之美：负值在页面布局中的应用</a></p>
-<h2 id="区分margin负值的作用">区分margin负值的作用</h2><p><strong>负边距对于不同类型的元素有着不同的作用效果。</strong><br>所以想要理解负边距，首先你得区分这个margin负值到底作用在什么类型的元素上了。<br>那这元素呢可以分为<code>没脱离</code>文档流和<code>脱离</code>文档流。那脱离文档流的还要区分是<code>浮动元素</code>还是<code>定位元素</code>。<br>具体内容参考这篇<a href="http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html#2457812" target="_blank" rel="external">CSS布局奇淫巧计之-强大的负边距</a>吧，讲的贼好！<br>负边距对这些由文档流控制的元素的作用是，会使它们在文档流中的位置发生偏移，但这种偏移不同于相对定位，通过相对定位偏移后，其仍然会坚守着它原来占据的空间，不会让文档流的其它元素乘虚而入。而通过负边距进行偏移的元素，它会放弃偏移前占据的空间，这样它后面文档流中的其它元素就会“流”过来填充这部分空间。  </p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="http://www.topcss.org/?p=94" target="_blank" rel="external">负值之美：负值在页面布局中的应用</a></p>
+<h2 id="区分margin负值的作用"><a href="#区分margin负值的作用" class="headerlink" title="区分margin负值的作用"></a>区分margin负值的作用</h2><p><strong>负边距对于不同类型的元素有着不同的作用效果。</strong><br>所以想要理解负边距，首先你得区分这个margin负值到底作用在什么类型的元素上了。<br>那这元素呢可以分为<code>没脱离</code>文档流和<code>脱离</code>文档流。那脱离文档流的还要区分是<code>浮动元素</code>还是<code>定位元素</code>。<br>具体内容参考这篇<a href="http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html#2457812" target="_blank" rel="external">CSS布局奇淫巧计之-强大的负边距</a>吧，讲的贼好！<br>负边距对这些由文档流控制的元素的作用是，会使它们在文档流中的位置发生偏移，但这种偏移不同于相对定位，通过相对定位偏移后，其仍然会坚守着它原来占据的空间，不会让文档流的其它元素乘虚而入。而通过负边距进行偏移的元素，它会放弃偏移前占据的空间，这样它后面文档流中的其它元素就会“流”过来填充这部分空间。  </p>
 <p>总之一句话，在文档流中，元素的最终边界是由margin决定的，margin为正的时候，那它的边界是向外扩的，如果margin为负的时候，则它的边界是向里收的。<strong>文档流认的只是这个边界，不会管你实际的尺寸是多少</strong>。</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://qiruotong.me/2015/12/22/margin负值到底是个什么鬼 /" data-id="cimaktxjj000wwz787hssoduw" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://qiruotong.me/2015/12/22/margin负值到底是个什么鬼 /" data-id="ciqruqlnc000ggk783zkjxfjj" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -159,6 +159,10 @@
       <ul>
         
           <li>
+            <a href="/2016/06/01/QuickSort-O(n)/">O(n)时间复杂度的QuickSort</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/18/OpenGL1/">OpenGL实验一：画图小程序</a>
           </li>
         
@@ -174,10 +178,6 @@
             <a href="/2015/12/22/水平布局/">页面架构:布局解决方案</a>
           </li>
         
-          <li>
-            <a href="/2015/12/07/学习DOM事件/">学习DOM事件(Event)</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -187,7 +187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-c/">javascript, c++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -312,7 +312,7 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>

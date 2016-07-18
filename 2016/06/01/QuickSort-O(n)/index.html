@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>O(n)时间复杂度的QuickSort | Beatrice7&#39;s Fancy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O(n)时间复杂度的QuickSort">
+<meta property="og:url" content="http://qiruotong.me/2016/06/01/QuickSort-O(n)/index.html">
+<meta property="og:site_name" content="Beatrice7's Fancy">
+<meta property="og:description" content="JavaScript实现">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/115594-19b99aeb05cc1606.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-07-18T09:17:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="O(n)时间复杂度的QuickSort">
+<meta name="twitter:description" content="JavaScript实现">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/115594-19b99aeb05cc1606.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="Beatrice7&#39;s Fancy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Beatrice7&#39;s Fancy</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Consume deliberately</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="qiruotong.me">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-QuickSort-O(n)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/01/QuickSort-O(n)/" class="article-date">
+  <time datetime="2016-05-31T16:00:00.000Z" itemprop="datePublished">2016-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      O(n)时间复杂度的QuickSort
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaScript实现"><a href="#JavaScript实现" class="headerlink" title="JavaScript实现"></a>JavaScript实现</h2><a id="more"></a>
+<p>网上大部分都是基于这种写法：<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//JavaScript</div><div class="line">function quicksort(arr) &#123;</div><div class="line">    <span class="keyword">if</span>(arr.<span class="built_in">length</span> &lt;= <span class="number">1</span>) &#123;</div><div class="line">        <span class="built_in">return</span> arr;</div><div class="line">    &#125;</div><div class="line">    //这里直接选取中间元素为枢轴</div><div class="line">    <span class="built_in">var</span> pivotIndex = Math.<span class="built_in">floor</span>(arr.<span class="built_in">length</span>/<span class="number">2</span>);</div><div class="line">    <span class="built_in">var</span> pivot = arr.<span class="built_in">splice</span>(pivotIndex, <span class="number">1</span>)[<span class="number">0</span>];</div><div class="line">    <span class="built_in">var</span> left = [];</div><div class="line">    <span class="built_in">var</span> right = [];</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="built_in">length</span>; i++)&#123;</div><div class="line">    	<span class="keyword">if</span>(arr[i] &lt; pivot) &#123;</div><div class="line">    		left.<span class="built_in">push</span>(arr[i]);</div><div class="line">    	&#125;<span class="keyword">else</span> &#123;</div><div class="line">    		right.<span class="built_in">push</span>(arr[i]);</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> quicksort(left).<span class="built_in">concat</span>([pivot], quicksort(right));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但是这种个写法很明显是需要0(n)的额外空间的，那如果我们基于原地分区该怎样实现呢？</p>
+<h3 id="partition的不同版本"><a href="#partition的不同版本" class="headerlink" title="partition的不同版本"></a>partition的不同版本</h3><p>记得在学习数据结构的时候，我们是下面这样实现的，通过两个指针low,high从两端往中间逼近。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//C++</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</div><div class="line">	<span class="comment">//直接选取第一个元素为枢轴</span></div><div class="line">	<span class="keyword">int</span> pivot = arr[low];</div><div class="line">	<span class="keyword">while</span>(low &lt; high) &#123;</div><div class="line">		<span class="comment">//注意下面的while内部也要进行越界判断！</span></div><div class="line">		<span class="keyword">while</span>(low &lt; high &amp;&amp; arr[high] &gt; pivot) &#123; </div><div class="line">			high--;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">while</span>(low &lt; high &amp;&amp; arr[low] &lt;= pivot) &#123;</div><div class="line">			low++;</div><div class="line">		&#125;</div><div class="line">		arr[low] = pivot;</div><div class="line">		<span class="keyword">return</span> low;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">quicksort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> loc = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span>(low &lt; high) &#123;</div><div class="line">		loc = partition(arr, low, high);</div><div class="line">		quicksort(arr, low, loc - <span class="number">1</span>);</div><div class="line">		quicksort(arr, loc + <span class="number">1</span>, high);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因为partition函数是快排的核心，所以partition的优化方法有很多，可以分为两大类，<strong>单向扫描版本</strong>和<strong>双向扫描版本</strong>，上面就是双向扫描的例子，方法还是很好理解的。《算法导论》那本书上还提出了另一种基于单向扫描的partition方法，如下：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> partition(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)&#123;	</div><div class="line">	x = arr[high]; <span class="comment">//这里直接选取最后一个元素为比较元素，后面还可以根据random来改进</span></div><div class="line">	<span class="keyword">int</span> i = low - <span class="number">1</span>; <span class="comment">//这个i为慢速移动下标，必须为比最小的下标p小1，否则两个元素的序列（比如2，1）就无法交换</span></div><div class="line">        <span class="keyword">int</span> j = low;</div><div class="line">	<span class="keyword">for</span>(; j &lt; high; j++) &#123;</div><div class="line">		<span class="keyword">if</span>(arr[j] &lt;= x)&#123;</div><div class="line">			swap(&amp;arr[++i], &amp;arr[j]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"> 	swap(&amp;arr[i+<span class="number">1</span>], &amp;a[j]);</div><div class="line"> 	<span class="keyword">return</span> i + <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">quicksort(<span class="keyword">int</span> arr[], <span class="keyword">int</span> low, <span class="keyword">int</span> high) &#123;</div><div class="line">	<span class="keyword">if</span>(low &lt; high) &#123;</div><div class="line">		<span class="keyword">int</span> <span class="keyword">index</span> = partition(arr, low, high);</div><div class="line">		quicksort(arr, low, <span class="keyword">index</span> - <span class="number">1</span>);</div><div class="line">		quicksort(arr, <span class="keyword">index</span> + <span class="number">1</span>, high);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>算法示意图如下：<br><img src="http://upload-images.jianshu.io/upload_images/115594-19b99aeb05cc1606.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="单向扫描优化版本"><a href="#单向扫描优化版本" class="headerlink" title="单向扫描优化版本"></a>单向扫描优化版本</h3><p>可以优化的地方：  </p>
+<ol>
+<li>&lt;=x 改为&lt;x，减少交换次数</li>
+<li>i的初始值直接设为low</li>
+<li>i = j时的交换是多余的可以优化掉</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//cpp优化版本</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span> <span class="params">(<span class="keyword">int</span> a[], low, high)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> x = a[high];</div><div class="line">	<span class="keyword">int</span> i = low;</div><div class="line">        <span class="keyword">int</span> j = low;</div><div class="line">	<span class="keyword">for</span>(; j &lt; high; j++) &#123;</div><div class="line">		<span class="keyword">if</span>(a[j] &lt; x) &#123;</div><div class="line">			<span class="keyword">if</span>(i != j)&#123;</div><div class="line">				swap(&amp;a[i], &amp;a[j]);	</div><div class="line">			&#125;</div><div class="line">                        i++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	swap(&amp;a[i], &amp;a[j]);</div><div class="line">	<span class="keyword">return</span> i;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="随机化版本"><a href="#随机化版本" class="headerlink" title="随机化版本"></a>随机化版本</h3><p>之前的方法都是基于一个前提：所有的排列都是等概率的，但是实际工程中并不会总是成立。有时候我们可以通过在算法中引入随机性，从而使得算法对所有的输入都能获得较好的期望，比如针对一个几乎有序的输入序列进行排序的问题。很多人都选择随机化版本作为大数据输入情况下的快排。<br>思路如下:<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">randomPartition(arr, low, high)&#123;</div><div class="line">	i = <span class="built_in">random</span>(low, high)<span class="comment">;</span></div><div class="line">	<span class="keyword">swap(a[i], </span>a[high])<span class="comment">;</span></div><div class="line">	return partition(arr, low, high)<span class="comment">;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">randomQuicksort(arr, low, high) &#123;</div><div class="line">	if(low &lt; high)&#123;</div><div class="line">		int index = randomPartition(arr, low, high)<span class="comment">;</span></div><div class="line">		randomQuicksort(arr, low, index - <span class="number">1</span>)<span class="comment">;</span></div><div class="line">		randomQuicksort(arr, index + <span class="number">1</span>, high)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其实就是多了最开始的枢轴随机化一个数这步，然后再与最后的元素交换，后面都一样一样滴。</p>
+<h2 id="单向扫描版本的JavaScript实现"><a href="#单向扫描版本的JavaScript实现" class="headerlink" title="单向扫描版本的JavaScript实现"></a>单向扫描版本的JavaScript实现</h2><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">quicksort</span> <span class="params">(arr)</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">swap</span> <span class="params">(arr, m, n)</span> </span>&#123;</div><div class="line">		<span class="keyword">var</span> tmp = arr[m];</div><div class="line">		arr[m] = arr[n];</div><div class="line">		arr[n] = tmp;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">partition</span> <span class="params">(arr, low, high)</span> </span>&#123;</div><div class="line">		<span class="keyword">var</span> x = arr[high];</div><div class="line">		<span class="keyword">var</span> i = low - <span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j = low; j &lt; high; j++) &#123;</div><div class="line">			<span class="keyword">if</span>(arr[j] &lt;= x)&#123;</div><div class="line">				i++;</div><div class="line">				swap(arr, i, j);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		swap(arr, i + <span class="number">1</span>, high);</div><div class="line">		<span class="keyword">return</span> i + <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">sort</span> <span class="params">(arr, low, high)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span>(low &lt; high) &#123;</div><div class="line">			<span class="keyword">var</span> pivotIndex = partition(arr, low, high);</div><div class="line">			sort(arr, low, pivotIndex - <span class="number">1</span>);</div><div class="line">			sort(arr, pivotIndex + <span class="number">1</span>, high);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> sort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同理，其中的partition也可以优化<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function partition (arr, low, high) &#123;</div><div class="line">	var x = arr[high]<span class="comment">;</span></div><div class="line">	var i = low<span class="comment">;</span></div><div class="line">	for(var <span class="keyword">j </span>= low<span class="comment">; j &lt; high; j++)&#123;</span></div><div class="line">		if(arr[<span class="keyword">j] </span>&lt; x)&#123;</div><div class="line">			if(x != <span class="keyword">j)&#123;</span></div><div class="line">				<span class="keyword">swap(arr, </span>i, <span class="keyword">j);</span></div><div class="line">				i++<span class="comment">;</span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">swap(arr, </span>i, high)<span class="comment">;</span></div><div class="line">	return i<span class="comment">;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://qiruotong.me/2016/06/01/QuickSort-O(n)/" data-id="ciqruqln10007gk788q1w896o" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://qiruotong.me/2016/06/01/QuickSort-O(n)/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-c/">javascript, c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/18/OpenGL1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">OpenGL实验一：画图小程序</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/06/01/QuickSort-O(n)/" data-title="O(n)时间复杂度的QuickSort" data-url="http://qiruotong.me/2016/06/01/QuickSort-O(n)/"></div>
+  </section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/01/QuickSort-O(n)/">O(n)时间复杂度的QuickSort</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/OpenGL1/">OpenGL实验一：画图小程序</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/14/from_qt4_to_qt5/">Qt4项目移植到Qt5</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/22/margin负值到底是个什么鬼 /">margin负值到底是个什么鬼</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/22/水平布局/">页面架构:布局解决方案</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-c/">javascript, c++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://andrewliu.in" target="_blank">永不停息の恐龙哥</a>
+          </li>
+        
+          <li>
+            <a href="http://www.powerxing.com" target="_blank">弹钢琴の给力星</a>
+          </li>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Beatrice<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about.html" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"beatrice7"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"nocss.css"}};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

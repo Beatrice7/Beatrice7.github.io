@@ -16,13 +16,14 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript数据类型及语言基础">
 <meta name="twitter:description" content="javaScript数据类型及语言基础">
+<meta name="twitter:image" content="http://www.w3school.com.cn/i/ct_js_value.gif">
   
     <link rel="alternative" href="/atom.xml" title="Beatrice7&#39;s Fancy" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
 </head>
@@ -96,11 +97,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="javaScript数据类型及语言基础">javaScript数据类型及语言基础</h1><a id="more"></a>
-<h2 id="判断各种数据类型的方法">判断各种数据类型的方法</h2><p>数据类型包括五种类型：<strong>String, Number, Boolean, Null, Undefined</strong>和<strong>Object</strong>类型 </p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">object</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (object === <span class="literal">null</span> || object === <span class="literal">undefined</span>) &#123; <span class="comment">// IE8 hack</span></span><br><span class="line">		<span class="keyword">return</span> object + <span class="string">''</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(object).slice(<span class="number">8</span>, -<span class="number">1</span>).toLowerCase();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="number">1</span>));                 <span class="comment">// t==="number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)));     <span class="comment">// t==="number"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="string">"222"</span>));             <span class="comment">// t==="string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>))); <span class="comment">// t==="string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">true</span>));              <span class="comment">// t==="boolean"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">undefined</span>));         <span class="comment">// t==="undefined"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">null</span>));              <span class="comment">// t==="null"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(&#123;&#125;));                <span class="comment">// t==="object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>([]));                <span class="comment">// t==="array"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Date</span>));          <span class="comment">// t==="date"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="regexp">/\d/</span>));              <span class="comment">// t==="regexp"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;));      <span class="comment">// t==="function"</span></span><br></pre></td></tr></table></figure>
+        <h1 id="javaScript数据类型及语言基础"><a href="#javaScript数据类型及语言基础" class="headerlink" title="javaScript数据类型及语言基础"></a>javaScript数据类型及语言基础</h1><a id="more"></a>
+<h2 id="判断各种数据类型的方法"><a href="#判断各种数据类型的方法" class="headerlink" title="判断各种数据类型的方法"></a>判断各种数据类型的方法</h2><p>数据类型包括五种类型：<strong>String, Number, Boolean, Null, Undefined</strong>和<strong>Object</strong>类型 </p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">object</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span> (object === <span class="literal">null</span> || object === <span class="literal">undefined</span>) &#123; <span class="comment">// IE8 hack</span></div><div class="line">		<span class="keyword">return</span> object + <span class="string">''</span>;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(object).slice(<span class="number">8</span>, <span class="number">-1</span>).toLowerCase();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="number">1</span>));                 <span class="comment">// t==="number"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)));     <span class="comment">// t==="number"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="string">"222"</span>));             <span class="comment">// t==="string"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>))); <span class="comment">// t==="string"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">true</span>));              <span class="comment">// t==="boolean"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">undefined</span>));         <span class="comment">// t==="undefined"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="literal">null</span>));              <span class="comment">// t==="null"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(&#123;&#125;));                <span class="comment">// t==="object"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>([]));                <span class="comment">// t==="array"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="keyword">new</span> <span class="built_in">Date</span>));          <span class="comment">// t==="date"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="regexp">/\d/</span>));              <span class="comment">// t==="regexp"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">type</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;));      <span class="comment">// t==="function"</span></div></pre></td></tr></table></figure>
 <p>为什么用prototype.toString？  <a href="http://www.cnblogs.com/ziyunfei/archive/2012/11/05/2754156.html" target="_blank" rel="external">原理看这里</a><br>Object.prototype.toString.call(object) 返回值的形式为，比如<code>&quot;[object Array]&quot;</code>。</p>
-<h3 id="Tips">Tips</h3><ol>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ol>
 <li><strong>typeof</strong>在实际应用中只有两个用途：检测undefined与function</li>
 <li>在可能的情况下，要尽量使用typeof进行<strong>能力检测</strong>。</li>
 <li><strong>instanceof</strong>会在有多个frame时出错</li>
@@ -109,40 +110,40 @@
 <li><strong>NaN</strong>是一个特殊的数值，用于表示本来要返回数值的操作数却未返回的情况(避免了抛出错误)。<strong>不予任何值相等，包括自身</strong>。用<strong>isNaN()</strong>进行判断。</li>
 <li><strong>相等(==)</strong>与<strong>全等(===)</strong>的区别:全等表示在未经转换就相等的情况下返回true</li>
 </ol>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result1 = (<span class="string">"55"</span> == <span class="number">55</span>);  <span class="comment">//true.因为转换后相等</span></span><br><span class="line"><span class="keyword">var</span> result2 = (<span class="string">"55"</span> === <span class="number">55</span>); <span class="comment">//false.</span></span><br><span class="line"></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>;   <span class="comment">//true</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span>;  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<h2 id="原始值类型与引用类型">原始值类型与引用类型</h2><p>在ECMAScript中，变量可以存在两种类型的值，即<strong>原始值</strong>和<strong>引用值</strong>。 </p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result1 = (<span class="string">"55"</span> == <span class="number">55</span>);  <span class="comment">//true.因为转换后相等</span></div><div class="line"><span class="keyword">var</span> result2 = (<span class="string">"55"</span> === <span class="number">55</span>); <span class="comment">//false.</span></div><div class="line"></div><div class="line"><span class="literal">null</span> == <span class="literal">undefined</span>;   <span class="comment">//true</span></div><div class="line"><span class="literal">null</span> === <span class="literal">undefined</span>;  <span class="comment">//false</span></div></pre></td></tr></table></figure>
+<h2 id="原始值类型与引用类型"><a href="#原始值类型与引用类型" class="headerlink" title="原始值类型与引用类型"></a>原始值类型与引用类型</h2><p>在ECMAScript中，变量可以存在两种类型的值，即<strong>原始值</strong>和<strong>引用值</strong>。 </p>
 <ul>
 <li>原始值<br>存储在栈（stack）中的简单数据段，也就是说，它们的值直接存储在变量访问的位置。即 Undefined、Null、Boolean、Number 和 String 型。</li>
 <li>引用值<br>存储在堆（heap）中的对象，也就是说，存储在变量处的值是一个指针（point），指向存储对象的内存处。引用类型通常叫做类（class），也就是说，遇到引用值，所处理的就是对象（Object）。比如，数组Array、对象Object、函数Function。</li>
 </ul>
 <p>为变量赋值时，ECMAScript 的解释程序必须判断该值是原始类型，还是引用类型。要实现这一点，解释程序则需尝试判断该值是否为 ECMAScript 的原始类型之一，即 Undefined、Null、Boolean、Number 和 String 型。由于这些原始类型占据的空间是固定的，所以可将他们存储在较小的内存区域 - 栈中。这样存储便于迅速查寻变量的值。<br><strong>在许多语言中，字符串都被看作引用类型，而非原始类型，因为字符串的长度是可变的。ECMAScript 打破了这一传统。</strong><br>如果一个值是引用类型的，那么它的存储空间将从堆中分配。由于引用值的大小会改变，所以不能把它放在栈中，否则会降低变量查寻的速度。相反，放在变量的栈空间中的值是该对象存储在堆中的地址。地址的大小是固定的，所以把它存储在栈中对变量性能无任何负面影响。如下图所示：<br><img src="http://www.w3school.com.cn/i/ct_js_value.gif" alt="stack &amp; heap"></p>
-<h2 id="对象">对象</h2><p>JavaScript 采用了简单的基于对象的范型。一个对象就是一系列属性的集合，一个属性包含一个名字和一个值。一个属性的值可以是函数，这种情况下属性也被称为方法。</p>
-<h3 id="对象和属性">对象和属性</h3><p>对象的名字(可以是普通的变量)和属性的名字都是大小写敏感的。你可以通过<strong>点符号</strong><code>.</code>来访问一个对象的属性，可以通过<strong>方括号<code>[]</code>访问。</strong>对象有时也被叫作关联数组**, 因为每个属性都有一个用于访问它的字符串值。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var myCar = <span class="keyword">new</span> Object();</span><br><span class="line">myCar.make = <span class="string">"Ford"</span>;</span><br><span class="line">myCar.model = <span class="string">"Mustang"</span>;</span><br><span class="line">myCar.year = <span class="number">1969</span>;</span><br><span class="line"></span><br><span class="line">myCar[<span class="string">"make"</span>] = <span class="string">"Ford"</span>;</span><br><span class="line">myCar[<span class="string">"model"</span>] = <span class="string">"Mustang"</span>;</span><br><span class="line">myCar[<span class="string">"year"</span>] = <span class="number">1969</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>JavaScript 采用了简单的基于对象的范型。一个对象就是一系列属性的集合，一个属性包含一个名字和一个值。一个属性的值可以是函数，这种情况下属性也被称为方法。</p>
+<h3 id="对象和属性"><a href="#对象和属性" class="headerlink" title="对象和属性"></a>对象和属性</h3><p>对象的名字(可以是普通的变量)和属性的名字都是大小写敏感的。你可以通过<strong>点符号</strong><code>.</code>来访问一个对象的属性，可以通过<strong>方括号<code>[]</code>访问。</strong>对象有时也被叫作关联数组**, 因为每个属性都有一个用于访问它的字符串值。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var myCar = new Object()<span class="comment">;</span></div><div class="line">myCar.make = <span class="string">"Ford"</span><span class="comment">;</span></div><div class="line">myCar.model = <span class="string">"Mustang"</span><span class="comment">;</span></div><div class="line">myCar.year = <span class="number">1969</span><span class="comment">;</span></div><div class="line"></div><div class="line">myCar[<span class="string">"make"</span>] = <span class="string">"Ford"</span><span class="comment">;</span></div><div class="line">myCar[<span class="string">"model"</span>] = <span class="string">"Mustang"</span><span class="comment">;</span></div><div class="line">myCar[<span class="string">"year"</span>] = <span class="number">1969</span><span class="comment">;</span></div></pre></td></tr></table></figure>
 <p>一个属性的名称如果不是一个有效的 JavaScript 标识符（例如，一个有空格或短横线，或者以数字开头的属性名），就只能通过方括号标记访问。这个标记法在属性名称是动态判定（属性名只有到运行时才能判定）时非常有用。</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var myObj = <span class="keyword">new</span> <span class="keyword">Object</span>(),</span><br><span class="line">   <span class="built_in">str</span> = <span class="string">"myString"</span>,</span><br><span class="line">   rand = Math.<span class="built_in">random</span>(),</span><br><span class="line">   obj = <span class="keyword">new</span> <span class="keyword">Object</span>();</span><br><span class="line"></span><br><span class="line">myObj.type              = <span class="string">"Dot syntax"</span>;</span><br><span class="line">myObj[<span class="string">"date created"</span>]   = <span class="string">"String with space"</span>;</span><br><span class="line">myObj[<span class="built_in">str</span>]              = <span class="string">"String value"</span>;</span><br><span class="line">myObj[rand]             = <span class="string">"Random Number"</span>;</span><br><span class="line">myObj[obj]              = <span class="string">"Object"</span>;</span><br><span class="line">myObj[<span class="string">""</span>]               = <span class="string">"Even an empty string"</span>;</span><br><span class="line"></span><br><span class="line">console.<span class="built_in">log</span>(myObj);</span><br></pre></td></tr></table></figure>
-<h3 id="枚举一个对象的所有属性">枚举一个对象的所有属性</h3><p>有三种原生的方法用于列出或枚举对象的属性：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var myObj = new Object(),</div><div class="line">   str = <span class="string">"myString"</span>,</div><div class="line">   rand = Math.random(),</div><div class="line">   obj = new Object()<span class="comment">;</span></div><div class="line"></div><div class="line">myObj.type              = <span class="string">"Dot syntax"</span><span class="comment">;</span></div><div class="line">myObj[<span class="string">"date created"</span>]   = <span class="string">"String with space"</span><span class="comment">;</span></div><div class="line">myObj[str]              = <span class="string">"String value"</span><span class="comment">;</span></div><div class="line">myObj[rand]             = <span class="string">"Random Number"</span><span class="comment">;</span></div><div class="line">myObj[obj]              = <span class="string">"Object"</span><span class="comment">;</span></div><div class="line">myObj[<span class="string">""</span>]               = <span class="string">"Even an empty string"</span><span class="comment">;</span></div><div class="line"></div><div class="line">console.log(myObj)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h3 id="枚举一个对象的所有属性"><a href="#枚举一个对象的所有属性" class="headerlink" title="枚举一个对象的所有属性"></a>枚举一个对象的所有属性</h3><p>有三种原生的方法用于列出或枚举对象的属性：</p>
 <ul>
 <li>for…in 循环<br>该方法依次访问一个对象及其原型链中所有可枚举的属性。</li>
 <li>Object.keys(o)<br>该方法返回一个对象 o 自身包含（不包括原型中）的所有属性的名称的数组。</li>
 <li>Object.getOwnPropertyNames(o)<br>该方法返回一个数组，它包含了对象 o 所有拥有的属性（无论是否可枚举）的名称。</li>
 </ul>
 <p><strong>for…in</strong>与<strong>Object.keys(o)</strong>的区别:<br>for-in 会遍历出一个对象从其原型链上继承到的可枚举属性。此时可通过<strong>hasOwnProperty()</strong>确保是自己的属性而非继承的属性。</p>
-<h3 id="递归实现对象的深度克隆">递归实现对象的深度克隆</h3><ul>
+<h3 id="递归实现对象的深度克隆"><a href="#递归实现对象的深度克隆" class="headerlink" title="递归实现对象的深度克隆"></a>递归实现对象的深度克隆</h3><ul>
 <li>浅度克隆(shallow copy)<br>基本类型为值传递，对象仍为引用传递。 </li>
 <li>深度克隆<br>所有元素或属性均完全克隆，并于原引用类型完全独立，即，在后面修改对象的属性的时候，原对象不会被修改。</li>
 </ul>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 使用递归来实现一个深度克隆，可以复制一个目标对象，返回一个完整拷贝</span><br><span class="line">// 被复制的对象类型会被限制为数字、字符串、布尔、日期、数组、<span class="type">Object</span>对象。</span><br><span class="line">// 不会包含函数、正则对象等</span><br><span class="line">function cloneObject(obj)&#123;</span><br><span class="line">	<span class="keyword">var</span> <span class="literal">result</span> = obj.constructor === <span class="type">Array</span> ? [] : &#123;&#125;; </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123;</span><br><span class="line">		<span class="keyword">if</span>(obj.hasOwnProperty(i))&#123;</span><br><span class="line">			<span class="literal">result</span>[i] = typeof obj[i] === <span class="string">"object"</span> ? cloneObject(obj[i]) : obj[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用递归来实现一个深度克隆，可以复制一个目标对象，返回一个完整拷贝</span></div><div class="line"><span class="comment">// 被复制的对象类型会被限制为数字、字符串、布尔、日期、数组、Object对象。</span></div><div class="line"><span class="comment">// 不会包含函数、正则对象等</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cloneObject</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> result = obj.constructor === <span class="built_in">Array</span> ? [] : &#123;&#125;; </div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123;</div><div class="line">		<span class="keyword">if</span>(obj.hasOwnProperty(i))&#123;</div><div class="line">			result[i] = <span class="keyword">typeof</span> obj[i] === <span class="string">"object"</span> ? cloneObject(obj[i]) : obj[i];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>数组的深度拷贝，可以直接用<strong>array.concat()</strong>或者<strong>array.slice(0)</strong>，因为数组的concat()和slice()本来就会生成一个新的数组，原来的数组不会受影响。但是要注意的是你要确保被拷贝的数组中元素中没有引用类型的值。 </p>
-<h2 id="数组、字符串、数字等对象的相关方法">数组、字符串、数字等对象的相关方法</h2><p><a href="http://www.w3school.com.cn/jsref/jsref_obj_array.asp" target="_blank" rel="external">W3C Array</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">MDN Array</a><br><a href="http://www.w3school.com.cn/jsref/jsref_obj_number.asp" target="_blank" rel="external">W3C Number</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="external">MDN Number</a><br><a href="http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp" target="_blank" rel="external">W3C RegExp</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">MDN RegExp</a></p>
+<h2 id="数组、字符串、数字等对象的相关方法"><a href="#数组、字符串、数字等对象的相关方法" class="headerlink" title="数组、字符串、数字等对象的相关方法"></a>数组、字符串、数字等对象的相关方法</h2><p><a href="http://www.w3school.com.cn/jsref/jsref_obj_array.asp" target="_blank" rel="external">W3C Array</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">MDN Array</a><br><a href="http://www.w3school.com.cn/jsref/jsref_obj_number.asp" target="_blank" rel="external">W3C Number</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="external">MDN Number</a><br><a href="http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp" target="_blank" rel="external">W3C RegExp</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">MDN RegExp</a></p>
 <p><a href="http://tool.oschina.net/regex" target="_blank" rel="external">正则表达式在线测试</a></p>
-<h3 id="几个常用的string对象的方法">几个常用的string对象的方法</h3><pre><code>stringObject.<span class="function"><span class="title">replace</span><span class="params">(regexp/substr,replacement)</span></span>
+<h3 id="几个常用的string对象的方法"><a href="#几个常用的string对象的方法" class="headerlink" title="几个常用的string对象的方法"></a>几个常用的string对象的方法</h3><pre><code>stringObject.replace(regexp/substr,replacement)
 </code></pre><p><strong>返回一个新的字符串</strong>。是用 replacement 替换了 regexp 的第一次匹配或所有匹配之后得到的。</p>
-<pre><code>stringObject.<span class="function"><span class="title">slice</span><span class="params">(start,end)</span></span>
+<pre><code>stringObject.slice(start,end)
 </code></pre><p><strong>返回一个新的字符串</strong>。包括字符串 stringObject 从 start 开始（包括 start）到 end 结束（不包括 end）为止的所有字符。</p>
-<pre><code>stringObject.<span class="function"><span class="title">split</span><span class="params">(separator,howmany)</span></span>
+<pre><code>stringObject.split(separator,howmany)
 </code></pre><p>返回一个<strong>字符串数组</strong>。该数组是通过在 separator 指定的边界处将字符串 stringObject 分割成子串创建的。返回的数组中的字串不包括 separator 自身</p>
-<h3 id="正则表达式">正则表达式</h3><table>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><table>
 <thead>
 <tr>
 <th>语法</th>
@@ -222,7 +223,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="分枝条件">分枝条件</h3><p>正则表达式里的分枝条件指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用<code>|</code>把不同的规则分隔开。<br>例如：  </p>
+<h3 id="分枝条件"><a href="#分枝条件" class="headerlink" title="分枝条件"></a>分枝条件</h3><p>正则表达式里的分枝条件指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用<code>|</code>把不同的规则分隔开。<br>例如：  </p>
 <table>
 <thead>
 <tr>
@@ -244,7 +245,7 @@
 </tbody>
 </table>
 <p><strong>使用分枝条件时，要注意各个条件的顺序</strong>。 如果你把它改成\d{5}|\d{5}-\d{4}的话，那么就只会匹配5位的邮编(以及9位邮 编的前5位)。原因是匹配分枝条件时，将会从左到右地测试每个条件，如果满足了某个分枝的话，就不会去再管其它的条件了。</p>
-<h3 id="分组">分组</h3><p>用小括号来指定子表达式(也叫做分组)。如：  </p>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>用小括号来指定子表达式(也叫做分组)。如：  </p>
 <table>
 <thead>
 <tr>
@@ -259,12 +260,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="转义字符">转义字符</h3><p>如果你想查找元字符本身的话，比如你查找.,或者<em>,就出现了问题：你没办法指定它们，因为它们会被解释成别的意思。这时你就得使用\来取消这些字符的特殊意义。因此，你应该使用.和\</em>。当然，要查找\本身，你也得用\.  </p>
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>如果你想查找元字符本身的话，比如你查找.,或者<em>,就出现了问题：你没办法指定它们，因为它们会被解释成别的意思。这时你就得使用\来取消这些字符的特殊意义。因此，你应该使用.和\</em>。当然，要查找\本身，你也得用\.  </p>
 <p>例如：deerchao.net匹配deerchao.net，C:\Windows匹配C:\Windows。  </p>
 <p>模式中使用的所有元字符metacharacter都需要转义，包括：<code>(``{</code> <code>[</code> <code>\</code> <code>^</code> <code>$</code> <code>|</code> <code>)</code> <code>?</code> <code>*``+``.``]``}</code></p>
 <p>更多正则表达式知识参考这篇<a href="http://www.oschina.net/question/12_9507" target="_blank" rel="external">正则表达式30分钟入门教程</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*******学习正则表达式，在util.js完成以下代码*******/</span></span><br><span class="line"><span class="comment">// 判断是否为邮箱地址</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmail</span>(<span class="params">emailStr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">var</span> pattern = <span class="regexp">/^(\w+)-?\w*@\w*\.\w*\.?\w+$/</span></span><br><span class="line">    <span class="keyword">return</span> pattern.test(emailStr);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否为手机号</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isMobilePhone</span>(<span class="params">phone</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">var</span> pattern = <span class="regexp">/^(\+)?\d&#123;2&#125;\d&#123;11&#125;$/</span></span><br><span class="line">    <span class="keyword">return</span> pattern.test(phone);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="DOM">DOM</h1><h1 id="BOM">BOM</h1><h2 id="BOM中的window对象">BOM中的window对象</h2><p><strong>window对象方法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*******学习正则表达式，在util.js完成以下代码*******/</span></div><div class="line"><span class="comment">// 判断是否为邮箱地址</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmail</span>(<span class="params">emailStr</span>) </span>&#123;</div><div class="line">    <span class="comment">// your implement</span></div><div class="line">    <span class="keyword">var</span> pattern = <span class="regexp">/^(\w+)-?\w*@\w*\.\w*\.?\w+$/</span></div><div class="line">    <span class="keyword">return</span> pattern.test(emailStr);</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 判断是否为手机号</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isMobilePhone</span>(<span class="params">phone</span>) </span>&#123;</div><div class="line">    <span class="comment">// your implement</span></div><div class="line">    <span class="keyword">var</span> pattern = <span class="regexp">/^(\+)?\d&#123;2&#125;\d&#123;11&#125;$/</span></div><div class="line">    <span class="keyword">return</span> pattern.test(phone);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><h2 id="BOM中的window对象"><a href="#BOM中的window对象" class="headerlink" title="BOM中的window对象"></a>BOM中的window对象</h2><p><strong>window对象方法</strong></p>
 <table>
 <thead>
 <tr>
@@ -291,24 +292,24 @@
 </tr>
 </tbody>
 </table>
-<h4 id="setInterval()与clearInterval()">setInterval()与clearInterval()</h4><p>调用函数格式(假设有一个clock()函数):</p>
-<pre><code><span class="function"><span class="title">setInterval</span><span class="params">(<span class="string">"clock()"</span>,<span class="number">1000</span>)</span></span>
+<h4 id="setInterval-与clearInterval"><a href="#setInterval-与clearInterval" class="headerlink" title="setInterval()与clearInterval()"></a>setInterval()与clearInterval()</h4><p>调用函数格式(假设有一个clock()函数):</p>
+<pre><code>setInterval(&quot;clock()&quot;,1000)
 或
-<span class="function"><span class="title">setInterval</span><span class="params">(clock,<span class="number">1000</span>)</span></span>
+setInterval(clock,1000)
 
-<span class="function"><span class="title">clearInterval</span><span class="params">(id_of_setInterval)</span></span>
+clearInterval(id_of_setInterval)
 </code></pre><p>返回一个可以传递给 Window.clearInterval() 从而取消对 code 的周期性执行的值.</p>
-<h4 id="setTimeout()与clearTimeout()">setTimeout()与clearTimeout()</h4><p>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。</p>
-<pre><code><span class="function"><span class="title">setTimeout</span><span class="params">(code,millisec)</span></span>
+<h4 id="setTimeout-与clearTimeout"><a href="#setTimeout-与clearTimeout" class="headerlink" title="setTimeout()与clearTimeout()"></a>setTimeout()与clearTimeout()</h4><p>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。</p>
+<pre><code>setTimeout(code,millisec)
 
-<span class="function"><span class="title">clearTimeout</span><span class="params">(id_of_setTimeout)</span></span>
+clearTimeout(id_of_setTimeout)
 </code></pre><p><strong>提示：setTimeout() 只执行 code 一次。如果要多次调用，请使用 setInterval() 或者让 code 自身再次调用 setTimeout()。</strong>    ：</p>
 <pre><code>function startCount(){
-   <span class="built_in">document</span>.getElementById(<span class="string">'count'</span>).value=<span class="built_in">num</span>;
-   <span class="built_in">num</span>=<span class="built_in">num</span>+<span class="number">1</span>;
-   i=setTimeout(<span class="string">"startCount()"</span>,<span class="number">1000</span>); <span class="comment">//自身再次调用</span>
+   document.getElementById(&apos;count&apos;).value=num;
+   num=num+1;
+   i=setTimeout(&quot;startCount()&quot;,1000); //自身再次调用
  }
-</code></pre><h2 id="JS中的date对象">JS中的date对象</h2><pre><code>dateObject.setFullYear(<span class="property">year</span>,<span class="property">month</span>,<span class="property">day</span>)
+</code></pre><h2 id="JS中的date对象"><a href="#JS中的date对象" class="headerlink" title="JS中的date对象"></a>JS中的date对象</h2><pre><code>dateObject.setFullYear(year,month,day)
 </code></pre><table>
 <thead>
 <tr>
@@ -331,7 +332,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code>dateObject.setHours(hour,<span class="built_in">min</span>,<span class="built_in">sec</span>,<span class="built_in">millisec</span>)
+<pre><code>dateObject.setHours(hour,min,sec,millisec)
 </code></pre><table>
 <thead>
 <tr>
@@ -363,7 +364,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://qiruotong.me/2015/11/01/JavaScript一些基础知识/" data-id="cimaktxk1001kwz78ag9qqlpq" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://qiruotong.me/2015/11/01/JavaScript一些基础知识/" data-id="ciqruqlmy0004gk78l2044ks4" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -379,11 +380,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/01/task0001笔记整理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/11/27/VS-QT/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          task0001笔记整理
+          VS常见errorLNK***:错误解决方案
         
       </div>
     </a>
@@ -417,6 +418,10 @@
       <ul>
         
           <li>
+            <a href="/2016/06/01/QuickSort-O(n)/">O(n)时间复杂度的QuickSort</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/18/OpenGL1/">OpenGL实验一：画图小程序</a>
           </li>
         
@@ -432,10 +437,6 @@
             <a href="/2015/12/22/水平布局/">页面架构:布局解决方案</a>
           </li>
         
-          <li>
-            <a href="/2015/12/07/学习DOM事件/">学习DOM事件(Event)</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -445,7 +446,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenGL/">OpenGL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unix/">Unix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VS-Qt/">VS Qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-c/">javascript, c++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mydaily/">mydaily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qt/">qt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -570,7 +571,7 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>
